@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.cienciaplural.com/sitemap.xml
+Sitemap: https://www.cienciaplural.com.br/sitemap.xml
