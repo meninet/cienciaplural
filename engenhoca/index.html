@@ -63,9 +63,12 @@
   <section class="game-wrapper" role="main">
     <div class="container">
       <div class="game-iframe-container">
-        <button id="btn-fullscreen" onclick="toggleFullscreen()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; margin-bottom: 12px; background: #533483; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.3s;">
-          🖥️ Tela cheia
-        </button>
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <button id="btn-fullscreen" onclick="toggleFullscreen()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #533483; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.3s;">
+            🖥️ Tela cheia
+          </button>
+          <span style="font-size: 0.9rem; color: #6C757D;">💡 Nossos jogos funcionam melhor em tela cheia.</span>
+        </div>
         <iframe
           id="game-iframe"
           src="https://super-custard-c002e9.netlify.app/"
