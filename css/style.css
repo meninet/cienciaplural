@@ -211,6 +211,8 @@ ul, ol { list-style: none; }
 .page-content p { font-size: 1rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 16px; }
 .page-content a { color: var(--color-primary); text-decoration: underline; }
 .page-content a:hover { color: #d63b54; }
+.page-content a.btn { color: #FFFFFF; text-decoration: none; }
+.page-content a.btn:hover { color: #FFFFFF; }
 
 .about-block { margin-bottom: 36px; }
 .about-block h2 { margin-top: 0; }
