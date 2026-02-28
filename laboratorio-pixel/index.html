@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LABORATÓRIO PIXEL: A Missão das Fases — Ciência Plural</title>
+  <meta name="description" content="Jogo educativo gratuito sobre misturas homogêneas e heterogêneas para o 6º ano. 4 fases progressivas com classificação de misturas, análise microscópica e métodos de separação. Alinhado à BNCC (EF06CI01). Jogue no navegador, sem instalação.">
+  <meta name="keywords" content="misturas homogêneas, misturas heterogêneas, métodos de separação, jogo educativo, 6º ano, ciências, BNCC, EF06CI01, pixel art">
+  <meta property="og:title" content="LABORATÓRIO PIXEL: A Missão das Fases — Ciência Plural">
+  <meta property="og:description" content="Jogo educativo sobre misturas homogêneas e heterogêneas para o 6º ano. Alinhado à BNCC.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.cienciaplural.com.br/laboratorio-pixel/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Ciência Plural — Página inicial">
+        <span class="logo-emoji" aria-hidden="true">🔬</span>
+        Ciência Plural
+      </a>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Início</a></li>
+          <li><a href="/#jogos" class="nav-link">Jogos</a></li>
+          <li>
+            <span class="nav-link" style="cursor: default; opacity: 0.7;">
+              Materiais <span class="nav-badge">Em breve</span>
+            </span>
+          </li>
+          <li><a href="/sobre/" class="nav-link">Sobre</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- AD SLOT — TOPO -->
+  <div class="ad-slot" style="margin-top: var(--header-height);" aria-hidden="true">
+    <div class="ad-placeholder ad-top">Espaço para anúncio (728×90)</div>
+  </div>
+
+  <!-- GAME HEADER -->
+  <section class="game-header" style="margin-top: 0;">
+    <div class="container">
+      <h1 class="game-page-title">LABORATÓRIO PIXEL: A Missão das Fases</h1>
+      <div class="game-meta">
+        <span class="game-meta-item">🎓 6º ano — Ensino Fundamental</span>
+        <span class="game-meta-item">🔬 Ciências da Natureza</span>
+        <span class="game-meta-item">📚 Misturas homogêneas e heterogêneas</span>
+        <span class="game-meta-item">📋 BNCC: EF06CI01</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME IFRAME -->
+  <section class="game-wrapper" role="main">
+    <div class="container">
+      <div class="game-iframe-container">
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <button id="btn-fullscreen" onclick="toggleFullscreen()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #533483; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.3s;">
+            🖥️ Tela cheia
+          </button>
+          <span style="font-size: 1.05rem; font-weight: 500; color: #533483;">💡 Nossos jogos funcionam melhor em tela cheia.</span>
+        </div>
+        <iframe
+          id="game-iframe"
+          src="https://meninet.github.io/laboratorio-pixel/"
+          title="Jogo LABORATÓRIO PIXEL: A Missão das Fases"
+          allow="fullscreen"
+          allowfullscreen
+          loading="lazy"
+        >
+          <p>Seu navegador não suporta iframes. <a href="https://meninet.github.io/laboratorio-pixel/" target="_blank" rel="noopener noreferrer">Clique aqui para jogar diretamente.</a></p>
+        </iframe>
+      </div>
+
+      <!-- GAME DESCRIPTION (resumo) -->
+      <div class="game-description">
+        <p>Ajude o robô Pixel a restaurar o banco de dados do laboratório classificando misturas! Observe materiais, identifique fases, use o microscópio para desmascarar coloides e domine os métodos de separação ao longo de 4 fases progressivas. O jogo combina cards de aula interativos, quizzes de classificação, análise microscópica e desafios práticos de separação com feedback científico personalizado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME EXPANDED DESCRIPTION -->
+  <section class="page-content" style="padding-top: 0; text-align: justify;">
+    <div class="container" style="max-width: 960px;">
+
+      <h2>Sobre o jogo</h2>
+      <p>Recurso educacional gamificado para o ensino de Ciências no 6º ano. Desenvolvido em HTML5, roda diretamente no navegador — sem instalação, sem login, compatível com celulares, tablets e computadores. Baseado em Game-Based Learning e metodologia ativa, transforma o estudo de misturas e métodos de separação em uma experiência visual e interativa com estética Pixel Art retrô.</p>
+
+      <h2>Destaques e Jogabilidade</h2>
+
+      <p><strong>4 fases com curva de dificuldade progressiva:</strong> o aluno começa observando e contando fases em diferentes materiais, avança para a classificação de misturas em homogêneas e heterogêneas, investiga coloides utilizando o microscópio digital para descobrir misturas que enganam a olho nu, e finaliza escolhendo o método correto de separação para cada mistura — alinhado diretamente ao descritor SAEB.</p>
+
+      <p><strong>Feedback imediato e dialógico:</strong> cada resposta recebe retorno instantâneo do robô Pixel, com explicações científicas contextualizadas que reforçam a aprendizagem — o erro vira oportunidade de ensino, não punição. O aluno pode tentar novamente até acertar, consolidando o conhecimento.</p>
+
+      <p><strong>Cards de aula antes de cada desafio:</strong> o jogo é informativo e investigativo. Antes de responder, o aluno estuda o conteúdo em cards interativos com conceitos, exemplos do cotidiano e destaques visuais — garantindo que a avaliação seja justa e significativa.</p>
+
+      <p><strong>Mecânicas variadas de interação:</strong> cards de aula progressivos, quiz de classificação por fases, identificação macroscópica (homogênea ou heterogênea), análise microscópica com ferramenta de zoom interativa e seleção de métodos de separação (filtração, decantação, evaporação e separação magnética) — mantendo o engajamento do início ao fim.</p>
+
+      <p><strong>Design responsivo e acessível:</strong> interface Pixel Art retrô (8-bit) imersiva com paleta Pico-8 e efeito scanline, otimizada para qualquer tamanho de tela. Tecnologia HTML5 + CSS + JavaScript em arquivo único, sem dependência de plugins, frameworks ou downloads.</p>
+
+      <p><strong>Sistema de avaliação integrado:</strong> pontuação por estrelas (0 a 3), barra de progresso visual, sistema de dicas e certificado personalizado ao final com nome do aluno, título conquistado (Aprendiz, Cientista Júnior, Cientista Pleno ou Mestre das Misturas) e competências desenvolvidas.</p>
+
+      <h2>Alinhamento Pedagógico</h2>
+      <p>Desenvolve integralmente a habilidade EF06CI01 da BNCC e o descritor SAEB E1B1, contemplando observação de características de materiais, reconhecimento de fases em misturas, identificação visual antes e após a mistura, determinação da quantidade de fases e classificação em homogêneas ou heterogêneas, além dos respectivos métodos de separação (filtração, decantação, evaporação e separação magnética). Estimula o pensamento crítico por meio da análise microscópica de coloides que desafiam a classificação visual e o pensamento computacional ao exigir que o aluno classifique informações, agrupando-as em categorias e associando cada grupo a um critério científico definido.</p>
+
+    </div>
+  </section>
+
+  <!-- AD SLOT — RODAPÉ -->
+  <div class="ad-slot" aria-hidden="true">
+    <div class="ad-placeholder ad-bottom">Espaço para anúncio (728×90)</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contato" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Fale Conosco</h3>
+        <div class="footer-contact-list">
+          <a href="mailto:cienciaplural@gmail.com" class="footer-contact-link" aria-label="Enviar e-mail para cienciaplural@gmail.com">
+            <span aria-hidden="true">📧</span> cienciaplural@gmail.com
+          </a>
+          <a href="https://instagram.com/triadeplural" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="Seguir @triadeplural no Instagram">
+            <span aria-hidden="true">📸</span> @triadeplural
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Links</h3>
+        <div class="footer-links">
+          <a href="/sobre/" class="footer-link">Sobre</a>
+          <a href="/privacidade/" class="footer-link">Política de Privacidade</a>
+          <a href="/termos/" class="footer-link">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Ciência Plural — Desenvolvido por Professores para Professores.</div>
+      <div class="footer-bottom-heart">Feito com <span>❤️</span> e Inteligência Artificial.</div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    function toggleFullscreen() {
+      var iframe = document.getElementById('game-iframe');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
