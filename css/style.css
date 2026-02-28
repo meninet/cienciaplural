@@ -273,3 +273,52 @@ ul, ol { list-style: none; }
   .btn-primary { font-size: 1rem; padding: 14px 28px; }
   .game-iframe-container iframe { height: 350px; }
 }
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  background: var(--color-white);
+  border: 2px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(83, 52, 131, 0.15);
+}
+
+.search-icon {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.search-no-results {
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  padding: 24px 0;
+}
+
+.game-card.search-hidden {
+  display: none;
+}

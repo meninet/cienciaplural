@@ -66,8 +66,13 @@
   <section id="jogos" class="section section-light" role="region" aria-label="Nossos jogos">
     <div class="container">
       <h2 class="section-title">🎮 Nossos jogos</h2>
+      <div class="search-bar">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input type="text" id="game-search" class="search-input" placeholder="Buscar por jogo, série, habilidade, tema..." aria-label="Buscar jogos">
+      </div>
+      <p id="search-no-results" class="search-no-results" style="display: none;">Nenhum jogo encontrado para essa busca.</p>
       <div class="games-grid">
-        <article class="game-card">
+        <article class="game-card" data-game-id="engenhoca">
           <div class="game-card-image" aria-hidden="true">⚙️</div>
           <div class="game-card-body">
             <h3 class="game-card-title">ENGENHOCA: A Oficina do Tempo</h3>
@@ -81,7 +86,7 @@
           </div>
         </article>
 
-        <article class="game-card">
+        <article class="game-card" data-game-id="energopolis">
           <div class="game-card-image" aria-hidden="true">⚡</div>
           <div class="game-card-body">
             <h3 class="game-card-title">ENERGÓPOLIS: Luz para o Futuro</h3>
@@ -95,7 +100,7 @@
           </div>
         </article>
 
-        <article class="game-card">
+        <article class="game-card" data-game-id="laboratorio-pixel">
           <div class="game-card-image" aria-hidden="true">🧪</div>
           <div class="game-card-body">
             <h3 class="game-card-title">LABORATÓRIO PIXEL: A Missão das Fases</h3>
@@ -205,6 +210,7 @@
     </div>
   </footer>
 
+  <script src="/js/search-index.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>

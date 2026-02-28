@@ -82,4 +82,49 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
+  // --- Game Search ---
+  const searchInput = document.getElementById('game-search');
+  const noResults = document.getElementById('search-no-results');
+
+  if (searchInput && typeof searchIndex !== 'undefined') {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+
+      const cards = document.querySelectorAll('.game-card[data-game-id]');
+
+      if (!query) {
+        cards.forEach(card => card.classList.remove('search-hidden'));
+        if (noResults) noResults.style.display = 'none';
+        return;
+      }
+
+      let found = 0;
+
+      searchIndex.forEach(game => {
+        const haystack = (game.title + ' ' + game.tags.join(' ') + ' ' + game.content)
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+
+        const card = document.querySelector(`.game-card[data-game-id="${game.id}"]`);
+        if (!card) return;
+
+        if (haystack.includes(query)) {
+          card.classList.remove('search-hidden');
+          found++;
+        } else {
+          card.classList.add('search-hidden');
+        }
+      });
+
+      if (noResults) {
+        noResults.style.display = found === 0 ? 'block' : 'none';
+      }
+    });
+  }
+
 });
