@@ -71,49 +71,74 @@
         <input type="text" id="game-search" class="search-input" placeholder="Buscar por jogo, série, habilidade, tema..." aria-label="Buscar jogos">
       </div>
       <p id="search-no-results" class="search-no-results" style="display: none;">Nenhum jogo encontrado para essa busca.</p>
-      <div class="games-grid">
-        <article class="game-card" data-game-id="engenhoca">
-          <div class="game-card-image" aria-hidden="true">⚙️</div>
-          <div class="game-card-body">
-            <h3 class="game-card-title">ENGENHOCA: A Oficina do Tempo</h3>
-            <div class="game-card-tags">
-              <span class="tag">7º ano</span>
-              <span class="tag">Máquinas simples</span>
-              <span class="tag">Ciências da Natureza</span>
-            </div>
-            <p class="game-card-desc">Viaje no tempo e domine os princípios das máquinas simples para consertar a invenção do Mestre Arquimedes!</p>
-            <a href="/engenhoca/" class="btn-game">🎮 Jogar agora</a>
-          </div>
-        </article>
 
-        <article class="game-card" data-game-id="energopolis">
-          <div class="game-card-image" aria-hidden="true">⚡</div>
-          <div class="game-card-body">
-            <h3 class="game-card-title">ENERGÓPOLIS: Luz para o Futuro</h3>
-            <div class="game-card-tags">
-              <span class="tag">8º ano</span>
-              <span class="tag">Fontes de energia</span>
-              <span class="tag">Ciências da Natureza</span>
-            </div>
-            <p class="game-card-desc">Energópolis sofreu um grande apagão! Assuma o Conselho Jovem de Energia e, com a ajuda da IA Lumi, investigue as fontes de energia, analise impactos socioambientais e projete a nova matriz energética da cidade!</p>
-            <a href="/energopolis/" class="btn-game">🎮 Jogar agora</a>
-          </div>
-        </article>
+      <!-- CIÊNCIAS -->
+      <div class="catalog-row">
+        <h3 class="catalog-title">🔬 Ciências</h3>
+        <div class="catalog-scroll">
 
-        <article class="game-card" data-game-id="laboratorio-pixel">
-          <div class="game-card-image" aria-hidden="true">🧪</div>
-          <div class="game-card-body">
-            <h3 class="game-card-title">LABORATÓRIO PIXEL: A Missão das Fases</h3>
-            <div class="game-card-tags">
-              <span class="tag">6º ano</span>
-              <span class="tag">Misturas homogêneas e heterogêneas</span>
-              <span class="tag">Ciências da Natureza</span>
-            </div>
-            <p class="game-card-desc">Ajude o robô Pixel a restaurar o banco de dados do laboratório classificando misturas! Observe materiais, identifique fases, use o microscópio e domine 11 métodos de separação em 36 desafios!</p>
-            <a href="/laboratorio-pixel/" class="btn-game">🎮 Jogar agora</a>
-          </div>
-        </article>
+          <article class="catalog-card" data-game-id="laboratorio-pixel">
+            <a href="/laboratorio-pixel/" class="catalog-card-link">
+              <div class="catalog-card-thumb">🧪</div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-badge">6º ano</span>
+                <h4 class="catalog-card-title">LABORATÓRIO PIXEL</h4>
+                <p class="catalog-card-subtitle">A Missão das Fases</p>
+                <p class="catalog-card-topic">Misturas homogêneas e heterogêneas</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="catalog-card" data-game-id="engenhoca">
+            <a href="/engenhoca/" class="catalog-card-link">
+              <div class="catalog-card-thumb">⚙️</div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-badge">7º ano</span>
+                <h4 class="catalog-card-title">ENGENHOCA</h4>
+                <p class="catalog-card-subtitle">A Oficina do Tempo</p>
+                <p class="catalog-card-topic">Máquinas simples</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="catalog-card" data-game-id="energopolis">
+            <a href="/energopolis/" class="catalog-card-link">
+              <div class="catalog-card-thumb">⚡</div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-badge">8º ano</span>
+                <h4 class="catalog-card-title">ENERGÓPOLIS</h4>
+                <p class="catalog-card-subtitle">Luz para o Futuro</p>
+                <p class="catalog-card-topic">Fontes de energia</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="catalog-card" data-game-id="pixel-chef">
+            <a href="/pixel-chef/" class="catalog-card-link">
+              <div class="catalog-card-thumb">🍳</div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-badge">9º ano</span>
+                <h4 class="catalog-card-title">PIXEL CHEF</h4>
+                <p class="catalog-card-subtitle">O Restaurante Molecular</p>
+                <p class="catalog-card-topic">Estados físicos da matéria</p>
+              </div>
+            </a>
+          </article>
+
+        </div>
       </div>
+
+      <!-- BIOLOGIA -->
+      <div class="catalog-row">
+        <h3 class="catalog-title">🧬 Biologia</h3>
+        <div class="catalog-scroll catalog-empty">
+          <div class="catalog-coming-soon">
+            <span class="catalog-coming-icon">🚀</span>
+            <p>Em breve — novos jogos de Biologia estão a caminho!</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIXEL CHEF: O Restaurante Molecular — Ciência Plural</title>
+  <meta name="description" content="Jogo educativo gratuito sobre estados físicos da matéria para o 9º ano. 4 fases progressivas com modelo submicroscópico, gráficos térmicos interativos e aplicações industriais. Alinhado à BNCC (EF09CI01). Jogue no navegador, sem instalação.">
+  <meta name="keywords" content="estados físicos, transformações de estado, jogo educativo, 9º ano, ciências, BNCC, EF09CI01, fusão, ebulição, sublimação, modelo de partículas">
+  <meta property="og:title" content="PIXEL CHEF: O Restaurante Molecular — Ciência Plural">
+  <meta property="og:description" content="Jogo educativo sobre estados físicos da matéria para o 9º ano. Alinhado à BNCC.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.cienciaplural.com.br/pixel-chef/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Ciência Plural — Página inicial">
+        <span class="logo-emoji" aria-hidden="true">🔬</span>
+        Ciência Plural
+      </a>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Início</a></li>
+          <li><a href="/#jogos" class="nav-link">Jogos</a></li>
+          <li>
+            <span class="nav-link" style="cursor: default; opacity: 0.7;">
+              Materiais <span class="nav-badge">Em breve</span>
+            </span>
+          </li>
+          <li><a href="/sobre/" class="nav-link">Sobre</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- AD SLOT — TOPO -->
+  <div class="ad-slot" style="margin-top: var(--header-height);" aria-hidden="true">
+    <div class="ad-placeholder ad-top">Espaço para anúncio (728×90)</div>
+  </div>
+
+  <!-- GAME HEADER -->
+  <section class="game-header" style="margin-top: 0;">
+    <div class="container">
+      <h1 class="game-page-title">PIXEL CHEF: O Restaurante Molecular</h1>
+      <div class="game-meta">
+        <span class="game-meta-item">🎓 9º ano — Ensino Fundamental</span>
+        <span class="game-meta-item">🔬 Ciências da Natureza</span>
+        <span class="game-meta-item">📚 Estados físicos da matéria</span>
+        <span class="game-meta-item">📋 BNCC: EF09CI01</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME IFRAME -->
+  <section class="game-wrapper" role="main">
+    <div class="container">
+      <div class="game-iframe-container">
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <button id="btn-fullscreen" onclick="toggleFullscreen()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #533483; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.3s;">
+            🖥️ Tela cheia
+          </button>
+          <span style="font-size: 1.05rem; font-weight: 500; color: #533483;">💡 Nossos jogos funcionam melhor em tela cheia.</span>
+        </div>
+        <iframe
+          id="game-iframe"
+          src="https://meninet.github.io/Pixel-Chef/"
+          title="Jogo PIXEL CHEF: O Restaurante Molecular"
+          allow="fullscreen"
+          allowfullscreen
+          loading="lazy"
+        >
+          <p>Seu navegador não suporta iframes. <a href="https://meninet.github.io/Pixel-Chef/" target="_blank" rel="noopener noreferrer">Clique aqui para jogar diretamente.</a></p>
+        </iframe>
+      </div>
+
+      <!-- GAME DESCRIPTION (resumo) -->
+      <div class="game-description">
+        <p>O restaurante do Chef Mol está em crise! As substâncias estão se transformando sozinhas e a cozinha virou um laboratório de estados físicos. Junte-se ao Chef Mol e mergulhe no mundo submicroscópico das partículas para entender por que o gelo derrete, a água ferve, a naftalina some e a geada aparece do nada — tudo isso enquanto salva o cardápio do restaurante. O jogo percorre 4 fases progressivas que vão da identificação de estados físicos à interpretação de gráficos térmicos e aplicação industrial das transformações, combinando aulas em cards interativos, quizzes contextualizados com situações reais e um sistema de pontuação com certificado personalizado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME EXPANDED DESCRIPTION -->
+  <section class="page-content" style="padding-top: 0; text-align: justify;">
+    <div class="container" style="max-width: 960px;">
+
+      <h2>Sobre o jogo</h2>
+      <p>Recurso educacional gamificado para o ensino de Ciências no 9º ano. Desenvolvido em HTML5, roda diretamente no navegador — sem instalação, sem login, compatível com celulares, tablets e computadores. Baseado em Game-Based Learning e metodologia ativa, transforma o estudo dos estados físicos da matéria e suas transformações em uma experiência narrativa, investigativa e interativa, articulando os níveis macroscópico e submicroscópico da Química de forma acessível e significativa.</p>
+
+      <h2>Destaques e Jogabilidade</h2>
+
+      <p><strong>4 fases com curva de dificuldade progressiva:</strong> o aluno começa identificando estados físicos pela análise do comportamento submicroscópico das partículas, avança para nomear e classificar as 6 transformações de estado com base em situações do cotidiano (gelo derretendo, vapor da panela, naftalina, geada), interpreta gráficos de aquecimento e resfriamento distinguindo trechos inclinados e platôs, e finaliza aplicando esses conhecimentos a contextos industriais e tecnológicos reais — geladeira, liofilização, destilação do petróleo, panela de pressão e gelo seco.</p>
+
+      <p><strong>Feedback imediato, específico e dialógico:</strong> cada resposta recebe retorno instantâneo do Chef Mol com explicações contextualizadas. Quando o aluno erra, recebe uma orientação específica para aquela questão — sem revelar a resposta — que aponta o raciocínio correto e transforma o erro em oportunidade de aprendizagem. Quando acerta, o feedback reforça o conceito com linguagem submicroscópica e exemplos reais.</p>
+
+      <p><strong>Aulas em cards antes de cada desafio:</strong> o jogo é informativo antes de ser avaliativo. Cada fase começa com cards interativos que apresentam os conceitos, o modelo de partículas, diagramas de estados e dados reais — garantindo que o aluno tenha subsídios para responder com confiança. O conteúdo utiliza linguagem visual com destaques coloridos, exemplos do cotidiano e a explicação nos níveis macroscópico e submicroscópico.</p>
+
+      <p><strong>Gráficos térmicos interativos gerados em Canvas:</strong> a Fase 3 apresenta gráficos de aquecimento e resfriamento renderizados em tempo real via Canvas HTML5: curva de aquecimento com platô simples, curva completa com dois platôs identificados (Tf e Te), curva de resfriamento, gráfico parcial para previsão hipotética e comparativo entre substância pura e mistura — este último inspirado no fenômeno crioscópico e ebuliscópico da água com sal, fiel ao comportamento real observado em sala de aula.</p>
+
+      <p><strong>Questões hipótese para desenvolver raciocínio científico:</strong> em cada fase há uma questão do tipo hipótese que pede ao aluno para prever o que vai acontecer antes de ver o resultado — estimulando o pensamento científico e a metacognição. O aluno não apenas classifica e nomeia: ele raciocina, prevê, explica e reflete, exercitando as habilidades de investigação previstas na BNCC.</p>
+
+      <p><strong>Design responsivo e acessível com animações de partículas:</strong> interface pixel art temática de restaurante, com animações de partículas em Canvas que representam visualmente os três estados físicos em tempo real. Otimizada para qualquer tamanho de tela. Tecnologia HTML5 + CSS + JavaScript em arquivo único, sem dependência de plugins, frameworks ou downloads — pronto para usar offline ou publicar em qualquer plataforma.</p>
+
+      <p><strong>Sistema de avaliação integrado com certificado personalizado:</strong> pontuação de 10 a 100 pontos por questão conforme desempenho (1ª tentativa sem dica, com dica, após erros), sistema de estrelas (0 a 3) em cada fase baseado em acertos de primeira tentativa, barra de progresso visual no header, sistema de dicas ativadas por escolha e certificado personalizado ao final com nome do aluno, título conquistado (Aprendiz, Sous Chef, Chef ou Chef Executivo) e habilidade BNCC desenvolvida.</p>
+
+      <h2>Alinhamento Pedagógico</h2>
+      <p>Desenvolve integralmente a habilidade EF09CI01 da BNCC — Investigar as mudanças de estado físico da matéria e explicar essas transformações com base no modelo de constituição submicroscópica — e os descritores SAEB E1A3 (modelo submicroscópico das partículas) e E1B5 (energia nas mudanças de estado), contemplando identificação e classificação dos três estados físicos, nomeação e caracterização das 6 transformações de estado, análise energética de cada processo (absorção ou liberação de calor), interpretação de gráficos temperatura × tempo com identificação de platôs, e aplicação a contextos industriais e tecnológicos reais. Estimula o pensamento investigativo ao exigir que o aluno articule o nível macroscópico (o que observamos) com o submicroscópico (o que as partículas fazem), desenvolvendo a capacidade de explicação científica prevista nas competências gerais e específicas da BNCC para as Ciências da Natureza.</p>
+
+    </div>
+  </section>
+
+  <!-- AD SLOT — RODAPÉ -->
+  <div class="ad-slot" aria-hidden="true">
+    <div class="ad-placeholder ad-bottom">Espaço para anúncio (728×90)</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contato" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Fale Conosco</h3>
+        <div class="footer-contact-list">
+          <a href="mailto:cienciaplural@gmail.com" class="footer-contact-link" aria-label="Enviar e-mail para cienciaplural@gmail.com">
+            <span aria-hidden="true">📧</span> cienciaplural@gmail.com
+          </a>
+          <a href="https://instagram.com/triadeplural" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="Seguir @triadeplural no Instagram">
+            <span aria-hidden="true">📸</span> @triadeplural
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Links</h3>
+        <div class="footer-links">
+          <a href="/sobre/" class="footer-link">Sobre</a>
+          <a href="/privacidade/" class="footer-link">Política de Privacidade</a>
+          <a href="/termos/" class="footer-link">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Ciência Plural — Desenvolvido por Professores para Professores.</div>
+      <div class="footer-bottom-heart">Feito com <span>❤️</span> e Inteligência Artificial.</div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    function toggleFullscreen() {
+      var iframe = document.getElementById('game-iframe');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>

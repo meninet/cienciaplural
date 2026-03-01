@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.section, .game-card, .feature-card').forEach(el => {
+  document.querySelectorAll('.section, .game-card, .catalog-card, .feature-card').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
   });
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .replace(/[\u0300-\u036f]/g, '')
         .trim();
 
-      const cards = document.querySelectorAll('.game-card[data-game-id]');
+      const cards = document.querySelectorAll('.catalog-card[data-game-id]');
 
       if (!query) {
         cards.forEach(card => card.classList.remove('search-hidden'));
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '');
 
-        const card = document.querySelector(`.game-card[data-game-id="${game.id}"]`);
+        const card = document.querySelector(`.catalog-card[data-game-id="${game.id}"]`);
         if (!card) return;
 
         if (haystack.includes(query)) {
