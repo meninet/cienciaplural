@@ -19,6 +19,61 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
 
   <link rel="stylesheet" href="/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.cienciaplural.com.br/#website",
+        "name": "Ciência Plural",
+        "url": "https://www.cienciaplural.com.br/",
+        "description": "Jogos educativos gratuitos de Ciências e Biologia alinhados à BNCC, para professores e alunos do Ensino Fundamental e Médio.",
+        "inLanguage": "pt-BR",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://www.cienciaplural.com.br/#organization",
+          "name": "Tríade Plural",
+          "url": "https://www.cienciaplural.com.br/",
+          "email": "cienciaplural@gmail.com",
+          "sameAs": ["https://www.instagram.com/triadeplural"]
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Jogos educativos — Ciência Plural",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://www.cienciaplural.com.br/laboratorio-pixel/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://www.cienciaplural.com.br/engenhoca/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://www.cienciaplural.com.br/energopolis/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://www.cienciaplural.com.br/pixel-chef/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://www.cienciaplural.com.br/codex-da-vida/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -42,7 +97,7 @@
             </span>
           </li>
           <li><a href="/sobre/" class="nav-link">Sobre</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
+          <li><a href="/contato/" class="nav-link">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -55,12 +110,7 @@
       <p>Jogos educativos gratuitos, alinhados à BNCC, para transformar suas aulas de Ciências e Biologia.</p>
       <a href="#jogos" class="btn-primary">🎮 Explorar jogos</a>
     </div>
-  </section>
-
-  <!-- ===== AD SLOT — TOPO ===== -->
-  <div class="ad-slot" aria-hidden="true">
-    <div class="ad-placeholder ad-top">Espaço para anúncio (728×90)</div>
-  </div>
+  </section>  </div>
 
   <!-- ===== NOSSOS JOGOS ===== -->
   <section id="jogos" class="section section-light" role="region" aria-label="Nossos jogos">
@@ -131,11 +181,20 @@
       <!-- BIOLOGIA -->
       <div class="catalog-row">
         <h3 class="catalog-title">🧬 Biologia</h3>
-        <div class="catalog-scroll catalog-empty">
-          <div class="catalog-coming-soon">
-            <span class="catalog-coming-icon">🚀</span>
-            <p>Em breve — novos jogos de Biologia estão a caminho!</p>
-          </div>
+        <div class="catalog-scroll">
+
+          <article class="catalog-card" data-game-id="codex-da-vida">
+            <a href="/codex-da-vida/" class="catalog-card-link">
+              <div class="catalog-card-thumb">🌿</div>
+              <div class="catalog-card-body">
+                <span class="catalog-card-badge">3ª série</span><span class="catalog-card-badge badge-aee">AEE</span>
+                <h4 class="catalog-card-title">CODEX DA VIDA</h4>
+                <p class="catalog-card-subtitle">Expedição pelos Biomas</p>
+                <p class="catalog-card-topic">Sistemas de classificação e organização taxonômica dos seres vivos</p>
+              </div>
+            </a>
+          </article>
+
         </div>
       </div>
 
@@ -199,12 +258,7 @@
         <a href="/sobre/" class="link-arrow">Saiba mais →</a>
       </div>
     </div>
-  </section>
-
-  <!-- ===== AD SLOT — RODAPÉ ===== -->
-  <div class="ad-slot" aria-hidden="true">
-    <div class="ad-placeholder ad-bottom">Espaço para anúncio (728×90)</div>
-  </div>
+  </section>  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer" id="contato" role="contentinfo">

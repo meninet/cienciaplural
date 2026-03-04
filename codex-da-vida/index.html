@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODEX DA VIDA: Expedição pelos Biomas — Ciência Plural</title>
+  <meta name="description" content="Jogo educativo gratuito sobre sistemas de classificação taxonômica para a 3ª série do Ensino Médio. 6 fases pelos biomas brasileiros com narrativa interativa, quizzes e versão AEE. Alinhado à BNCC (EM13CNT202). Jogue no navegador, sem instalação.">
+  <meta name="keywords" content="classificação taxonômica, taxonomia, biomas brasileiros, jogo educativo, 3ª série, ensino médio, biologia, BNCC, EM13CNT202, nomenclatura binomial, AEE">
+  <meta property="og:title" content="CODEX DA VIDA: Expedição pelos Biomas — Ciência Plural">
+  <meta property="og:description" content="Jogo educativo sobre classificação taxonômica para a 3ª série do Ensino Médio. Alinhado à BNCC.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.cienciaplural.com.br/codex-da-vida/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalApplication",
+    "name": "Codex da Vida: Expedição pelos Biomas",
+    "alternateName": "CODEX DA VIDA",
+    "description": "Jogo educativo gratuito sobre sistemas de classificação taxonômica para a 3ª série do Ensino Médio. 6 fases pelos biomas brasileiros com narrativa interativa, quizzes e versão AEE. Alinhado à BNCC (EM13CNT202).",
+    "url": "https://www.cienciaplural.com.br/codex-da-vida/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Navegador Web",
+    "isAccessibleForFree": true,
+    "inLanguage": "pt-BR",
+    "educationalLevel": "3ª série — Ensino Médio",
+    "about": {
+      "@type": "Thing",
+      "name": "Sistemas de classificação e organização taxonômica dos seres vivos"
+    },
+    "teaches": "EM13CNT202 — BNCC Ciências da Natureza",
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "Estudantes da 3ª série do Ensino Médio"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Tríade Plural",
+      "url": "https://www.cienciaplural.com.br/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Ciência Plural — Página inicial">
+        <span class="logo-emoji" aria-hidden="true">🔬</span>
+        Ciência Plural
+      </a>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Início</a></li>
+          <li><a href="/#jogos" class="nav-link">Jogos</a></li>
+          <li>
+            <span class="nav-link" style="cursor: default; opacity: 0.7;">
+              Materiais <span class="nav-badge">Em breve</span>
+            </span>
+          </li>
+          <li><a href="/sobre/" class="nav-link">Sobre</a></li>
+          <li><a href="/contato/" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- GAME HEADER -->
+  <section class="game-header" style="margin-top: var(--header-height);">
+    <div class="container">
+      <h1 class="game-page-title">CODEX DA VIDA: Expedição pelos Biomas</h1>
+      <div class="game-meta">
+        <span class="game-meta-item">🎓 3ª série — Ensino Médio</span>
+        <span class="game-meta-item">🔬 Ciências da Natureza</span>
+        <span class="game-meta-item">📚 Sistemas de classificação e organização taxonômica dos seres vivos</span>
+        <span class="game-meta-item">📋 BNCC: EM13CNT202 · SEDU-ES: EM13CNT202BIO/ES</span>
+        <span class="game-meta-item">♿ Versão AEE disponível</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME IFRAME -->
+  <section class="game-wrapper" role="main">
+    <div class="container">
+      <div class="game-iframe-container">
+        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+          <button id="btn-fullscreen" onclick="toggleFullscreen()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: #533483; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.3s;">
+            🖥️ Tela cheia
+          </button>
+          <span style="font-size: 1.05rem; font-weight: 500; color: #533483;">💡 Nossos jogos funcionam melhor em tela cheia.</span>
+        </div>
+        <iframe
+          id="game-iframe"
+          src="https://codex-da-vida.vercel.app/"
+          title="Jogo CODEX DA VIDA: Expedição pelos Biomas"
+          allow="fullscreen"
+          allowfullscreen
+          loading="lazy"
+        >
+          <p>Seu navegador não suporta iframes. <a href="https://codex-da-vida.vercel.app/" target="_blank" rel="noopener noreferrer">Clique aqui para jogar diretamente.</a></p>
+        </iframe>
+      </div>
+
+      <!-- GAME DESCRIPTION (resumo) -->
+      <div class="game-description">
+        <p>Assuma o papel de expedicionário e percorra os seis biomas brasileiros ao lado da Dra. Conceição Ribeiro! Domine a classificação taxonômica, a nomenclatura binomial e os fatores ecológicos ao longo de 6 fases progressivas. O jogo combina narrativa interativa, quizzes com feedback detalhado, atividades de arrastar e soltar e desafios integradores que conectam taxonomia à conservação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME EXPANDED DESCRIPTION -->
+  <section class="page-content" style="padding-top: 0; text-align: justify;">
+    <div class="container" style="max-width: 960px;">
+
+      <h2>Sobre o jogo</h2>
+      <p>Recurso educacional gamificado para o ensino de Biologia na 3ª série do Ensino Médio. Desenvolvido em HTML5 + React, roda diretamente no navegador — sem instalação, sem login, compatível com celulares, tablets e computadores. Baseado em aprendizagem baseada em jogos (Game-Based Learning) com elementos de aprendizagem por problemas e autorregulação, transforma o estudo de taxonomia e biodiversidade em uma expedição narrativa pelos biomas do Brasil.</p>
+
+      <h2>Destaques e Jogabilidade</h2>
+
+      <p><strong>6 fases com curva de dificuldade progressiva:</strong> o aluno começa organizando a hierarquia taxonômica no Cerrado, avança para critérios de classificação na Mata Atlântica, domina a nomenclatura binomial de Lineu na Caatinga, investiga fatores limitantes e nichos ecológicos no Pantanal, aplica conceitos de endemismo e conservação no Pampa, e finaliza com desafios integradores na Amazônia que articulam taxonomia, ecologia e proteção legal.</p>
+
+      <p><strong>Feedback imediato e dialógico:</strong> cada resposta recebe retorno instantâneo da personagem Dra. Conceição Ribeiro, com explicações contextualizadas que reforçam a aprendizagem — o erro vira oportunidade de ensino, não punição.</p>
+
+      <p><strong>Mecânicas variadas de interação:</strong> quiz de múltipla escolha, ordenação por arrastar e soltar (hierarquia taxonômica), classificação de fatores (favorável vs. limitante), questões integradoras com sistema de dicas progressivas e desafios que exigem articulação de conceitos de múltiplas fases — mantendo o engajamento do início ao fim.</p>
+
+      <p><strong>Design responsivo e acessível:</strong> interface imersiva com identidade visual naturalista, otimizada para qualquer tamanho de tela. Tecnologia HTML5 + React, sem dependência de plugins ou downloads.</p>
+
+      <p><strong>Sistema de avaliação integrado:</strong> pontuação acumulativa por fase (até 3.600 pontos), barra de progresso visual no HUD, badges por bioma conquistado e certificado personalizado ao final com nome do aluno e faixa de desempenho (Aprendiz de Campo, Naturalista em Formação, Naturalista Pleno ou Naturalista Mestre).</p>
+
+      <h2>Versão AEE — Atendimento Educacional Especializado</h2>
+
+      <p>O jogo inclui uma versão totalmente adaptada para estudantes público-alvo do Atendimento Educacional Especializado (AEE), selecionável na tela inicial. A versão AEE mantém a mesma estrutura de 6 fases e a mesma narrativa com a Dra. Conceição Ribeiro, mas com adaptações que garantem acessibilidade e equidade na aprendizagem: linguagem simplificada e direta, com enunciados mais curtos e vocabulário acessível; texto em caixa alta e fonte sans-serif (Lato) para maior legibilidade; 12 questões adaptadas (em vez de 33), com alternativas mais objetivas e dicas sem penalidade de pontos; atividades por clique em vez de arrastar e soltar, eliminando barreiras motoras; nomes científicos preservados em grafia correta (itálico, sem caixa alta), respeitando a convenção taxonômica; badge "AEE" visível no HUD durante todo o jogo; e pontuação máxima própria (1.300 pontos) com o mesmo sistema de certificado e faixas de desempenho. A versão AEE não é uma simplificação do conteúdo — é uma adaptação da forma de apresentação, garantindo que os mesmos conceitos essenciais sejam trabalhados com todos os estudantes.</p>
+
+      <h2>Alinhamento Pedagógico</h2>
+      <p>Desenvolve integralmente a habilidade EM13CNT202 da BNCC e a habilidade EM13CNT202BIO/ES da SEDU-ES, contemplando hierarquia taxonômica, critérios de classificação (morfológico, fisiológico, comportamental e molecular), nomenclatura binomial, fatores limitantes, tolerância ecológica, endemismo e a conexão entre taxonomia e conservação. Estimula o pensamento crítico por meio da análise de casos reais da fauna e flora brasileira e o raciocínio científico ao exigir que o aluno articule conceitos de múltiplas disciplinas para justificar a proteção legal de espécies ameaçadas.</p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Fale Conosco</h3>
+        <div class="footer-contact-list">
+          <a href="mailto:cienciaplural@gmail.com" class="footer-contact-link" aria-label="Enviar e-mail para cienciaplural@gmail.com">
+            <span aria-hidden="true">📧</span> cienciaplural@gmail.com
+          </a>
+          <a href="https://instagram.com/triadeplural" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="Seguir @triadeplural no Instagram">
+            <span aria-hidden="true">📸</span> @triadeplural
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Links</h3>
+        <div class="footer-links">
+          <a href="/sobre/" class="footer-link">Sobre</a>
+          <a href="/privacidade/" class="footer-link">Política de Privacidade</a>
+          <a href="/termos/" class="footer-link">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Ciência Plural — Desenvolvido por Professores para Professores.</div>
+      <div class="footer-bottom-heart">Feito com <span>❤️</span> e Inteligência Artificial.</div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    function toggleFullscreen() {
+      var iframe = document.getElementById('game-iframe');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
