@@ -100,14 +100,14 @@
   </header>  </div>
 
   <!-- GAME HEADER -->
-  <section class="game-header" style="margin-top: 0;">
+  <section class="game-header" style="margin-top: var(--header-height);">
     <div class="container">
       <h1 class="game-page-title">ENGENHOCA: A Oficina do Tempo</h1>
       <div class="game-meta">
         <span class="game-meta-item">🎓 7º ano — Ensino Fundamental</span>
         <span class="game-meta-item">🔬 Ciências da Natureza</span>
         <span class="game-meta-item">📚 Máquinas simples</span>
-        <span class="game-meta-item">📋 BNCC: EF07CI01</span>
+        <span class="game-meta-item">📋 BNCC: EF07CI01 · SAEB: E1A5 · E1B7</span>
       </div>
     </div>
   </section>
@@ -136,7 +136,7 @@
 
       <!-- GAME DESCRIPTION (resumo) -->
       <div class="game-description">
-        <p>Assuma o papel de aprendiz de inventor e adentre a oficina abandonada do Mestre Arquimedes! Conserte a máquina do tempo dominando os princípios das máquinas simples ao longo de 5 fases progressivas. O jogo combina narrativa interativa, quizzes de múltiplos formatos e um desafio de criação com feedback personalizado.</p>
+        <p>Conserte a máquina do tempo do Mestre Arquimedes! Identifique máquinas simples no cotidiano, descubra como funcionam, viaje por quatro períodos da história humana para ver como transformaram o mundo, desmonte máquinas complexas para encontrar as simples escondidas dentro delas e, no desafio final, invente uma engenhoca original combinando máquinas simples para resolver um problema real. O jogo combina cards de aula, quizzes de associação, viagem no tempo narrada, análise de máquinas complexas e desafio criativo de invenção com 186 feedbacks científicos personalizados.</p>
       </div>
     </div>
   </section>
@@ -146,22 +146,44 @@
     <div class="container" style="max-width: 960px;">
 
       <h2>Sobre o jogo</h2>
-      <p>Recurso educacional gamificado para o ensino de Ciências no 7º ano. Desenvolvido em HTML5, roda diretamente no navegador, sem instalação e sem login, compatível com celulares, tablets e computadores. Baseado em Game-Based Learning e metodologia ativa, transforma o estudo de máquinas simples em uma experiência narrativa e interativa.</p>
+      <p>Recurso educacional gamificado para o ensino de Ciências no 7º ano do Ensino Fundamental. Desenvolvido em React (JSX), roda diretamente no navegador — sem instalação, sem login, compatível com celulares, tablets e computadores. Fundamentado na aprendizagem baseada em jogos (Game-Based Learning) com elementos de narrativa imersiva e progressão pedagógica, transforma o estudo de máquinas simples em uma aventura com estética steampunk — tons escuros, detalhes dourados e engrenagens decorativas — guiada pelo holograma do Mestre Arquimedes.</p>
 
       <h2>Destaques e Jogabilidade</h2>
 
-      <p><strong>5 fases com curva de dificuldade progressiva:</strong> o aluno começa identificando máquinas simples em objetos do cotidiano, avança para a compreensão dos princípios de funcionamento, viaja por 4 períodos históricos, analisa máquinas complexas desmontando-as em simples, e finaliza inventando uma engenhoca original para resolver um problema real.</p>
+      <p><strong>5 fases com curva de dificuldade progressiva:</strong> o aluno começa identificando máquinas simples em objetos do dia a dia com apoio de cards explicativos, avança para compreender os princípios de funcionamento de cada uma, viaja por quatro períodos históricos (Egito Antigo, Grécia Antiga, Revolução Industrial e Atualidade) para contextualizar sua aplicação, analisa máquinas complexas desmontando-as em suas partes simples e finaliza criando uma invenção original para resolver um problema real do cotidiano.</p>
 
-      <p><strong>Feedback imediato e dialógico:</strong> cada resposta recebe retorno instantâneo do personagem Mestre Arquimedes, com explicações contextualizadas que reforçam a aprendizagem. O erro vira oportunidade de ensino, não punição.</p>
+      <p><strong>Feedback imediato e dialógico:</strong> cada resposta recebe retorno instantâneo do Mestre Arquimedes, com explicações científicas contextualizadas que reforçam a aprendizagem. São 186 feedbacks individualizados por distrator — cada alternativa errada recebe explicação específica de por que não é a resposta e qual é o raciocínio correto. O erro vira oportunidade de ensino, não punição.</p>
 
-      <p><strong>Mecânicas variadas de interação:</strong> quiz de associação (objeto → máquina), múltipla escolha, verdadeiro ou falso, completar frases, ordenação cronológica por arrastar, seleção de combinações e nomeação de invenções. A diversidade de formatos mantém o engajamento do início ao fim.</p>
+      <p><strong>Cards de aula antes de cada desafio:</strong> o jogo é informativo e investigativo. Antes de responder, o aluno estuda o conteúdo em cards interativos com conceitos, exemplos do cotidiano e descrições das 6 máquinas simples (alavanca, plano inclinado, cunha, parafuso, roldana e roda com eixo), garantindo que a avaliação seja justa e significativa. Na Fase 4, os cards apresentam 5 exemplos de máquinas complexas decompostas em suas partes simples.</p>
 
-      <p><strong>Design responsivo e acessível:</strong> interface steampunk imersiva, otimizada para qualquer tamanho de tela. Tecnologia HTML5 + React, sem dependência de plugins ou downloads.</p>
+      <p><strong>Mecânicas variadas de interação:</strong> cards de aula navegáveis, quiz de associação objeto-máquina (Fase 1), questões de completar frases, verdadeiro ou falso e múltipla escolha (Fase 2), narrativa por período histórico com questões contextualizadas e linha do tempo para ordenação cronológica (Fase 3), análise e decomposição de máquinas complexas (Fase 4) e desafio criativo de invenção com seleção de máquinas, nomeação da engenhoca e feedback contextualizado por combinação (Fase 5), mantendo o engajamento do início ao fim.</p>
 
-      <p><strong>Sistema de avaliação integrado:</strong> pontuação por estrelas (0 a 3) em cada fase, barra de progresso visual e certificado personalizado ao final com nome do aluno e da invenção criada.</p>
+      <p><strong>Sistema de dicas integrado:</strong> todas as questões das Fases 1 a 4 e a linha do tempo possuem o botão "💡 Preciso de uma dica!", com dicas contextualizadas faladas pelo Mestre Arquimedes, sem custo para o aluno. São 43 dicas que orientam o raciocínio sem entregar a resposta.</p>
+
+      <p><strong>Narrativa imersiva com personagem guia:</strong> o Mestre Arquimedes — holograma de um inventor genial e excêntrico — acompanha o aluno durante todo o jogo com diálogos de abertura, transição entre fases e encerramento, todos com efeito de digitação. Sua linguagem é acessível, entusiasta e acolhedora, celebrando cada avanço e transformando cada erro em oportunidade de aprendizado.</p>
+
+      <p><strong>Design responsivo e acessível:</strong> interface steampunk imersiva com paleta escura e quente (marrons, dourados, bege sobre fundo quase preto) e engrenagens decorativas, otimizada para qualquer tamanho de tela. Tecnologia React + Vite em arquivo único, sem dependência de plugins ou downloads. Machine cards utilizam elementos semânticos com atributos ARIA, feedbacks possuem role de alerta para leitores de tela e a comunicação de acerto/erro não depende apenas de cor (ícones ✅/❌ + texto).</p>
+
+      <p><strong>Sistema de avaliação integrado:</strong> classificação por estrelas (0 a 3 por fase, 15 possíveis no total) calculada a partir do percentual de acertos, barra de progresso visual por fase, indicador de acertos em tempo real e certificado personalizado ao final com nome do aluno, nome da engenhoca criada, estrelas totais e título conquistado (Mestre Inventor, Inventor Habilidoso, Aprendiz de Inventor ou Inventor em Treinamento), além da seção "O que você aprendeu" com os 5 objetivos de aprendizagem.</p>
 
       <h2>Alinhamento Pedagógico</h2>
-      <p>Desenvolve integralmente a habilidade EF07CI01 da BNCC, contemplando identificação, compreensão, contextualização histórica e proposição de soluções com máquinas simples. Estimula o pensamento crítico por meio da análise de mecanismos e o pensamento computacional ao exigir que o aluno decomponha problemas reais e proponha combinações funcionais de máquinas.</p>
+      <p>Desenvolve integralmente a habilidade EF07CI01 da BNCC e os descritores SAEB E1A5 e E1B7, contemplando: identificação de máquinas simples em objetos do cotidiano, compreensão dos princípios de funcionamento das 6 máquinas simples (alavanca, plano inclinado, cunha, parafuso, roldana e roda com eixo), contextualização histórica da aplicação das máquinas simples ao longo de quatro períodos (Egito Antigo, Grécia Antiga, Revolução Industrial e Atualidade), análise de máquinas complexas como combinações de máquinas simples e proposição de soluções inventivas para problemas mecânicos reais do cotidiano. A progressão pedagógica segue a taxonomia: reconhecer → compreender → contextualizar → analisar → criar, cobrindo integralmente o espectro da habilidade.</p>
+
+      <h2>O que o aluno aprende em cada fase</h2>
+      <p>O Engenhoca foi estruturado para que cada fase desenvolva uma etapa específica do raciocínio sobre máquinas simples, criando uma progressão lógica: identificar → compreender → contextualizar historicamente → analisar → criar.</p>
+      <p><strong>Fase 1 — A Oficina Esquecida: Identificação de Máquinas Simples.</strong> O aluno aprende o que são máquinas simples e onde estão escondidas nos objetos do cotidiano. Em 6 cards de aula, conhece cada uma das máquinas simples (alavanca, plano inclinado, cunha, parafuso, roldana e roda com eixo) com ícone, nome e descrição. Em seguida, recebe 12 objetos do dia a dia — de rampa de skate a faca de cozinha, passando por varal com cordinha, carriola, tampa rosqueável, machado, maçaneta, mastro de bandeira, tesoura, escada, saca-rolha e roda de bicicleta — e precisa associar cada um à máquina simples correspondente, selecionando entre as 6 opções. Cada resposta recebe feedback específico que explica por que aquele objeto é (ou não é) aquela máquina simples. Esta fase desenvolve a habilidade fundamental de reconhecimento que sustenta todas as demais.</p>
+      <p><strong>Fase 2 — O Diário do Mestre: Princípios de Funcionamento.</strong> Com a identificação dominada, o aluno agora compreende como cada máquina simples realmente funciona. Em 6 cards navegáveis (um por máquina), estuda os princípios: multiplicação de força na alavanca, troca de distância por esforço no plano inclinado, conversão de força direcional em lateral na cunha, transformação de giro em avanço linear no parafuso, mudança de direção da força na roldana e amplificação de movimento na roda com eixo. As 12 questões variam entre completar frases, verdadeiro ou falso e múltipla escolha, incluindo pegadinhas conceituais como a diferença entre roldana fixa (muda direção, não multiplica força) e sistema de roldanas (multiplica), desafiando o aluno a ir além da memorização.</p>
+      <p><strong>Fase 3 — Viagem no Tempo: Contextualização Histórica.</strong> Esta fase transporta o aluno por quatro períodos da história humana em uma narrativa imersiva. No Egito Antigo (~2500 a.C.), descobre como rampas gigantes e cunhas de cobre construíram as pirâmides. Na Grécia Antiga (~250 a.C.), encontra o próprio Arquimedes e conhece a alavanca, a roldana composta e o parafuso de irrigação. Na Revolução Industrial (~1800), vê máquinas simples sendo combinadas em engrenagens, polias e prensas nas fábricas. Na Atualidade, reconhece cunhas e alavancas escondidas no apontador e na tesoura da sala de aula. Após os 4 períodos (2 questões cada), o aluno organiza os eventos em uma linha do tempo cronológica. A fase ensina que as máquinas simples não são apenas conceitos de livro — são a base da engenharia humana há mais de 4.500 anos.</p>
+      <p><strong>Fase 4 — A Máquina por Dentro: Análise de Máquinas Complexas.</strong> A fase mais analítica apresenta a ideia central de que toda máquina complexa é uma combinação inteligente de máquinas simples. Em 5 cards, o aluno estuda exemplos decompostos: bicicleta (roda com eixo + alavanca + engrenagens), tesoura de jardinagem (alavanca + cunha), guindaste (roldana + alavanca + roda com eixo), macaco de carro (parafuso + alavanca) e abridor de latas (cunha + roda com eixo). As 10 questões exigem que o aluno identifique quais máquinas simples compõem dispositivos do cotidiano, o que acontece quando se remove uma peça de uma máquina complexa e qual dispositivo pode ser formado por determinada combinação — desenvolvendo pensamento analítico e visão sistêmica.</p>
+      <p><strong>Fase 5 — O Inventor é Você!: Criação e Síntese.</strong> A fase final e mais desafiadora coloca o aluno no papel de inventor. Ele escolhe entre três problemas reais do cotidiano — ajudar uma idosa a subir sacolas pesadas pela escada de um sobrado, colher mangas no topo de árvores altas sem subir nelas ou transportar água de um poço até uma horta distante sem eletricidade — seleciona exatamente 2 máquinas simples que combinadas resolvam o problema, dá um nome à sua engenhoca e recebe feedback contextualizado do Mestre Arquimedes explicando como sua invenção funcionaria na prática. Nem toda combinação funciona: o aluno precisa usar tudo o que aprendeu para encontrar uma solução viável. A fase exige síntese de todo o conteúdo e estimula o raciocínio inventivo.</p>
+
+      <h2>Perguntas frequentes</h2>
+      <p><strong>O jogo é gratuito?</strong> Sim. O Engenhoca é totalmente gratuito e não exige nenhum tipo de cadastro, assinatura ou instalação. Basta acessar a página e clicar em jogar.</p>
+      <p><strong>Funciona no celular?</strong> Sim. O jogo foi desenvolvido com design responsivo e é compatível com smartphones, tablets e computadores. Para a melhor experiência, recomendamos o modo tela cheia.</p>
+      <p><strong>O jogo cobre todo o conteúdo de máquinas simples do 7º ano?</strong> O jogo cobre integralmente a habilidade EF07CI01 da BNCC e os descritores SAEB E1A5 e E1B7: identificação das 6 máquinas simples no cotidiano, compreensão dos princípios de funcionamento, contextualização histórica da aplicação ao longo de quatro períodos, análise de máquinas complexas como combinações de simples e proposição de soluções inventivas para problemas reais. É um recurso complementar projetado para integrar o planejamento pedagógico do professor, tornando a aprendizagem mais significativa e engajante.</p>
+      <p><strong>Posso usar o jogo com alunos público-alvo do AEE?</strong> Esta versão é a versão regular do jogo. Uma versão AEE com adaptações específicas (linguagem simplificada, fonte de maior legibilidade, enunciados mais curtos e mecânicas adaptadas) está prevista para desenvolvimento futuro. Enquanto isso, o jogo pode ser utilizado com mediação do professor, que poderá ajustar o ritmo e oferecer suporte conforme o nível de necessidade do estudante.</p>
+      <p><strong>O que são as "máquinas simples" que o jogo ensina?</strong> Máquinas simples são dispositivos mecânicos básicos que facilitam a realização de trabalho, modificando a intensidade, a direção ou a distância de aplicação de uma força. O jogo cobre as 6 máquinas simples fundamentais: alavanca (gangorra, tesoura), plano inclinado (rampa, escada), cunha (faca, machado), parafuso (saca-rolha, tampa rosqueável), roldana (varal, mastro de bandeira) e roda com eixo (maçaneta, roda de bicicleta). Essas máquinas estão presentes em praticamente todos os objetos e dispositivos que usamos no dia a dia.</p>
+      <p><strong>Há algum material de apoio para o professor?</strong> A seção "Materiais" do Ciência Plural está em desenvolvimento e em breve disponibilizará atividades complementares para uso em sala de aula, alinhadas aos conteúdos de cada fase do jogo.</p>
 
     </div>
   </section>  </div>
@@ -172,6 +194,9 @@
       <div class="footer-section">
         <h3>Fale Conosco</h3>
         <div class="footer-contact-list">
+          <a href="/contato/" class="footer-contact-link" aria-label="Acessar formulário de contato">
+            <span aria-hidden="true">✉️</span> Formulário de contato
+          </a>
           <a href="mailto:cienciaplural@gmail.com" class="footer-contact-link" aria-label="Enviar e-mail para cienciaplural@gmail.com">
             <span aria-hidden="true">📧</span> cienciaplural@gmail.com
           </a>
