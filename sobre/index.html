@@ -1,101 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre o Ciência Plural | Jogos Educativos Gratuitos de Ciências e Biologia</title>
-    <meta name="description" content="Conheça o Ciência Plural, plataforma de jogos educativos gratuitos de Ciências e Biologia alinhados à BNCC, criada pela professora Sabrina Sonegheti e a Tríade Plural. Saiba como os jogos são feitos, a metodologia pedagógica e o compromisso com a acessibilidade.">
-    <link rel="canonical" href="https://www.cienciaplural.com.br/sobre/">
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2 — estado padrão: bloqueado até consentimento -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre o Ciência Plural | Jogos Educativos Gratuitos de Ciências e Biologia</title>
+  <meta name="description" content="Conheça o Ciência Plural, plataforma de jogos educativos gratuitos de Ciências e Biologia alinhados à BNCC, criada pela professora Sabrina Sonegheti e a Tríade Plural. Saiba como os jogos são feitos, a metodologia pedagógica e o compromisso com a acessibilidade.">
+  <meta property="og:title" content="Sobre o Ciência Plural | Jogos Educativos Gratuitos de Ciências e Biologia">
+  <meta property="og:description" content="Conheça o Ciência Plural: jogos educativos gratuitos, alinhados à BNCC.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.cienciaplural.com.br/sobre/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <meta name="google-adsense-account" content="ca-pub-6440630877091956">
 
-    <!-- ====== MANTER: seus links de CSS, favicon, Google Analytics, AdSense etc. ====== -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="canonical" href="https://www.cienciaplural.com.br/sobre/">
 
-    <!-- Schema.org: AboutPage -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "Sobre o Ciência Plural",
-        "url": "https://www.cienciaplural.com.br/sobre/",
-        "description": "Conheça o Ciência Plural, plataforma de jogos educativos gratuitos de Ciências e Biologia criada por Sabrina Sonegheti e a Tríade Plural.",
-        "mainEntity": {
-            "@type": "Organization",
-            "name": "Tríade Plural",
-            "url": "https://www.cienciaplural.com.br/",
-            "email": "cienciaplural@gmail.com",
-            "sameAs": ["https://www.instagram.com/triadeplural"],
-            "founder": {
-                "@type": "Person",
-                "name": "Sabrina Sonegheti",
-                "jobTitle": "Professora de Ciências e Biologia",
-                "description": "Mestre em Ensino de Biologia pelo PROFBIO/UFES, com mais de 20 anos de experiência em sala de aula na rede pública.",
-                "knowsAbout": ["Ensino de Ciências", "Ensino de Biologia", "Game-Based Learning", "Inteligência Artificial na Educação", "BNCC"]
-            }
-        }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Sobre o Ciência Plural",
+    "url": "https://www.cienciaplural.com.br/sobre/",
+    "description": "Conheça o Ciência Plural, plataforma de jogos educativos gratuitos de Ciências e Biologia criada por Sabrina Sonegheti e a Tríade Plural.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Tríade Plural",
+      "url": "https://www.cienciaplural.com.br/",
+      "email": "cienciaplural@gmail.com",
+      "sameAs": ["https://www.instagram.com/triadeplural"],
+      "founder": {
+        "@type": "Person",
+        "name": "Sabrina Sonegheti",
+        "jobTitle": "Professora de Ciências e Biologia",
+        "description": "Mestre em Ensino de Biologia pelo PROFBIO/UFES, com mais de 20 anos de experiência em sala de aula na rede pública.",
+        "knowsAbout": ["Ensino de Ciências", "Ensino de Biologia", "Game-Based Learning", "Inteligência Artificial na Educação", "BNCC"]
+      }
     }
-    </script>
+  }
+  </script>
 </head>
 <body>
 
-    <!-- ====== MANTER: seu <header> original aqui ====== -->
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Ciência Plural — Página inicial">
+        <span class="logo-emoji" aria-hidden="true">🔬</span>
+        Ciência Plural
+      </a>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Início</a></li>
+          <li><a href="/#jogos" class="nav-link">Jogos</a></li>
+          <li>
+            <span class="nav-link" style="cursor: default; opacity: 0.7;">
+              Materiais <span class="nav-badge">Em breve</span>
+            </span>
+          </li>
+          <li><a href="/sobre/" class="nav-link active">Sobre</a></li>
+          <li><a href="/contato/" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <h1>Sobre o Ciência Plural</h1>
+  <!-- CONTEÚDO -->
+  <main class="page-content" role="main" style="text-align: justify;">
+    <div class="container" style="max-width: 960px;">
+      <h1 class="page-title">Sobre o Ciência Plural</h1>
 
-        <!-- O QUE É -->
-        <div class="about-block">
-            <h2>O que é o Ciência Plural</h2>
-            <p>O Ciência Plural é uma plataforma educacional que oferece jogos interativos gratuitos de Ciências e Biologia para estudantes do Ensino Fundamental e do Ensino Médio. Cada jogo é cuidadosamente alinhado às habilidades da Base Nacional Comum Curricular (BNCC), transformando conteúdos que muitas vezes parecem distantes em experiências envolventes e acessíveis a qualquer pessoa com um navegador de internet.</p>
-            <p>A plataforma nasceu de uma necessidade real: professores de Ciências frequentemente enfrentam a escassez de recursos digitais de qualidade que sejam, ao mesmo tempo, pedagogicamente rigorosos e verdadeiramente gratuitos. Muitos materiais disponíveis na internet exigem cadastro, instalação de aplicativos ou pagamento de assinaturas, criando barreiras para estudantes e professores. O Ciência Plural existe para eliminar essas barreiras. Todos os jogos rodam diretamente no navegador, sem necessidade de instalação, sem exigência de login e sem nenhum custo para o estudante ou para a escola.</p>
-            <p>Atualmente, a plataforma conta com cinco jogos publicados: Laboratório Pixel (6º ano), Engenhoca (7º ano), Energópolis (8º ano), Pixel Chef (9º ano) e Codex da Vida (3ª série do Ensino Médio). Cada um deles cobre habilidades específicas da BNCC e foi projetado para funcionar tanto como atividade complementar em sala de aula quanto como ferramenta de estudo autônomo em casa.</p>
+      <div class="about-block">
+        <h2>O que é o Ciência Plural</h2>
+        <p>O Ciência Plural é uma plataforma educacional que oferece jogos interativos gratuitos de Ciências e Biologia para estudantes do Ensino Fundamental e do Ensino Médio. Cada jogo é cuidadosamente alinhado às habilidades da Base Nacional Comum Curricular (BNCC), transformando conteúdos que muitas vezes parecem distantes em experiências envolventes e acessíveis a qualquer pessoa com um navegador de internet.</p>
+        <p>A plataforma nasceu de uma necessidade real: professores de Ciências frequentemente enfrentam a escassez de recursos digitais de qualidade que sejam, ao mesmo tempo, pedagogicamente rigorosos e verdadeiramente gratuitos. Muitos materiais disponíveis na internet exigem cadastro, instalação de aplicativos ou pagamento de assinaturas, criando barreiras para estudantes e professores. O Ciência Plural existe para eliminar essas barreiras. Todos os jogos rodam diretamente no navegador, sem necessidade de instalação, sem exigência de login e sem nenhum custo para o estudante ou para a escola.</p>
+        <p>Atualmente, a plataforma conta com cinco jogos publicados: Laboratório Pixel (6º ano), Engenhoca (7º ano), Energópolis (8º ano), Pixel Chef (9º ano) e Codex da Vida (3ª série do Ensino Médio). Cada um deles cobre habilidades específicas da BNCC e foi projetado para funcionar tanto como atividade complementar em sala de aula quanto como ferramenta de estudo autônomo em casa.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>Quem criou</h2>
+        <p>O Ciência Plural foi criado por Sabrina Sonegheti, professora de Ciências e Biologia da rede pública em Linhares, no Espírito Santo. Com mais de 20 anos de experiência em sala de aula no Ensino Fundamental e no Ensino Médio, Sabrina conhece de perto os desafios que professores e estudantes enfrentam diariamente, e foi justamente essa vivência que motivou a criação da plataforma.</p>
+        <p>Sabrina é Mestre em Ensino de Biologia pelo PROFBIO, o Programa de Mestrado Profissional em Ensino de Biologia vinculado à Universidade Federal do Espírito Santo (UFES). Sua formação acadêmica combina pesquisa em metodologias ativas de ensino com a prática cotidiana da sala de aula, o que se reflete diretamente no modo como cada jogo é concebido: sempre partindo de uma necessidade pedagógica real, nunca de uma premissa puramente tecnológica.</p>
+        <p>Além de criar e manter o Ciência Plural, Sabrina atua como formadora de professores de Ciências em Linhares, conduzindo formações continuadas em temas como metodologias ativas, ensino de Ciências alinhado à BNCC e práticas de avaliação. Também ministra cursos voltados ao uso de Inteligência Artificial aplicada à educação, ajudando outros educadores a integrar essas ferramentas à sua rotina pedagógica. Em 2025, obteve múltiplas certificações em IA educacional, consolidando sua atuação na interseção entre tecnologia e ensino de Ciências.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>A Tríade Plural</h2>
+        <p>O Ciência Plural faz parte de um coletivo maior chamado Tríade Plural, formado por três educadores que compartilham a missão de produzir recursos educacionais digitais de qualidade. A Tríade reúne o Ciência Plural (Ciências e Biologia), o Português Plural (Língua Portuguesa) e o História Plural (História), cada um com sua especialidade, mas unidos pelo mesmo compromisso com a educação brasileira.</p>
+        <p>O grupo surgiu de forma orgânica: seus integrantes começaram como entusiastas de Inteligência Artificial, compartilhando pesquisas e descobertas sobre o potencial da IA na sala de aula. Com o tempo, perceberam que podiam ir além da troca de informações entre si e passaram a produzir materiais concretos para professores e estudantes. Hoje, a Tríade Plural também oferece formações e consultorias para professores e escolas interessadas em integrar a Inteligência Artificial às suas práticas pedagógicas.</p>
+        <p>A colaboração entre os três projetos permite uma troca constante de experiências sobre o que funciona, e o que não funciona, quando se trata de levar tecnologia educacional para o chão da escola. Essa diversidade de olhares, somada à experiência prática de cada integrante, fortalece a qualidade de tudo o que a Tríade Plural produz.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>Como os jogos são feitos</h2>
+        <p>Cada jogo do Ciência Plural segue uma metodologia de produção rigorosa. O processo começa com um planejamento detalhado que define os objetivos pedagógicos, as mecânicas de jogo, a narrativa e as fases antes que qualquer linha de código seja escrita. Nenhuma etapa avança sem revisão e aprovação, garantindo que o jogo tenha coerência pedagógica desde a sua concepção.</p>
+        <p>A implementação acontece em etapas sequenciais, cada uma com aprovação e revisão antes de prosseguir para a próxima. Essa abordagem evita retrabalho e assegura que decisões pedagógicas não sejam comprometidas por decisões técnicas tomadas com pressa. Todos os jogos são desenvolvidos com base na abordagem de Game-Based Learning (aprendizagem baseada em jogos), na qual o conteúdo curricular não é simplesmente inserido em um formato interativo, mas integrado às mecânicas do jogo de forma que aprender se torne parte natural da experiência de jogar.</p>
+        <p>Um diferencial importante é o feedback pedagógico individualizado por distrator. Isso significa que, quando um estudante erra uma questão, ele não recebe apenas um "resposta incorreta": o jogo identifica qual alternativa foi escolhida e oferece uma explicação específica sobre o raciocínio equivocado, ajudando o estudante a compreender onde errou e por quê. Ferramentas de Inteligência Artificial são utilizadas em diferentes etapas do processo de desenvolvimento, sempre sob supervisão pedagógica, garantindo que a tecnologia esteja a serviço dos objetivos de aprendizagem.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>Acessibilidade e inclusão</h2>
+        <p>O compromisso do Ciência Plural com a acessibilidade vai além da gratuidade dos jogos. A plataforma busca, de forma progressiva, incorporar princípios do Desenho Universal para a Aprendizagem (DUA), uma abordagem que propõe múltiplas formas de engajamento, representação e ação para que estudantes com diferentes perfis de aprendizagem possam acessar o mesmo conteúdo.</p>
+        <p>Um marco concreto desse compromisso é a versão adaptada do jogo Codex da Vida, desenvolvida especificamente para o Atendimento Educacional Especializado (AEE). Essa versão traz ajustes nas mecânicas, no ritmo e na apresentação do conteúdo para atender estudantes com necessidades educacionais específicas, sem reduzir a qualidade da experiência pedagógica. A intenção é que, com o tempo, todos os jogos da plataforma ofereçam versões adaptadas para AEE.</p>
+        <p>Tornar a educação em Ciências verdadeiramente acessível significa reconhecer que estudantes chegam à sala de aula com experiências, ritmos e necessidades diferentes. O Ciência Plural assume esse princípio como diretriz de desenvolvimento: cada novo jogo é planejado considerando como pode atender à maior diversidade possível de estudantes, respeitando suas individualidades e promovendo a inclusão desde a etapa de design.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>Tecnologia</h2>
+        <p>Os jogos do Ciência Plural são desenvolvidos em HTML5, CSS e JavaScript, o que significa que funcionam diretamente no navegador de qualquer dispositivo, seja computador, tablet ou celular, sem exigir instalação de aplicativos, plugins ou qualquer outro software adicional. Essa escolha tecnológica é intencional: em muitas escolas, o acesso a dispositivos potentes ou a permissão para instalar aplicativos nem sempre é garantido, um jogo que roda no navegador elimina a principal barreira técnica.</p>
+        <p>A plataforma não exige login e não coleta dados pessoais dos estudantes. Os jogos são e continuarão sendo gratuitos: o acesso livre não é uma fase temporária, mas um compromisso do projeto com a educação.</p>
+        <p>A opção por tecnologias abertas e leves também garante que os jogos carreguem rapidamente mesmo em conexões mais lentas, uma realidade comum em muitas escolas e residências no interior do Brasil. Todo o projeto é pensado para funcionar bem nas condições reais que estudantes e professores encontram no dia a dia.</p>
+      </div>
+
+      <div class="about-cta">
+        <p>🎮 <strong>Quer experimentar?</strong></p>
+        <a href="/#jogos" class="btn-primary" style="margin-top: 16px; color: #FFFFFF; text-decoration: none;">Explorar os jogos →</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contato" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Fale Conosco</h3>
+        <div class="footer-contact-list">
+          <a href="/contato/" class="footer-contact-link" aria-label="Acessar formulário de contato">
+            <span aria-hidden="true">✉️</span> Formulário de contato
+          </a>
+          <a href="mailto:cienciaplural@gmail.com" class="footer-contact-link" aria-label="Enviar e-mail para cienciaplural@gmail.com">
+            <span aria-hidden="true">📧</span> cienciaplural@gmail.com
+          </a>
+          <a href="https://instagram.com/triadeplural" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="Seguir @triadeplural no Instagram">
+            <span aria-hidden="true">📸</span> @triadeplural
+          </a>
         </div>
-
-        <!-- QUEM CRIOU -->
-        <div class="about-block">
-            <h2>Quem criou</h2>
-            <p>O Ciência Plural foi criado por Sabrina Sonegheti, professora de Ciências e Biologia da rede pública em Linhares, no Espírito Santo. Com mais de 20 anos de experiência em sala de aula no Ensino Fundamental e no Ensino Médio, Sabrina conhece de perto os desafios que professores e estudantes enfrentam diariamente, e foi justamente essa vivência que motivou a criação da plataforma.</p>
-            <p>Sabrina é Mestre em Ensino de Biologia pelo PROFBIO, o Programa de Mestrado Profissional em Ensino de Biologia vinculado à Universidade Federal do Espírito Santo (UFES). Sua formação acadêmica combina pesquisa em metodologias ativas de ensino com a prática cotidiana da sala de aula, o que se reflete diretamente no modo como cada jogo é concebido: sempre partindo de uma necessidade pedagógica real, nunca de uma premissa puramente tecnológica.</p>
-            <p>Além de criar e manter o Ciência Plural, Sabrina atua como formadora de professores de Ciências em Linhares, conduzindo formações continuadas em temas como metodologias ativas, ensino de Ciências alinhado à BNCC e práticas de avaliação. Também ministra cursos voltados ao uso de Inteligência Artificial aplicada à educação, ajudando outros educadores a integrar essas ferramentas à sua rotina pedagógica. Em 2025, obteve múltiplas certificações em IA educacional, consolidando sua atuação na interseção entre tecnologia e ensino de Ciências.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links</h3>
+        <div class="footer-links">
+          <a href="/sobre/" class="footer-link">Sobre</a>
+          <a href="/privacidade/" class="footer-link">Política de Privacidade</a>
+          <a href="/termos/" class="footer-link">Termos de Uso</a>
         </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Ciência Plural — Desenvolvido por Professores para Professores.</div>
+      <div class="footer-bottom-heart">Feito com <span>❤️</span> e Inteligência Artificial.</div>
+    </div>
+  </footer>
 
-        <!-- A TRÍADE PLURAL -->
-        <div class="about-block">
-            <h2>A Tríade Plural</h2>
-            <p>O Ciência Plural faz parte de um coletivo maior chamado Tríade Plural, formado por três educadores que compartilham a missão de produzir recursos educacionais digitais de qualidade. A Tríade reúne o Ciência Plural (Ciências e Biologia), o Português Plural (Língua Portuguesa) e o História Plural (História), cada um com sua especialidade, mas unidos pelo mesmo compromisso com a educação brasileira.</p>
-            <p>O grupo surgiu de forma orgânica: seus integrantes começaram como entusiastas de Inteligência Artificial, compartilhando pesquisas e descobertas sobre o potencial da IA na sala de aula. Com o tempo, perceberam que podiam ir além da troca de informações entre si e passaram a produzir materiais concretos para professores e estudantes. Hoje, a Tríade Plural também oferece formações e consultorias para professores e escolas interessadas em integrar a Inteligência Artificial às suas práticas pedagógicas.</p>
-            <p>A colaboração entre os três projetos permite uma troca constante de experiências sobre o que funciona, e o que não funciona, quando se trata de levar tecnologia educacional para o chão da escola. Essa diversidade de olhares, somada à experiência prática de cada integrante, fortalece a qualidade de tudo o que a Tríade Plural produz.</p>
-        </div>
-
-        <!-- COMO OS JOGOS SÃO FEITOS -->
-        <div class="about-block">
-            <h2>Como os jogos são feitos</h2>
-            <p>Cada jogo do Ciência Plural segue uma metodologia de produção rigorosa. O processo começa com um planejamento detalhado que define os objetivos pedagógicos, as mecânicas de jogo, a narrativa e as fases antes que qualquer linha de código seja escrita. Nenhuma etapa avança sem revisão e aprovação, garantindo que o jogo tenha coerência pedagógica desde a sua concepção.</p>
-            <p>A implementação acontece em etapas sequenciais, cada uma com aprovação e revisão antes de prosseguir para a próxima. Essa abordagem evita retrabalho e assegura que decisões pedagógicas não sejam comprometidas por decisões técnicas tomadas com pressa. Todos os jogos são desenvolvidos com base na abordagem de Game-Based Learning (aprendizagem baseada em jogos), na qual o conteúdo curricular não é simplesmente inserido em um formato interativo, mas integrado às mecânicas do jogo de forma que aprender se torne parte natural da experiência de jogar.</p>
-            <p>Um diferencial importante é o feedback pedagógico individualizado por distrator. Isso significa que, quando um estudante erra uma questão, ele não recebe apenas um "resposta incorreta": o jogo identifica qual alternativa foi escolhida e oferece uma explicação específica sobre o raciocínio equivocado, ajudando o estudante a compreender onde errou e por quê. Ferramentas de Inteligência Artificial são utilizadas em diferentes etapas do processo de desenvolvimento, sempre sob supervisão pedagógica, garantindo que a tecnologia esteja a serviço dos objetivos de aprendizagem.</p>
-        </div>
-
-        <!-- ACESSIBILIDADE E INCLUSÃO -->
-        <div class="about-block">
-            <h2>Acessibilidade e inclusão</h2>
-            <p>O compromisso do Ciência Plural com a acessibilidade vai além da gratuidade dos jogos. A plataforma busca, de forma progressiva, incorporar princípios do Desenho Universal para a Aprendizagem (DUA), uma abordagem que propõe múltiplas formas de engajamento, representação e ação para que estudantes com diferentes perfis de aprendizagem possam acessar o mesmo conteúdo.</p>
-            <p>Um marco concreto desse compromisso é a versão adaptada do jogo Codex da Vida, desenvolvida especificamente para o Atendimento Educacional Especializado (AEE). Essa versão traz ajustes nas mecânicas, no ritmo e na apresentação do conteúdo para atender estudantes com necessidades educacionais específicas, sem reduzir a qualidade da experiência pedagógica. A intenção é que, com o tempo, todos os jogos da plataforma ofereçam versões adaptadas para AEE.</p>
-            <p>Tornar a educação em Ciências verdadeiramente acessível significa reconhecer que estudantes chegam à sala de aula com experiências, ritmos e necessidades diferentes. O Ciência Plural assume esse princípio como diretriz de desenvolvimento: cada novo jogo é planejado considerando como pode atender à maior diversidade possível de estudantes, respeitando suas individualidades e promovendo a inclusão desde a etapa de design.</p>
-        </div>
-
-        <!-- TECNOLOGIA -->
-        <div class="about-block">
-            <h2>Tecnologia</h2>
-            <p>Os jogos do Ciência Plural são desenvolvidos em HTML5, CSS e JavaScript, o que significa que funcionam diretamente no navegador de qualquer dispositivo, seja computador, tablet ou celular, sem exigir instalação de aplicativos, plugins ou qualquer outro software adicional. Essa escolha tecnológica é intencional: em muitas escolas, o acesso a dispositivos potentes ou a permissão para instalar aplicativos nem sempre é garantido, e um jogo que roda no navegador elimina a principal barreira técnica.</p>
-            <p>A plataforma não exige login e não coleta dados pessoais dos estudantes. Os jogos são e continuarão sendo gratuitos: o acesso livre não é uma fase temporária, mas um compromisso do projeto com a educação.</p>
-            <p>A opção por tecnologias abertas e leves também garante que os jogos carreguem rapidamente mesmo em conexões mais lentas, uma realidade comum em muitas escolas e residências no interior do Brasil. Todo o projeto é pensado para funcionar bem nas condições reais que estudantes e professores encontram no dia a dia.</p>
-        </div>
-
-        <!-- CTA FINAL -->
-        <div class="about-cta">
-            <a href="/" class="btn-primary">Explorar os jogos →</a>
-        </div>
-    </main>
-
-    <!-- ====== MANTER: seu <footer> original aqui ====== -->
-
+  <script src="/js/main.js"></script>
+  <script src="/js/consent.js"></script>
 </body>
 </html>
