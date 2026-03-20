@@ -1,12 +1,23 @@
 /**
  * Ciência Plural — Gestão de Consentimento de Cookies
- * Google Consent Mode v2 + LGPD
+ * Google Consent Mode v2 + LGPD + COPPA (tfcd)
  *
  * Fluxo:
  *  1. <head> declara gtag('consent','default', {denied})
  *  2. Este script verifica localStorage
  *  3. Se consentimento salvo → aplica imediatamente
  *  4. Se não → exibe banner e aguarda decisão
+ *
+ * COPPA:
+ *  Páginas com <html data-tfcd="1"> são tratadas como conteúdo
+ *  direcionado a crianças. Nessas páginas:
+ *  - AdSense carrega com &tfcd=1 (desativa anúncios personalizados)
+ *  - GA4 opera com ads_data_redaction ativado
+ *  - ad_personalization permanece 'denied' mesmo após consentimento
+ *
+ * Páginas noindex:
+ *  Páginas com <html data-noads="1"> não carregam AdSense.
+ *  Apenas GA4 é ativado após consentimento (analytics puro).
  */
 
 (function () {
@@ -15,6 +26,14 @@
   var CONSENT_KEY = 'cp_cookie_consent';
   var GA_ID = 'G-09KM89GPY4';
   var ADSENSE_ID = 'ca-pub-6440630877091956';
+
+  /* ── COPPA: detectar página direcionada a crianças ── */
+
+  var isChildDirected = document.documentElement.getAttribute('data-tfcd') === '1';
+
+  /* ── Páginas noindex: carregar apenas GA4, sem AdSense ── */
+
+  var noAds = document.documentElement.getAttribute('data-noads') === '1';
 
   /* ── Utilitários ── */
 
@@ -36,24 +55,42 @@
     // GA4
     loadScript('https://www.googletagmanager.com/gtag/js?id=' + GA_ID);
     gtag('js', new Date());
-    gtag('config', GA_ID);
 
-    // AdSense
-    loadScript(
-      'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_ID,
-      { crossorigin: 'anonymous' }
-    );
+    if (isChildDirected) {
+      gtag('config', GA_ID, { 'ads_data_redaction': true });
+    } else {
+      gtag('config', GA_ID);
+    }
+
+    // AdSense — não carregar em páginas noindex
+    if (!noAds) {
+      var adsenseUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_ID;
+      if (isChildDirected) {
+        adsenseUrl += '&tfcd=1';
+      }
+      loadScript(adsenseUrl, { crossorigin: 'anonymous' });
+    }
   }
 
   /* ── Atualizar consentimento ── */
 
   function grantConsent() {
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'analytics_storage': 'granted'
-    });
+    if (isChildDirected) {
+      /* COPPA: nunca personalizar anúncios em páginas infantis */
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'granted'
+      });
+    } else {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
     loadGoogleScripts();
   }
 
