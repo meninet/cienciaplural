@@ -74,6 +74,63 @@
 }
   </script>
   <link rel="canonical" href="https://www.cienciaplural.com.br/pixel-chef/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "O jogo é gratuito?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O Pixel Chef é totalmente gratuito e não exige nenhum tipo de cadastro, assinatura ou instalação. Basta acessar a página e clicar em jogar."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Funciona no celular?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O jogo foi desenvolvido com design responsivo e é compatível com smartphones, tablets e computadores. Para a melhor experiência, recomendamos o modo tela cheia."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O jogo cobre todo o conteúdo de estados físicos do 9º ano?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O jogo cobre os principais conceitos da habilidade EF09CI01 da BNCC: identificação dos três estados físicos pelo modelo submicroscópico, nomeação e descrição das 6 mudanças de estado, relação entre mudanças de estado e energia térmica, interpretação de gráficos de aquecimento e resfriamento, diferenciação entre substâncias puras e misturas pelo gráfico térmico, e aplicação dos conceitos a situações do cotidiano e da indústria. É um recurso complementar projetado para integrar o planejamento pedagógico do professor, tornando a aprendizagem mais significativa e engajante."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Posso usar o jogo com alunos público-alvo do AEE?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Esta versão é a versão regular do jogo. Uma versão AEE com adaptações específicas (linguagem simplificada, fonte de maior legibilidade, enunciados mais curtos e mecânicas adaptadas) está prevista para desenvolvimento futuro. Enquanto isso, o jogo pode ser utilizado com mediação do professor, que poderá ajustar o ritmo e oferecer suporte conforme o nível de necessidade do estudante."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quem é o Chef Mol?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Chef Mol é o personagem guia que acompanha o aluno durante toda a missão. Chef de gastronomia molecular com óculos e chapéu de chef branco, simpático, encorajador e cientista-cozinheiro, ele apresenta os conceitos nos cards de aula, comenta cada resposta com feedbacks individualizados, narra as transições entre fases e encerra o jogo com uma mensagem personalizada de acordo com o desempenho do aluno."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Há algum material de apoio para o professor?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A seção \"Materiais\" do Ciência Plural está em desenvolvimento e em breve disponibilizará atividades complementares para uso em sala de aula, alinhadas aos conteúdos de cada fase do jogo."
+            }
+        }
+    ]
+}
+  </script>
 </head>
 <body>
 
@@ -104,13 +161,13 @@
   </header>
 
   <!-- GAME HEADER -->
-  <section class="game-header" style="margin-top: 0;">
+  <section class="game-header" style="margin-top: var(--header-height);">
     <div class="container">
       <h1 class="game-page-title">PIXEL CHEF: O Restaurante Molecular</h1>
       <div class="game-meta">
         <span class="game-meta-item">🎓 9º ano — Ensino Fundamental</span>
         <span class="game-meta-item">🔬 Ciências da Natureza</span>
-        <span class="game-meta-item">📚 Estados físicos da matéria</span>
+        <span class="game-meta-item">📚 Estrutura da matéria e estados físicos</span>
         <span class="game-meta-item">📋 BNCC: EF09CI01</span>
       </div>
     </div>
@@ -140,7 +197,7 @@
 
       <!-- GAME DESCRIPTION (resumo) -->
       <div class="game-description">
-        <p>O restaurante do Chef Mol está em crise! As substâncias estão se transformando sozinhas e a cozinha virou um laboratório de estados físicos. Junte-se ao Chef Mol e mergulhe no mundo submicroscópico das partículas para entender por que o gelo derrete, a água ferve, a naftalina some e a geada aparece do nada, tudo isso enquanto salva o cardápio do restaurante. O jogo percorre 4 fases progressivas que vão da identificação de estados físicos à interpretação de gráficos térmicos e aplicação industrial das transformações, combinando aulas em cards interativos, quizzes contextualizados com situações reais e um sistema de pontuação com certificado personalizado.</p>
+        <p>Uma crise inesperada no Restaurante Molecular! As substâncias estão se transformando sozinhas — sólidos derretendo, líquidos evaporando, gases se condensando sem controle. Assuma o papel de ajudante do Chef Mol, um chef de gastronomia molecular especialista em estados físicos da matéria, investigue o comportamento das partículas, identifique as mudanças de estado, interprete gráficos térmicos e aplique os conceitos a situações reais do cotidiano e da indústria ao longo de 4 fases progressivas com 30 questões. O jogo combina cards de aula interativos, animações de partículas, gráficos vetoriais de aquecimento e resfriamento e quizzes contextualizados, tudo com feedback científico individualizado por alternativa.</p>
       </div>
     </div>
   </section>
@@ -150,26 +207,39 @@
     <div class="container" style="max-width: 960px;">
 
       <h2>Sobre o jogo</h2>
-      <p>Recurso educacional gamificado para o ensino de Ciências no 9º ano. Desenvolvido em HTML5, roda diretamente no navegador, sem instalação e sem login, compatível com celulares, tablets e computadores. Baseado em Game-Based Learning e metodologia ativa, transforma o estudo dos estados físicos da matéria e suas transformações em uma experiência narrativa, investigativa e interativa, articulando os níveis macroscópico e submicroscópico da Química de forma acessível e significativa.</p>
+      <p>Recurso educacional gamificado para o ensino de Ciências no 9º ano do Ensino Fundamental. Desenvolvido em HTML5, roda diretamente no navegador — sem instalação, sem login, compatível com celulares, tablets e computadores. Fundamentado na aprendizagem baseada em jogos (Game-Based Learning) com elementos de investigação científica e modelo submicroscópico da matéria, transforma o estudo dos estados físicos e mudanças de estado em uma experiência narrativa e interativa com estética pixel art retrô e temática de restaurante/cozinha molecular.</p>
 
       <h2>Destaques e Jogabilidade</h2>
 
-      <p><strong>4 fases com curva de dificuldade progressiva:</strong> o aluno começa identificando estados físicos pela análise do comportamento submicroscópico das partículas, avança para nomear e classificar as 6 transformações de estado com base em situações do cotidiano (gelo derretendo, vapor da panela, naftalina, geada), interpreta gráficos de aquecimento e resfriamento distinguindo trechos inclinados e platôs, e finaliza aplicando esses conhecimentos a contextos industriais e tecnológicos reais: geladeira, liofilização, destilação do petróleo, panela de pressão e gelo seco.</p>
+      <p><strong>4 fases com curva de dificuldade progressiva:</strong> o aluno começa identificando os três estados físicos da matéria pelo comportamento submicroscópico das partículas, avança para a classificação das 6 mudanças de estado relacionando-as com ganho e perda de energia, investiga gráficos de aquecimento e resfriamento aprendendo a interpretar platôs e diferenciar substâncias puras de misturas, e finaliza aplicando todos os conceitos a situações reais do cotidiano e da indústria.</p>
 
-      <p><strong>Feedback imediato, específico e dialógico:</strong> cada resposta recebe retorno instantâneo do Chef Mol com explicações contextualizadas. Quando o aluno erra, recebe uma orientação específica para aquela questão, que aponta o raciocínio correto sem revelar a resposta, transformando o erro em oportunidade de aprendizagem. Quando acerta, o feedback reforça o conceito com linguagem submicroscópica e exemplos reais.</p>
+      <p><strong>Feedback imediato e individualizado:</strong> cada alternativa possui retorno específico do Chef Mol, com explicações científicas contextualizadas que esclarecem por que aquela opção está correta ou por que o distrator escolhido não se aplica. São 100 feedbacks individualizados distribuídos pelas 30 questões — o erro vira oportunidade de ensino com explicação detalhada, não punição genérica.</p>
 
-      <p><strong>Aulas em cards antes de cada desafio:</strong> o jogo é informativo antes de ser avaliativo. Cada fase começa com cards interativos que apresentam os conceitos, o modelo de partículas, diagramas de estados e dados reais, garantindo que o aluno tenha subsídios para responder com confiança. O conteúdo utiliza linguagem visual com destaques coloridos, exemplos do cotidiano e a explicação nos níveis macroscópico e submicroscópico.</p>
+      <p><strong>Cards de aula antes de cada desafio:</strong> o jogo é informativo e investigativo. Antes de responder, o aluno estuda o conteúdo em cards interativos com conceitos, animações de partículas, gráficos SVG vetoriais e destaques visuais com código de cores consistente (sólido em vermelho, líquido em azul, gasoso em verde), garantindo que a avaliação seja justa e significativa. Ao todo, são 18 cards distribuídos pelas 4 fases, cobrindo desde a organização das partículas nos três estados até eficiência energética industrial e o conceito de substância pura versus mistura.</p>
 
-      <p><strong>Gráficos térmicos interativos gerados em Canvas:</strong> a Fase 3 apresenta gráficos de aquecimento e resfriamento renderizados em tempo real via Canvas HTML5: curva de aquecimento com platô simples, curva completa com dois platôs identificados (Tf e Te), curva de resfriamento, gráfico parcial para previsão hipotética e comparativo entre substância pura e mistura. Este último é inspirado no fenômeno crioscópico e ebuliscópico da água com sal, fiel ao comportamento real observado em sala de aula.</p>
+      <p><strong>Mecânicas variadas de interação:</strong> cards de aula progressivos com animações de partículas nos três estados, quiz de classificação com 3 opções fixas (Fase 1), classificação de cenários com 6 opções de mudanças de estado incluindo questão de hipótese (Fase 2), análise de gráficos vetoriais SVG de aquecimento e resfriamento da água com identificação de platôs e comparação substância pura versus mistura (Fase 3), e quiz contextualizado com situações-problema do cotidiano e da indústria — suor, geladeira, destilação do petróleo, liofilização, panela de pressão (Fase 4), mantendo o engajamento do início ao fim.</p>
 
-      <p><strong>Questões hipótese para desenvolver raciocínio científico:</strong> em cada fase há uma questão do tipo hipótese que pede ao aluno para prever o que vai acontecer antes de ver o resultado, estimulando o pensamento científico e a metacognição. O aluno não apenas classifica e nomeia: ele raciocina, prevê, explica e reflete, exercitando as habilidades de investigação previstas na BNCC.</p>
+      <p><strong>Design responsivo e acessível:</strong> interface pixel art imersiva com paleta quente e amadeirada, tipografia Fredoka One e Nunito, personagem Chef Mol construído em CSS puro, otimizada para qualquer tamanho de tela. Tecnologia HTML5 + CSS + JavaScript em arquivo único, sem dependência de plugins, frameworks ou downloads.</p>
 
-      <p><strong>Design responsivo e acessível com animações de partículas:</strong> interface pixel art temática de restaurante, com animações de partículas em Canvas que representam visualmente os três estados físicos em tempo real. Otimizada para qualquer tamanho de tela. Tecnologia HTML5 + CSS + JavaScript em arquivo único, sem dependência de plugins, frameworks ou downloads, pronto para usar offline ou publicar em qualquer plataforma.</p>
-
-      <p><strong>Sistema de avaliação integrado com certificado personalizado:</strong> pontuação de 10 a 100 pontos por questão conforme desempenho (1ª tentativa sem dica, com dica, após erros), sistema de estrelas (0 a 3) em cada fase baseado em acertos de primeira tentativa, barra de progresso visual no header, sistema de dicas ativadas por escolha e certificado personalizado ao final com nome do aluno, título conquistado (Aprendiz, Sous Chef, Chef ou Chef Executivo) e habilidade BNCC desenvolvida.</p>
+      <p><strong>Sistema de avaliação integrado:</strong> pontuação por questão (100 pontos no acerto de primeira, 70 com dica, 40 após erro, 10 na última alternativa), sistema de dicas com confirmação em dois cliques e penalidade de 30%, classificação por estrelas em cada fase (3 estrelas para 90%+, 2 para 70%+, 1 para 50%+), classificação final por faixa de desempenho e certificado personalizado ao final com nome do aluno, título conquistado (Estagiário do Restaurante, Auxiliar de Cozinha, Cozinheiro Científico ou Chef Molecular Mestre), encerramento narrativo do Chef Mol e mensagem exclusiva por faixa de desempenho.</p>
 
       <h2>Alinhamento Pedagógico</h2>
-      <p>Desenvolve integralmente a habilidade EF09CI01 da BNCC, que propõe investigar as mudanças de estado físico da matéria e explicar essas transformações com base no modelo de constituição submicroscópica, além dos descritores SAEB E1A3 (modelo submicroscópico das partículas) e E1B5 (energia nas mudanças de estado), contemplando identificação e classificação dos três estados físicos, nomeação e caracterização das 6 transformações de estado, análise energética de cada processo (absorção ou liberação de calor), interpretação de gráficos temperatura × tempo com identificação de platôs, e aplicação a contextos industriais e tecnológicos reais. Estimula o pensamento investigativo ao exigir que o aluno articule o nível macroscópico (o que observamos) com o submicroscópico (o que as partículas fazem), desenvolvendo a capacidade de explicação científica prevista nas competências gerais e específicas da BNCC para as Ciências da Natureza.</p>
+      <p>Desenvolve integralmente a habilidade EF09CI01 da BNCC e os descritores SAEB E1A3 e E1B5, contemplando a investigação das mudanças de estado físico da matéria e a explicação dessas transformações com base no modelo de constituição submicroscópica. Cada fase corresponde a um nível taxonômico progressivo — reconhecimento, compreensão, análise e aplicação/síntese — garantindo que o aluno construa o conhecimento de forma estruturada. A narrativa da crise no restaurante e a progressão dos serviços espelham diretamente a habilidade curricular, conectando o modelo submicroscópico a situações observáveis do dia a dia e da indústria.</p>
+
+      <h2>O que o aluno aprende em cada fase</h2>
+      <p>O Pixel Chef foi estruturado para que cada fase desenvolva uma etapa específica do raciocínio científico sobre estados físicos da matéria, criando uma progressão lógica: reconhecer → classificar → analisar gráficos → aplicar a situações reais.</p>
+      <p><strong>Fase 1 — A Despensa das Partículas: Identificando Estados Físicos.</strong> O aluno aprende a identificar os três estados físicos da matéria com base no comportamento submicroscópico das partículas. Em 4 cards de aula com animação interativa de partículas, descobre como as partículas se organizam e se movimentam no estado sólido (organizadas, vibrando no lugar), líquido (próximas mas com mobilidade) e gasoso (muito afastadas, em movimento rápido). Em seguida, enfrenta 6 questões de classificação — cada uma apresenta um "pote misterioso" com visualização submicroscópica e macroscópica simultânea, e o aluno deve identificar o estado entre 3 opções fixas (Sólido, Líquido, Gasoso), com feedbacks individualizados para cada distrator. A fase desenvolve a habilidade fundamental de reconhecimento pelo modelo de partículas, incluindo questões sobre energia cinética e propriedades macroscópicas.</p>
+      <p><strong>Fase 2 — O Fogão das Transformações: Mudanças de Estado e Energia.</strong> Com o reconhecimento dos estados dominado, o aluno agora investiga as 6 mudanças de estado e sua relação com energia. Em 4 cards de aula, estuda fusão, solidificação, vaporização, condensação, sublimação e ressublimação, compreendendo quais absorvem e quais liberam energia térmica, com o macete do diagrama de estados. O desafio apresenta 9 questões com cenários contextualizados — gelo no copo, vapor da panela, espelho embaçado, fabricação de sorvete, naftalina sumindo, geada na grama, produção de chumbo, chuva se formando — onde o aluno classifica cada transformação entre 6 opções, com nível submicroscópico explicado em cada cena. A fase inclui uma questão de hipótese onde o aluno deve prever o resultado de colocar água no freezer antes de ver a resposta, desenvolvendo raciocínio preditivo.</p>
+      <p><strong>Fase 3 — O Painel de Controle Térmico: Interpretando Gráficos.</strong> Esta fase ensina a leitura e interpretação de gráficos de temperatura × tempo. Em 6 cards de aula, o aluno aprende a identificar trechos inclinados e platôs, compreende o significado de PF (Ponto de Fusão) e PE (Ponto de Ebulição) com gráfico vetorial SVG da curva de aquecimento da água, entende o que acontece com as partículas durante os platôs, e descobre como diferenciar substâncias puras de misturas pelo formato do gráfico. As 6 questões utilizam gráficos vetoriais SVG com linhas matematicamente perfeitas: o aluno analisa o que ocorre no primeiro platô, identifica trechos do gráfico por letras (A a E), interpreta o segundo platô, analisa uma curva de resfriamento, prevê o comportamento futuro de um gráfico parcial, e compara duas curvas sobrepostas (substância pura em vermelho × mistura em azul) para identificar qual é qual. A fase desenvolve a capacidade de leitura de representações gráficas científicas.</p>
+      <p><strong>Fase 4 — O Serviço — Mesa a Mesa: Cotidiano e Indústria.</strong> A fase final e mais desafiadora aplica todos os conceitos a situações reais. Em 4 cards de aula, o aluno estuda mudanças de estado na indústria (destilação do petróleo, liofilização, usinas termelétricas, gelo seco) e no cotidiano (geladeira, chuva, secagem de roupas, orvalho), compreendendo que toda mudança de estado envolve troca de energia com o ambiente. As 9 questões apresentam clientes chegando ao restaurante com perguntas do mundo real: por que suar refresca o corpo, como funciona o gelo seco na gastronomia molecular, o mecanismo da geladeira, a destilação fracionada do petróleo, a liofilização do café solúvel, a formação do orvalho, o funcionamento de usinas termelétricas e a física da panela de pressão. A fase inclui uma questão de hipótese sobre condensação e troca de energia. Exige pensamento integrado e transferência de conhecimento para contextos novos.</p>
+
+      <h2>Perguntas frequentes</h2>
+      <p><strong>O jogo é gratuito?</strong> Sim. O Pixel Chef é totalmente gratuito e não exige nenhum tipo de cadastro, assinatura ou instalação. Basta acessar a página e clicar em jogar.</p>
+      <p><strong>Funciona no celular?</strong> Sim. O jogo foi desenvolvido com design responsivo e é compatível com smartphones, tablets e computadores. Para a melhor experiência, recomendamos o modo tela cheia.</p>
+      <p><strong>O jogo cobre todo o conteúdo de estados físicos do 9º ano?</strong> O jogo cobre os principais conceitos da habilidade EF09CI01 da BNCC: identificação dos três estados físicos pelo modelo submicroscópico, nomeação e descrição das 6 mudanças de estado, relação entre mudanças de estado e energia térmica, interpretação de gráficos de aquecimento e resfriamento, diferenciação entre substâncias puras e misturas pelo gráfico térmico, e aplicação dos conceitos a situações do cotidiano e da indústria. É um recurso complementar projetado para integrar o planejamento pedagógico do professor, tornando a aprendizagem mais significativa e engajante.</p>
+      <p><strong>Posso usar o jogo com alunos público-alvo do AEE?</strong> Esta versão é a versão regular do jogo. Uma versão AEE com adaptações específicas (linguagem simplificada, fonte de maior legibilidade, enunciados mais curtos e mecânicas adaptadas) está prevista para desenvolvimento futuro. Enquanto isso, o jogo pode ser utilizado com mediação do professor, que poderá ajustar o ritmo e oferecer suporte conforme o nível de necessidade do estudante.</p>
+      <p><strong>Quem é o Chef Mol?</strong> Chef Mol é o personagem guia que acompanha o aluno durante toda a missão. Chef de gastronomia molecular com óculos e chapéu de chef branco, simpático, encorajador e cientista-cozinheiro, ele apresenta os conceitos nos cards de aula, comenta cada resposta com feedbacks individualizados, narra as transições entre fases e encerra o jogo com uma mensagem personalizada de acordo com o desempenho do aluno.</p>
+      <p><strong>Há algum material de apoio para o professor?</strong> A seção "Materiais" do Ciência Plural está em desenvolvimento e em breve disponibilizará atividades complementares para uso em sala de aula, alinhadas aos conteúdos de cada fase do jogo.</p>
 
     </div>
   </section>
