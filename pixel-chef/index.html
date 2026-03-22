@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tfcd="1">
 <head>
   <meta charset="UTF-8">
   <!-- Google Consent Mode v2 — estado padrão: bloqueado até consentimento -->
@@ -22,6 +22,9 @@
   <meta property="og:description" content="Jogo educativo sobre estados físicos da matéria para o 9º ano. Alinhado à BNCC.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.cienciaplural.com.br/pixel-chef/">
+  <meta property="og:image" content="https://www.cienciaplural.com.br/images/og/pixel-chef.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
   <meta name="google-adsense-account" content="ca-pub-6440630877091956">
 
@@ -209,6 +212,9 @@
       <h2>Sobre o jogo</h2>
       <p>Recurso educacional gamificado para o ensino de Ciências no 9º ano do Ensino Fundamental. Desenvolvido em HTML5, roda diretamente no navegador — sem instalação, sem login, compatível com celulares, tablets e computadores. Fundamentado na aprendizagem baseada em jogos (Game-Based Learning) com elementos de investigação científica e modelo submicroscópico da matéria, transforma o estudo dos estados físicos e mudanças de estado em uma experiência narrativa e interativa com estética pixel art retrô e temática de restaurante/cozinha molecular.</p>
 
+      <img src="/images/pixel-chef/tela-inicial.jpg" alt="Tela inicial do jogo Pixel Chef mostrando o Chef Mol, a mensagem de boas-vindas ao Restaurante Molecular, o campo para digitar o nome do aluno e os objetivos de aprendizagem sobre estados físicos da matéria" class="game-screenshot" loading="lazy">
+      <p class="game-screenshot-caption">Tela inicial do Pixel Chef: o Chef Mol dá as boas-vindas ao Restaurante Molecular e apresenta os objetivos da missão.</p>
+
       <h2>Destaques e Jogabilidade</h2>
 
       <p><strong>4 fases com curva de dificuldade progressiva:</strong> o aluno começa identificando os três estados físicos da matéria pelo comportamento submicroscópico das partículas, avança para a classificação das 6 mudanças de estado relacionando-as com ganho e perda de energia, investiga gráficos de aquecimento e resfriamento aprendendo a interpretar platôs e diferenciar substâncias puras de misturas, e finaliza aplicando todos os conceitos a situações reais do cotidiano e da indústria.</p>
@@ -229,9 +235,32 @@
       <h2>O que o aluno aprende em cada fase</h2>
       <p>O Pixel Chef foi estruturado para que cada fase desenvolva uma etapa específica do raciocínio científico sobre estados físicos da matéria, criando uma progressão lógica: reconhecer → classificar → analisar gráficos → aplicar a situações reais.</p>
       <p><strong>Fase 1 — A Despensa das Partículas: Identificando Estados Físicos.</strong> O aluno aprende a identificar os três estados físicos da matéria com base no comportamento submicroscópico das partículas. Em 4 cards de aula com animação interativa de partículas, descobre como as partículas se organizam e se movimentam no estado sólido (organizadas, vibrando no lugar), líquido (próximas mas com mobilidade) e gasoso (muito afastadas, em movimento rápido). Em seguida, enfrenta 6 questões de classificação — cada uma apresenta um "pote misterioso" com visualização submicroscópica e macroscópica simultânea, e o aluno deve identificar o estado entre 3 opções fixas (Sólido, Líquido, Gasoso), com feedbacks individualizados para cada distrator. A fase desenvolve a habilidade fundamental de reconhecimento pelo modelo de partículas, incluindo questões sobre energia cinética e propriedades macroscópicas.</p>
+
+      <div class="game-screenshot-pair">
+        <img src="/images/pixel-chef/fase1-solido.jpg" alt="Fase 1 do Pixel Chef: visualizador molecular mostrando partículas organizadas em grade (visão submicroscópica) e um cubo de gelo com forma e volume fixos (escala macroscópica) — estado sólido" loading="lazy">
+        <img src="/images/pixel-chef/fase1-gasoso.jpg" alt="Fase 1 do Pixel Chef: visualizador molecular mostrando partículas dispersas e afastadas (visão submicroscópica) e uma nuvem sem forma nem volume (escala macroscópica) — estado gasoso" loading="lazy">
+      </div>
+      <div class="game-screenshot-pair-caption">
+        <span>Sólido: partículas organizadas, forma e volume fixos.</span>
+        <span>Gasoso: partículas dispersas, sem forma nem volume.</span>
+      </div>
+
       <p><strong>Fase 2 — O Fogão das Transformações: Mudanças de Estado e Energia.</strong> Com o reconhecimento dos estados dominado, o aluno agora investiga as 6 mudanças de estado e sua relação com energia. Em 4 cards de aula, estuda fusão, solidificação, vaporização, condensação, sublimação e ressublimação, compreendendo quais absorvem e quais liberam energia térmica, com o macete do diagrama de estados. O desafio apresenta 9 questões com cenários contextualizados — gelo no copo, vapor da panela, espelho embaçado, fabricação de sorvete, naftalina sumindo, geada na grama, produção de chumbo, chuva se formando — onde o aluno classifica cada transformação entre 6 opções, com nível submicroscópico explicado em cada cena. A fase inclui uma questão de hipótese onde o aluno deve prever o resultado de colocar água no freezer antes de ver a resposta, desenvolvendo raciocínio preditivo.</p>
       <p><strong>Fase 3 — O Painel de Controle Térmico: Interpretando Gráficos.</strong> Esta fase ensina a leitura e interpretação de gráficos de temperatura × tempo. Em 6 cards de aula, o aluno aprende a identificar trechos inclinados e platôs, compreende o significado de PF (Ponto de Fusão) e PE (Ponto de Ebulição) com gráfico vetorial SVG da curva de aquecimento da água, entende o que acontece com as partículas durante os platôs, e descobre como diferenciar substâncias puras de misturas pelo formato do gráfico. As 6 questões utilizam gráficos vetoriais SVG com linhas matematicamente perfeitas: o aluno analisa o que ocorre no primeiro platô, identifica trechos do gráfico por letras (A a E), interpreta o segundo platô, analisa uma curva de resfriamento, prevê o comportamento futuro de um gráfico parcial, e compara duas curvas sobrepostas (substância pura em vermelho × mistura em azul) para identificar qual é qual. A fase desenvolve a capacidade de leitura de representações gráficas científicas.</p>
+
+      <img src="/images/pixel-chef/fase3-grafico.jpg" alt="Fase 3 do Pixel Chef: gráfico de aquecimento da água (substância pura) com trechos A a E, dois platôs horizontais no ponto de fusão e no ponto de ebulição, e a pergunta do Chef Mol sobre qual trecho representa a fusão" class="game-screenshot" loading="lazy">
+      <p class="game-screenshot-caption">Fase 3 — Painel de Controle Térmico: o aluno interpreta a curva de aquecimento da água identificando trechos inclinados e platôs.</p>
+
       <p><strong>Fase 4 — O Serviço — Mesa a Mesa: Cotidiano e Indústria.</strong> A fase final e mais desafiadora aplica todos os conceitos a situações reais. Em 4 cards de aula, o aluno estuda mudanças de estado na indústria (destilação do petróleo, liofilização, usinas termelétricas, gelo seco) e no cotidiano (geladeira, chuva, secagem de roupas, orvalho), compreendendo que toda mudança de estado envolve troca de energia com o ambiente. As 9 questões apresentam clientes chegando ao restaurante com perguntas do mundo real: por que suar refresca o corpo, como funciona o gelo seco na gastronomia molecular, o mecanismo da geladeira, a destilação fracionada do petróleo, a liofilização do café solúvel, a formação do orvalho, o funcionamento de usinas termelétricas e a física da panela de pressão. A fase inclui uma questão de hipótese sobre condensação e troca de energia. Exige pensamento integrado e transferência de conhecimento para contextos novos.</p>
+
+      <div class="game-screenshot-pair">
+        <img src="/images/pixel-chef/fase4-gelo-seco.jpg" alt="Fase 4 do Pixel Chef: Mesa 2 — O Gelo Seco, mostrando a sublimação do CO₂ sólido direto para gasoso, com o Chef Mol perguntando qual transformação ocorre e se a substância ganha ou perde calor" loading="lazy">
+        <img src="/images/pixel-chef/fase4-liofilizacao.jpg" alt="Fase 4 do Pixel Chef: Mesa 5 — Liofilização de Alimentos, mostrando o café congelado sendo transformado em pó seco, com o Chef Mol perguntando qual transformação ocorre e como a energia está envolvida" loading="lazy">
+      </div>
+      <div class="game-screenshot-pair-caption">
+        <span>Gelo seco: CO₂ sólido → gasoso por sublimação.</span>
+        <span>Liofilização: café congelado → pó seco, conservando sabor e aroma.</span>
+      </div>
 
       <h2>Perguntas frequentes</h2>
       <p><strong>O jogo é gratuito?</strong> Sim. O Pixel Chef é totalmente gratuito e não exige nenhum tipo de cadastro, assinatura ou instalação. Basta acessar a página e clicar em jogar.</p>
