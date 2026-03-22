@@ -563,9 +563,10 @@ ul, ol { list-style: none; }
 
 /* ===== Game Screenshots ===== */
 .game-screenshot {
-  width: 100%;
+  width: 50%;
+  display: block;
+  margin: 24px auto;
   border-radius: 12px;
-  margin: 24px 0;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
