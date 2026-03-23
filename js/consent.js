@@ -49,7 +49,10 @@
     document.head.appendChild(s);
   }
 
-  /* ── Carregar GA4 + AdSense ── */
+  /* ── Carregar GA4 ── */
+  /* AdSense agora é carregado via <script> direto no <head> de cada página.
+     O Consent Mode v2 (estado padrão denied) garante conformidade com a LGPD
+     mesmo com o script presente antes do consentimento. */
 
   function loadGoogleScripts() {
     // GA4
@@ -60,15 +63,6 @@
       gtag('config', GA_ID, { 'ads_data_redaction': true });
     } else {
       gtag('config', GA_ID);
-    }
-
-    // AdSense — não carregar em páginas noindex
-    if (!noAds) {
-      var adsenseUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_ID;
-      if (isChildDirected) {
-        adsenseUrl += '&tfcd=1';
-      }
-      loadScript(adsenseUrl, { crossorigin: 'anonymous' });
     }
   }
 
