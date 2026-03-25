@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<!-- Google Consent Mode v2 — herda consentimento do site (mesmo domínio) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  (function(){
+    var consent = localStorage.getItem('cp_cookie_consent');
+    if (consent === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'granted'
+      });
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-09KM89GPY4';
+      s.async = true;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-09KM89GPY4', { 'ads_data_redaction': true });
+    }
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>⚡ ENERGÓPOLIS — Luz para o Futuro</title>
+<meta name="description" content="Jogo educativo sobre fontes de energia - EF08CI01 - Ciência Plural">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg-dark:#0a0e27;--bg-card:#111638;--bg-card-hover:#1a2048;--neon-blue:#00d4ff;--neon-green:#00ff88;--neon-amber:#ffb800;--neon-red:#ff4757;--neon-purple:#a855f7;--neon-pink:#ff6b9d;--text-primary:#f0f1fa;--text-secondary:#c5cbe8;--text-muted:#8a94c0;--glass:rgba(17,22,56,0.9);--glass-border:rgba(0,212,255,0.22);--radius:16px;--radius-sm:10px;--radius-xs:6px;--shadow-neon:0 0 20px rgba(0,212,255,0.15),0 0 60px rgba(0,212,255,0.05);--font-display:'Orbitron',sans-serif;--font-body:'Quicksand',sans-serif}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text-primary);background:var(--bg-dark);min-height:100vh;overflow-x:hidden;line-height:1.6}
+button{font-family:var(--font-body);cursor:pointer;border:none;outline:none}
+input{font-family:var(--font-body);outline:none}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 20s linear infinite}
+@keyframes gridMove{to{background-position:60px 60px}}
+.bg-particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:3px;height:3px;background:var(--neon-blue);border-radius:50%;opacity:0;animation:float 8s infinite}
+.particle:nth-child(2n){background:var(--neon-green);animation-duration:12s}
+.particle:nth-child(3n){background:var(--neon-amber);animation-duration:10s}
+@keyframes float{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:.8}90%{opacity:.8}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+.screen{display:none;position:relative;z-index:1;min-height:100vh;padding:20px 20px 80px;max-width:900px;margin:0 auto;animation:fadeIn .6s ease}
+.screen.active{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:70px}
+.screen.active.screen-title{justify-content:center;padding-top:20px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes bounceIn{0%{transform:scale(.3);opacity:0}50%{transform:scale(1.05)}70%{transform:scale(.95)}100%{transform:scale(1);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes confetti{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+.game-header{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(135deg,rgba(10,14,39,.95),rgba(17,22,56,.95));backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:10px 20px;display:none;align-items:center;justify-content:space-between;gap:12px}
+.game-header.visible{display:flex}
+.header-phase{font-family:var(--font-display);font-size:.6rem;color:var(--neon-blue);letter-spacing:1px;text-transform:uppercase;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-score{display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:.8rem;color:var(--neon-amber);flex-shrink:0}
+.header-score svg{width:18px;height:18px}
+.title-logo{font-family:var(--font-display);font-size:clamp(2rem,6vw,3.5rem);font-weight:900;text-align:center;background:linear-gradient(135deg,var(--neon-blue),var(--neon-green),var(--neon-amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 30px rgba(0,212,255,.3));margin-bottom:4px}
+.title-subtitle{font-family:var(--font-display);font-size:clamp(.7rem,2vw,1rem);color:var(--neon-blue);letter-spacing:4px;text-transform:uppercase;text-align:center;margin-bottom:20px;opacity:.8}
+.title-bolt{font-size:clamp(4rem,12vw,7rem);margin-bottom:10px;animation:pulse 2s ease infinite;filter:drop-shadow(0 0 40px rgba(255,184,0,.5))}
+.name-input-group{width:100%;max-width:380px;margin:16px 0}
+.name-input-group label{display:block;font-size:.85rem;color:var(--text-secondary);margin-bottom:8px;text-align:center}
+.name-input{width:100%;padding:14px 20px;border-radius:var(--radius);background:var(--bg-card);border:2px solid var(--glass-border);color:var(--text-primary);font-size:1.1rem;font-weight:600;text-align:center;transition:all .3s}
+.name-input:focus{border-color:var(--neon-blue);box-shadow:var(--shadow-neon)}
+.name-input::placeholder{color:var(--text-muted);font-weight:400}
+.btn{padding:14px 32px;border-radius:var(--radius);font-size:1rem;font-weight:700;letter-spacing:.5px;transition:all .3s;position:relative;overflow:hidden}
+.btn-primary{background:linear-gradient(135deg,#0066ff,var(--neon-blue));color:#fff;box-shadow:0 4px 20px rgba(0,102,255,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(0,102,255,.5)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-success{background:linear-gradient(135deg,#00b359,var(--neon-green));color:#fff;box-shadow:0 4px 20px rgba(0,255,136,.2)}
+.btn-success:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid var(--glass-border);color:var(--text-primary)}
+.btn-outline:hover{border-color:var(--neon-blue);background:rgba(0,212,255,.05)}
+.btn-sm{padding:10px 20px;font-size:.85rem;border-radius:var(--radius-sm)}
+.btn-lg{padding:18px 44px;font-size:1.15rem;border-radius:20px}
+.btn-block{width:100%;max-width:380px}
+.lumi-container{width:100%;max-width:700px;margin:16px 0;animation:slideUp .5s ease}
+.lumi-bubble{display:flex;gap:14px;align-items:flex-start;background:rgba(12,16,44,0.92);border:1px solid rgba(0,212,255,0.25);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-neon)}
+.lumi-avatar{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 20px rgba(0,212,255,.3);animation:pulse 3s ease infinite}
+.lumi-text{flex:1;font-size:.95rem;line-height:1.7;color:#ffffff}
+.lumi-name{font-family:var(--font-display);font-size:.65rem;color:var(--neon-blue);letter-spacing:2px;margin-bottom:6px}
+.lumi-text strong{color:var(--neon-amber)}
+.lumi-text em{color:var(--neon-green);font-style:normal;font-weight:600}
+.learn-list{width:100%;max-width:500px;margin:16px 0;text-align:left}
+.learn-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.92rem;color:var(--text-secondary);line-height:1.5}
+.learn-item span:first-child{color:var(--neon-amber);flex-shrink:0}
+.synopsis-box{width:100%;max-width:600px;margin:10px 0;padding:16px 20px;background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.15);border-radius:var(--radius);font-size:.93rem;color:var(--text-secondary);line-height:1.7;text-align:center;font-style:italic}
+.lesson-cards{width:100%;max-width:700px;margin:16px 0}
+.lesson-card{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:20px;margin-bottom:12px;animation:slideUp .4s ease both;transition:all .3s}
+.lesson-card:hover{border-color:rgba(0,212,255,.25)}
+.lesson-card-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.lesson-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.lesson-card-icon.blue{background:rgba(0,212,255,.1)}.lesson-card-icon.green{background:rgba(0,255,136,.1)}.lesson-card-icon.amber{background:rgba(255,184,0,.1)}.lesson-card-icon.red{background:rgba(255,71,87,.1)}.lesson-card-icon.purple{background:rgba(168,85,247,.1)}
+.lesson-card-title{font-family:var(--font-display);font-size:.72rem;font-weight:700;color:var(--neon-blue);letter-spacing:1px}
+.lesson-card-body{font-size:.92rem;line-height:1.75;color:#c8cee6}
+.lesson-card-body strong{color:#ffffff}
+.lesson-card-body em{color:var(--neon-green);font-style:normal;font-weight:600}
+.lesson-card-highlight{background:rgba(0,212,255,.06);border-left:3px solid var(--neon-blue);padding:10px 14px;border-radius:0 var(--radius-xs) var(--radius-xs) 0;margin-top:10px;font-size:.87rem;color:#7ad8f7;line-height:1.6}
+.lesson-card-example{background:rgba(0,255,136,.06);border-left:3px solid var(--neon-green);padding:10px 14px;border-radius:0 var(--radius-xs) var(--radius-xs) 0;margin-top:10px;font-size:.87rem;color:#6af5b0;line-height:1.6}
+.lesson-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0;width:100%;max-width:700px}
+.lesson-dots{display:flex;gap:6px}
+.lesson-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);transition:all .3s}
+.lesson-dot.active{background:var(--neon-blue);box-shadow:0 0 8px rgba(0,212,255,.4)}
+.lesson-dot.done{background:var(--neon-green)}
+.quiz-container{width:100%;max-width:700px;margin:0 auto}
+.quiz-progress{display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:.8rem;color:var(--text-muted)}
+.quiz-progress-bar{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--neon-blue),var(--neon-green));border-radius:3px;transition:width .5s ease}
+.quiz-question{font-size:clamp(1rem,2.5vw,1.1rem);font-weight:700;margin-bottom:18px;line-height:1.6;color:#ffffff}
+.quiz-context{background:rgba(0,212,255,.08);border-left:3px solid var(--neon-blue);padding:12px 16px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin-bottom:16px;font-size:.9rem;color:#b8d4f0;line-height:1.6}
+.quiz-options{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.quiz-option{padding:14px 18px;border-radius:var(--radius-sm);background:rgba(15,19,48,0.95);border:2px solid rgba(0,212,255,0.25);color:#eaecfa;font-size:.93rem;text-align:left;transition:all .3s;display:flex;align-items:center;gap:12px;font-weight:600;line-height:1.5}
+.quiz-option:hover:not(:disabled){border-color:var(--neon-blue);background:rgba(0,212,255,.05);transform:translateX(4px)}
+.quiz-option .opt-letter{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(0,212,255,.1);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.7rem;color:var(--neon-blue);font-weight:700}
+.quiz-option.correct{border-color:var(--neon-green)!important;background:rgba(0,255,136,.08)!important}
+.quiz-option.correct .opt-letter{background:var(--neon-green);color:#000}
+.quiz-option.wrong{border-color:var(--neon-red)!important;background:rgba(255,71,87,.08)!important;animation:shake .4s ease}
+.quiz-option.wrong .opt-letter{background:var(--neon-red);color:#fff}
+.quiz-option:disabled{cursor:default;opacity:.7}
+.feedback{padding:16px 20px;border-radius:var(--radius-sm);margin:16px 0;font-size:.9rem;line-height:1.7;animation:slideUp .3s ease;display:flex;gap:12px;align-items:flex-start}
+.feedback-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.feedback.correct{background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.3);color:#66ffbb}
+.feedback.wrong{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3);color:#ff99a8}
+.feedback.info{background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.3);color:#66e0ff}
+.feedback .fb-text{flex:1}.feedback .fb-text strong{color:var(--neon-amber)}
+.hint-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;font-size:.8rem;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);color:var(--neon-purple);font-weight:600;transition:all .3s;margin-bottom:8px}
+.hint-btn:hover{background:rgba(168,85,247,.2);transform:translateY(-1px)}
+.hint-btn:disabled{opacity:.3;cursor:not-allowed}
+.hint-box{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.25);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:14px;font-size:.87rem;color:#c9a4f7;animation:slideUp .3s ease;display:flex;gap:8px;align-items:flex-start}
+.scene-container{position:relative;width:100%;max-width:600px;aspect-ratio:16/12;border-radius:var(--radius);overflow:hidden;margin:12px auto;background:linear-gradient(180deg,#1a1a3e 0%,#2d1b4e 50%,#1a2848 100%);border:2px solid var(--glass-border)}
+.scene-item{position:absolute;font-size:clamp(1.5rem,4vw,2.2rem);cursor:pointer;transition:all .3s;z-index:2;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));display:flex;flex-direction:column;align-items:center;gap:2px}
+.scene-item .item-label{font-size:.55rem;font-family:var(--font-body);font-weight:700;color:#e0e4f4;background:rgba(0,0,0,.8);padding:2px 7px;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.scene-item:hover .item-label{opacity:1}
+.scene-item:hover{transform:scale(1.15);filter:drop-shadow(0 0 12px rgba(0,212,255,.5))}
+.scene-item.found{animation:bounceIn .4s ease;filter:drop-shadow(0 0 15px rgba(0,255,136,.6))!important;pointer-events:none}
+.scene-item.wrong-click{animation:shake .3s ease}
+.scene-item.dismissed{opacity:.25;pointer-events:none;filter:grayscale(1)!important}
+.scene-label{position:absolute;bottom:0;left:0;right:0;padding:8px;background:rgba(0,0,0,.8);font-size:.75rem;text-align:center;color:#d0d4e8;font-weight:600}
+.energy-meter{width:100%;max-width:400px;margin:12px auto}
+.meter-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:.8rem}
+.meter-bar{height:18px;background:rgba(255,255,255,.05);border-radius:10px;overflow:hidden;border:1px solid var(--glass-border)}
+.meter-fill{height:100%;border-radius:10px;transition:width .8s ease;background:linear-gradient(90deg,var(--neon-red),var(--neon-amber),var(--neon-green))}
+.drag-zone{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0;min-height:50px}
+.drag-item{padding:9px 16px;border-radius:var(--radius-sm);background:rgba(17,22,56,0.95);border:2px solid rgba(0,212,255,0.3);font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s;user-select:none;color:#e8ecff}
+.drag-item:hover{border-color:var(--neon-blue);transform:scale(1.03)}
+.drag-item.selected-drag{border-color:var(--neon-blue);background:rgba(0,212,255,.08);box-shadow:0 0 15px rgba(0,212,255,.2)}
+.drag-item.placed{opacity:.3;cursor:default;pointer-events:none}
+.drop-target{min-height:100px;border:2px dashed rgba(0,212,255,0.35);border-radius:var(--radius);padding:12px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;transition:all .3s;cursor:pointer;background:rgba(0,0,0,0.15)}
+.drop-target:hover{border-color:rgba(0,212,255,.5)}
+.drop-target-label{font-family:var(--font-display);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;width:100%;font-weight:700}
+.drop-target-label.renewable{color:#33ffaa}.drop-target-label.non-renewable{color:#ff6b7a}
+.dropped-item{padding:6px 12px;border-radius:var(--radius-xs);font-size:.8rem;font-weight:700;animation:bounceIn .3s ease}
+.dropped-item.correct-drop{background:rgba(0,255,136,.18);border:1px solid rgba(0,255,136,.4);color:#66ffbb}
+.dropped-item.wrong-drop{background:rgba(255,71,87,.18);border:1px solid rgba(255,71,87,.4);color:#ff99a8;text-decoration:line-through}
+.strategy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:12px 0}
+.strategy-card{background:var(--bg-card);border:2px solid var(--glass-border);border-radius:var(--radius-sm);padding:14px;text-align:center;cursor:pointer;transition:all .3s}
+.strategy-card:hover{border-color:var(--neon-blue);transform:translateY(-2px)}
+.strategy-card.selected{border-color:var(--neon-green);background:rgba(0,255,136,.05)}
+.strategy-card .emoji{font-size:1.8rem;margin-bottom:6px}.strategy-card .name{font-weight:700;font-size:.9rem;margin-bottom:3px}.strategy-card .detail{font-size:.75rem;color:var(--text-secondary)}.strategy-card .cost{font-family:var(--font-display);font-size:.65rem;color:var(--neon-amber);margin-top:6px}
+.indicators{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;width:100%;max-width:500px}
+.indicator{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:10px;text-align:center}
+.indicator-label{font-size:.65rem;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px}
+.indicator-value{font-family:var(--font-display);font-size:1.1rem;font-weight:700}
+.indicator-value.good{color:var(--neon-green)}.indicator-value.medium{color:var(--neon-amber)}.indicator-value.bad{color:var(--neon-red)}
+.phase-intro{text-align:center;padding:30px 20px;animation:bounceIn .6s ease}
+.phase-number{font-family:var(--font-display);font-size:clamp(.65rem,1.5vw,.85rem);color:var(--neon-blue);letter-spacing:6px;text-transform:uppercase;margin-bottom:8px}
+.phase-title{font-family:var(--font-display);font-size:clamp(1.4rem,4vw,2rem);font-weight:700;margin-bottom:14px;background:linear-gradient(135deg,var(--text-primary),var(--neon-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phase-desc{color:var(--text-secondary);font-size:.93rem;max-width:600px;margin:0 auto 24px;line-height:1.7}
+.phase-results{text-align:center;padding:30px 20px;animation:bounceIn .6s ease}
+.phase-results .big-emoji{font-size:4rem;margin-bottom:14px}
+.phase-results h2{font-family:var(--font-display);font-size:1.2rem;margin-bottom:8px;color:var(--neon-amber)}
+.phase-results .score-display{font-family:var(--font-display);font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--neon-amber),var(--neon-green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:10px 0}
+.stars{display:flex;justify-content:center;gap:6px;margin:12px 0}
+.star{font-size:1.8rem;transition:all .3s}.star.earned{filter:drop-shadow(0 0 10px rgba(255,184,0,.6));animation:bounceIn .4s ease}.star.empty{opacity:.2;filter:grayscale(1)}
+.certificate{background:linear-gradient(135deg,#0d1137,#1a1a4e,#0d1137);border:3px solid var(--neon-amber);border-radius:24px;padding:clamp(24px,5vw,48px);text-align:center;max-width:650px;width:100%;position:relative;box-shadow:0 0 40px rgba(255,184,0,.15),inset 0 0 60px rgba(0,212,255,.05)}
+.certificate::before{content:'';position:absolute;inset:8px;border:1px solid rgba(255,184,0,.2);border-radius:20px;pointer-events:none}
+.cert-header{font-family:var(--font-display);font-size:clamp(.55rem,1.5vw,.75rem);letter-spacing:6px;text-transform:uppercase;color:var(--neon-blue);margin-bottom:14px}
+.cert-title{font-family:var(--font-display);font-size:clamp(1.1rem,3vw,1.6rem);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,var(--neon-amber),#ffe066,var(--neon-amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cert-medal{font-size:clamp(3rem,8vw,5rem);margin:14px 0;animation:pulse 2s ease infinite}
+.cert-name{font-family:var(--font-display);font-size:clamp(1rem,2.5vw,1.3rem);color:var(--text-primary);margin:8px 0}
+.cert-rank{font-size:clamp(.8rem,2vw,1rem);color:var(--neon-green);font-weight:700;margin:8px 0}
+.cert-score{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2rem);font-weight:900;color:var(--neon-amber);margin:10px 0}
+.cert-message{font-size:.9rem;line-height:1.7;color:var(--text-secondary);margin:12px auto;max-width:500px;padding:12px 16px;background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.15);border-radius:var(--radius-sm)}
+.cert-learned{text-align:left;margin:18px auto;max-width:450px;background:rgba(0,212,255,.03);border-radius:var(--radius-sm);padding:14px}
+.cert-learned-title{font-size:.7rem;color:var(--text-muted);margin-bottom:10px;text-align:center;text-transform:uppercase;letter-spacing:1px}
+.cert-learned-item{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.03);color:var(--text-secondary)}.cert-learned-item:last-child{border:none}
+.cert-footer{font-size:.65rem;color:var(--text-muted);margin-top:20px;font-style:italic}
+.confetti-piece{position:fixed;width:10px;height:10px;z-index:200;animation:confetti 3s ease-out forwards}
+.score-pop{position:fixed;z-index:150;font-family:var(--font-display);font-size:1.1rem;font-weight:900;pointer-events:none;animation:scorePop 1s ease forwards}
+.score-pop.positive{color:var(--neon-green)}.score-pop.negative{color:var(--neon-red)}
+@keyframes scorePop{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-60px) scale(1.3)}}
+.sound-toggle{position:fixed;bottom:16px;right:16px;z-index:200;width:44px;height:44px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all .3s;backdrop-filter:blur(10px)}
+.sound-toggle:hover{border-color:var(--neon-blue);transform:scale(1.1)}
+.card{background:rgba(13,17,44,0.95);border:1px solid rgba(0,212,255,0.2);border-radius:var(--radius);padding:18px;width:100%;transition:all .3s}
+.mt-1{margin-top:8px}.mt-2{margin-top:16px}.mt-3{margin-top:24px}.mb-2{margin-bottom:16px}
+.text-center{text-align:center}.text-sm{font-size:.85rem}.text-muted{color:var(--text-secondary)}.hidden{display:none!important}
+@media(max-width:600px){.screen{padding:14px 14px 70px}.lumi-bubble{padding:14px;gap:10px;flex-direction:column;align-items:center;text-align:center}.lumi-avatar{width:40px;height:40px;font-size:1.2rem}.quiz-option{padding:12px 14px;font-size:.86rem}.strategy-grid{grid-template-columns:repeat(2,1fr);gap:6px}.strategy-card{padding:10px}.indicators{gap:4px}.indicator{padding:6px}.game-header{padding:8px 14px}.lesson-card{padding:16px}.scene-item{font-size:clamp(1.3rem,3.5vw,1.8rem)}}
+@media(max-width:380px){.strategy-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+
+<!-- Fundo animado -->
+<div class="bg-grid"></div>
+<div class="bg-particles" id="particles"></div>
+
+<!-- Cabeçalho do jogo (aparece durante as fases) -->
+<header class="game-header" id="gameHeader">
+  <div class="header-phase" id="headerPhase">FASE 1</div>
+  <div class="header-score">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    <span id="headerScore">0</span>
+  </div>
+</header>
+
+<!-- Botão de som -->
+<button class="sound-toggle" id="soundToggle" title="Som">🔊</button>
+
+<!-- ============================================ -->
+<!-- TELA DE ABERTURA (CORRIGIDA conforme GDD)    -->
+<!-- ============================================ -->
+<div class="screen active screen-title" id="screenTitle">
+  <div class="title-bolt">⚡</div>
+  <h1 class="title-logo">ENERGÓPOLIS</h1>
+  <p class="title-subtitle">Luz para o Futuro</p>
+
+  <!-- Sinopse narrativa (texto exato do GDD) -->
+  <div class="synopsis-box">
+    A cidade de Energópolis sofreu um grande apagão e precisa de alguém para reconstruir sua matriz de energia. Descubra de onde vem a eletricidade, investigue fontes renováveis e não renováveis, analise seus impactos e projete o futuro energético da cidade!
+  </div>
+
+  <!-- Diálogo da Lumi (texto exato do GDD) -->
+  <div class="lumi-container">
+    <div class="lumi-bubble">
+      <div class="lumi-avatar">💡</div>
+      <div class="lumi-text">
+        <div class="lumi-name">LUMI</div>
+        Olá! Eu sou a <strong>Lumi</strong>, sua companheira nessa aventura energética! São <em>4 fases</em> até reacender Energópolis. Cada acerto recarrega minha bateria e nos aproxima da solução. Pronto(a) pra essa missão?
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção "Você vai aprender" (texto exato do GDD) -->
+  <div class="learn-list">
+    <div class="learn-item"><span>✦</span><span>O que é energia e como ela se transforma no dia a dia</span></div>
+    <div class="learn-item"><span>✦</span><span>De onde vem a energia elétrica — da usina até sua casa</span></div>
+    <div class="learn-item"><span>✦</span><span>Classificar fontes de energia em renováveis e não renováveis</span></div>
+    <div class="learn-item"><span>✦</span><span>Analisar impactos ambientais e sociais de cada fonte</span></div>
+    <div class="learn-item"><span>✦</span><span>Tomar decisões estratégicas para montar uma matriz energética sustentável</span></div>
+  </div>
+
+  <!-- Campo de nome -->
+  <div class="name-input-group">
+    <label for="playerName">Digite seu nome para começar:</label>
+    <input type="text" id="playerName" class="name-input" placeholder="Seu nome aqui..." maxlength="30" autocomplete="off">
+  </div>
+
+  <!-- Botão CTA -->
+  <button class="btn btn-primary btn-lg btn-block mt-2" id="btnStart" disabled>🚀 INICIAR MISSÃO</button>
+
+  <!-- Rodapé informativo (texto exato do GDD) -->
+  <p class="text-sm text-muted mt-3" style="text-align:center;max-width:450px">
+    Jogo educativo — BNCC EF08CI01 • SAEB: E1A4, E1C3, E1C10<br>
+    Fontes e tipos de energia • 8º ano • Ciência Plural
+  </p>
+</div>
+
+<!-- Telas do jogo -->
+<div class="screen" id="screenPhaseIntro"><div class="phase-intro" id="phaseIntroContent"></div></div>
+<div class="screen" id="screenGameplay"><div class="quiz-container" id="gameplayArea"></div></div>
+<div class="screen" id="screenPhaseResults"><div class="phase-results" id="phaseResultsContent"></div></div>
+<div class="screen" id="screenCertificate"><div class="certificate" id="certificateContent"></div></div>
+
+<script>
+// ============================================
+// SISTEMA DE SOM
+// ============================================
+const SFX={ctx:null,on:true,init(){try{this.ctx=new(window.AudioContext||window.webkitAudioContext)}catch(e){}},play(t){if(!this.on||!this.ctx)return;try{const n=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.connect(g);g.connect(this.ctx.destination);g.gain.value=.1;if(t==='ok'){o.type='sine';[523,659,784].forEach((f,i)=>o.frequency.setValueAtTime(f,n+i*.1));g.gain.exponentialRampToValueAtTime(.001,n+.5);o.start(n);o.stop(n+.5)}else if(t==='no'){o.type='sawtooth';o.frequency.setValueAtTime(200,n);o.frequency.setValueAtTime(150,n+.2);g.gain.exponentialRampToValueAtTime(.001,n+.4);o.start(n);o.stop(n+.4)}else if(t==='click'){o.type='sine';o.frequency.setValueAtTime(800,n);g.gain.exponentialRampToValueAtTime(.001,n+.08);o.start(n);o.stop(n+.08)}else if(t==='up'){o.type='sine';[523,659,784,1047].forEach((f,i)=>o.frequency.setValueAtTime(f,n+i*.12));g.gain.exponentialRampToValueAtTime(.001,n+.7);o.start(n);o.stop(n+.7)}else if(t==='hint'){o.type='triangle';o.frequency.setValueAtTime(600,n);o.frequency.setValueAtTime(500,n+.1);g.gain.exponentialRampToValueAtTime(.001,n+.25);o.start(n);o.stop(n+.25)}else if(t==='win'){o.type='sine';[523,659,784,1047,784,1047,1318].forEach((f,i)=>o.frequency.setValueAtTime(f,n+i*.15));g.gain.exponentialRampToValueAtTime(.001,n+1.2);o.start(n);o.stop(n+1.2)}}catch(e){}}};
+
+// Partículas de fundo
+(function(){const c=document.getElementById('particles');for(let i=0;i<18;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*8+'s';c.appendChild(p)}})();
+
+// ============================================
+// MOTOR DO JOGO (CORRIGIDO)
+// ============================================
+const G={
+name:'',phase:0,step:0,score:0,
+ps:[0,0,0,0],        // pontuação por fase
+pm:[150,280,200,350], // pontuação máxima por fase
+hints:0,mh:10,        // 10 dicas globais
+phases: [{"id": 1, "title": "O Grande Apagão", "subtitle": "Introdução e Contextualização", "emoji": "🔦", "description": "Energópolis está no escuro! Descubra o que é energia, onde ela está no dia a dia e de onde ela vem.", "openingDialogue": "Vamos lá, {name}! Energópolis está no escuro e eu tô sem bateria... 🔋", "closingDialogue": "Minha bateria está recarregando, {name}! Agora que você entende o que é energia e de onde ela vem, precisamos ir mais fundo. Energópolis não pode reconstruir sua matriz às cegas — temos que investigar cada fonte e descobrir quais são renováveis e quais vão se esgotar. Próxima parada: o Centro de Pesquisa Energética! 🔍", "steps": [{"type": "lesson", "lumiText": "Antes de sair caçando energia por aí, vamos entender <strong>o que é energia</strong>? Vem comigo! 👇", "cards": [{"icon": "⚡", "color": "amber", "title": "O QUE É ENERGIA?", "body": "No dia a dia, energia é o que faz tudo funcionar: a luz que ilumina sua sala, o calor que esquenta a comida, o movimento do ônibus que te leva à escola. Em ciências, definimos energia como a <strong>capacidade de realizar trabalho</strong> — ou seja, de provocar transformações como movimento, aquecimento ou iluminação.", "highlight": "Energia não se cria nem se destrói — ela se transforma de uma forma para outra. Esse é o princípio da conservação de energia."}, {"icon": "🔄", "color": "blue", "title": "FORMAS DE ENERGIA", "body": "A energia se manifesta de diferentes formas: <strong>cinética</strong> (energia do movimento — um carro andando), <strong>térmica</strong> (energia do calor — uma panela no fogão), <strong>luminosa</strong> (energia da luz — o sol iluminando), <strong>sonora</strong> (energia do som — música tocando) e <strong>elétrica</strong> (energia da eletricidade — o que sai da tomada). O mais interessante: <strong>uma forma pode se transformar em outra!</strong>", "example": "Lâmpada (elétrica → luminosa + térmica), celular tocando música (elétrica → sonora), secador de cabelo (elétrica → térmica + cinética)."}, {"icon": "🔌", "color": "green", "title": "ENERGIA ELÉTRICA", "body": "A <strong>energia elétrica</strong> é a forma de energia mais utilizada nas casas, escolas e cidades porque pode ser facilmente convertida em outras formas: luz (lâmpadas), movimento (ventiladores), calor (chuveiro), som (caixas de som). No Brasil, mais de <strong>99% das residências</strong> têm acesso à rede elétrica. Mas de onde vem toda essa energia?", "highlight": "A eletricidade não surge na tomada — ela é gerada em usinas, percorre centenas de quilômetros por fios de alta tensão e só então chega à sua casa."}]}, {"type": "scene", "lumiText": "Agora que você sabe o que é energia elétrica, vamos testar! Estamos numa casa em Energópolis com 16 objetos. <strong>Encontre os 8 que precisam de energia elétrica</strong> para funcionar! Cada acerto recarrega minha bateria!", "hint": "Objetos elétricos precisam ser ligados na tomada, ter bateria ou ser carregados.", "sceneItems": [{"emoji": "💡", "x": "44%", "y": "2%", "label": "Lâmpada", "electric": true, "feedback": "Acertou! A lâmpada transforma energia elétrica em luz (energia luminosa) e calor (energia térmica). Sem eletricidade, nada de iluminação!"}, {"emoji": "📺", "x": "8%", "y": "22%", "label": "TV", "electric": true, "feedback": "Isso! A TV transforma energia elétrica em imagem (luminosa) e som (sonora). Precisa estar ligada na tomada ou conectada à rede para funcionar."}, {"emoji": "📱", "x": "52%", "y": "35%", "label": "Celular", "electric": true, "feedback": "Muito bem! O celular funciona com bateria recarregável — e recarregar é usar energia elétrica. Sem carga, ele é só um peso de bolso!"}, {"emoji": "💻", "x": "72%", "y": "8%", "label": "Notebook", "electric": true, "feedback": "Acertou! O notebook tem bateria interna, mas precisa ser carregado na tomada. Transforma energia elétrica em luz da tela, som e processamento."}, {"emoji": "🎮", "x": "28%", "y": "48%", "label": "Videogame", "electric": true, "feedback": "Isso! O videogame precisa de energia elétrica para processar gráficos, emitir som e se conectar à TV. Sem eletricidade, nenhuma fase começa!"}, {"emoji": "🔌", "x": "88%", "y": "42%", "label": "Ventilador", "electric": true, "feedback": "Muito bem! O ventilador transforma energia elétrica em movimento das pás (cinética) e barulho do motor (sonora). Clássico exemplo de transformação!"}, {"emoji": "🎧", "x": "4%", "y": "58%", "label": "Fone Bluetooth", "electric": true, "feedback": "Acertou! Apesar de ser sem fio, o fone Bluetooth tem bateria interna que precisa ser carregada com energia elétrica. Sem carga, silêncio total!"}, {"emoji": "🖨️", "x": "58%", "y": "58%", "label": "Impressora", "electric": true, "feedback": "Isso! A impressora precisa de energia elétrica para aquecer o toner ou movimentar o cartucho, alimentar o papel e processar os dados recebidos."}, {"emoji": "🔪", "x": "70%", "y": "35%", "label": "Faca", "electric": false, "feedback": "A faca não usa eletricidade — funciona pela força mecânica de quem a utiliza. Não tem motor, bateria nem circuito elétrico."}, {"emoji": "🪑", "x": "34%", "y": "22%", "label": "Cadeira", "electric": false, "feedback": "A cadeira é um objeto passivo — apenas sustenta o peso de quem senta. Não precisa de energia elétrica para cumprir sua função."}, {"emoji": "🏺", "x": "18%", "y": "42%", "label": "Vaso de planta", "electric": false, "feedback": "O vaso de planta não consome eletricidade. A planta usa energia solar (fotossíntese) para viver, mas o vaso em si é apenas um recipiente."}, {"emoji": "🧹", "x": "90%", "y": "62%", "label": "Vassoura", "electric": false, "feedback": "A vassoura funciona com a força dos seus braços (energia mecânica humana). Diferente do aspirador de pó, ela não precisa de eletricidade!"}, {"emoji": "📚", "x": "4%", "y": "8%", "label": "Livros", "electric": false, "feedback": "Livros não precisam de energia elétrica — a 'energia' deles é o conhecimento! Diferente de um e-reader, o livro físico funciona sem bateria."}, {"emoji": "🥄", "x": "82%", "y": "22%", "label": "Colher", "electric": false, "feedback": "A colher é um utensílio simples que funciona com o movimento da sua mão. Sem motor, sem fio, sem bateria — pura mecânica humana."}, {"emoji": "🪣", "x": "22%", "y": "68%", "label": "Balde", "electric": false, "feedback": "O balde apenas armazena e transporta líquidos pela ação humana. Não tem nenhum componente elétrico — diferente de uma lavadora de roupas!"}, {"emoji": "🧺", "x": "64%", "y": "68%", "label": "Cesto de roupa", "electric": false, "feedback": "O cesto serve para guardar e transportar roupas — tudo na força dos braços. Quem precisa de eletricidade é a máquina de lavar, não o cesto!"}]}, {"type": "lesson", "lumiText": "Ótimo trabalho! Agora vamos investigar: <strong>de onde vem essa energia?</strong> 🤔", "cards": [{"icon": "🏭", "color": "blue", "title": "USINAS DE ENERGIA", "body": "A energia elétrica que usamos é produzida em <strong>usinas de geração</strong>. Cada tipo de usina utiliza um recurso diferente: <strong>hidrelétricas</strong> usam a força da água represada; <strong>termelétricas</strong> queimam combustíveis como gás, carvão ou petróleo; <strong>eólicas</strong> captam a força do vento; <strong>solares</strong> convertem a luz do sol; <strong>nucleares</strong> usam a energia liberada pela fissão do urânio. Todas elas, no final, fazem turbinas ou geradores produzirem eletricidade.", "highlight": "Apesar de usarem recursos diferentes, o princípio é parecido: transformar energia de uma fonte natural em energia elétrica."}, {"icon": "🔋", "color": "green", "title": "FONTES DE ENERGIA", "body": "<strong>Fonte de energia</strong> é o recurso da natureza de onde se extrai energia. A água dos rios, o vento, a luz solar, o petróleo, o carvão mineral e o urânio são exemplos de fontes. É importante não confundir a <strong>fonte</strong> (o recurso) com a <strong>usina</strong> (a estrutura que transforma esse recurso em eletricidade).", "example": "Analogia: a fonte é como o ingrediente (farinha, ovos) e a usina é como o forno que transforma o ingrediente em bolo. Sem a fonte, a usina não funciona!"}, {"icon": "🔌", "color": "amber", "title": "DA USINA ATÉ SUA CASA", "body": "A eletricidade percorre um longo caminho até chegar à sua tomada. Primeiro, sai da usina por <strong>linhas de transmissão de alta tensão</strong> — a voltagem é altíssima (até 765.000 volts!) para reduzir perdas no caminho. Depois, passa por <strong>subestações</strong> que reduzem essa tensão para níveis seguros. Por fim, a <strong>rede de distribuição</strong> leva a energia até as casas, escolas e empresas, onde chega em 127V ou 220V.", "highlight": "Caminho: Usina → Linhas de transmissão (alta tensão) → Subestação (reduz voltagem) → Rede de distribuição → Sua casa (127V ou 220V)"}]}, {"type": "quiz", "lumiText": "Hora de testar! Vamos ver se você entendeu os conceitos que estudamos.", "hint": "Pense: energia existe apenas na eletricidade ou está presente em outras situações do dia a dia, como o movimento e o calor?", "question": "Durante o estudo sobre energia, você aprendeu que esse conceito é fundamental na ciência. Assinale a alternativa que apresenta a melhor definição de energia:", "options": ["É a força que existe nos aparelhos eletrônicos e nas tomadas, sendo exclusiva desses equipamentos.", "É a capacidade de realizar trabalho, ou seja, de produzir transformações como movimento, calor ou luz.", "É o mesmo que eletricidade, já que todas as formas de energia são elétricas.", "É um tipo de matéria invisível que pode ser pesada e medida com instrumentos como balanças."], "correct": 1, "feedbacks": ["❌ Energia não existe apenas em aparelhos eletrônicos. Ela está em toda parte: no sol que aquece, no vento que sopra, no alimento que você come. Eletricidade é apenas uma das muitas formas de energia.", "✅ Perfeito! Energia é a capacidade de realizar trabalho — provocar transformações como movimento, aquecimento, iluminação ou produção de som. Ela existe em várias formas, não apenas como eletricidade!", "❌ Eletricidade é apenas uma das formas de energia. Existem também a cinética (movimento), térmica (calor), luminosa (luz), sonora (som), entre outras. Dizer que toda energia é elétrica é como dizer que toda fruta é banana!", "❌ Energia não é matéria — não tem massa e não pode ser pesada. Energia é uma grandeza que se manifesta como capacidade de produzir transformações. Matéria ocupa espaço e tem massa; energia, não."]}, {"type": "quiz", "lumiText": "Agora sobre a origem da energia que você usa em casa...", "hint": "A energia não surge na tomada — é produzida em um lugar específico e transportada até as residências.", "question": "Quando você liga um eletrodoméstico na tomada, a energia elétrica que ele utiliza foi produzida:", "options": ["Dentro do próprio aparelho, por meio de um gerador interno que produz eletricidade sob demanda.", "Em usinas de geração, como hidrelétricas e termelétricas, sendo transportada por linhas de transmissão.", "Nos postes de luz da rua, que fabricam eletricidade e distribuem para as casas.", "Nas subestações do bairro, que são responsáveis por criar a energia do zero."], "correct": 1, "feedbacks": ["❌ Eletrodomésticos não geram energia — eles consomem energia que vem de fora. A eletricidade chega pela fiação da casa, que está conectada à rede de distribuição. Apenas geradores portáteis produzem sua própria energia, e não são eletrodomésticos comuns.", "✅ Isso! A energia é gerada em usinas (hidrelétricas, termelétricas, eólicas, solares) e transportada por linhas de transmissão até as subestações, e de lá para sua casa pela rede de distribuição.", "❌ Os postes de luz apenas sustentam os fios que transportam a energia — não fabricam eletricidade. A energia já vem pronta das usinas, percorre longas distâncias por linhas de transmissão e os postes são parte da rede de distribuição local.", "❌ Subestações não criam energia. A função delas é reduzir a tensão (voltagem) da eletricidade que chega das linhas de transmissão em alta tensão, tornando-a segura para uso doméstico. A geração acontece nas usinas."]}, {"type": "quiz", "lumiText": "E sobre fontes de energia — vamos ver se ficou claro:", "hint": "Pense na diferença entre o ingrediente que vai ao forno e o forno em si. Qual deles é a \"fonte\"?", "question": "Ao estudar as usinas, vimos que cada uma utiliza um recurso diferente para gerar eletricidade. Em ciências, chamamos esse recurso de \"fonte de energia\". Assinale o que melhor define esse conceito:", "options": ["É o equipamento usado para transportar energia, como fios e cabos elétricos.", "É o recurso natural utilizado para gerar energia, como a água dos rios, o vento e a luz solar.", "É o nome técnico dado às tomadas e interruptores de uma residência.", "É a energia já transformada que chega pronta para uso nas residências."], "correct": 1, "feedbacks": ["❌ Fios e cabos são meios de transporte da energia, não fontes. Fonte é o recurso natural de onde se extrai a energia. Seria como confundir o caminhão-tanque (transporte) com o poço de petróleo (fonte).", "✅ Mandou bem! Fonte de energia é o recurso natural de onde se extrai energia: água (hidrelétrica), vento (eólica), sol (solar), petróleo e carvão (termelétrica), urânio (nuclear). A fonte é o \"ingrediente\" — a usina é o \"forno\".", "❌ Tomadas e interruptores são pontos de acesso à energia elétrica — permitem que você conecte aparelhos à rede. Mas a fonte é o recurso natural (água, vento, sol, petróleo) que foi usado lá na usina para gerar essa energia.", "❌ Isso descreve a energia elétrica que chega pela rede de distribuição, não a fonte. A fonte é o recurso de origem: a água do rio, o vento, a luz solar, o carvão. A energia que chega à casa é o produto final, não a fonte."]}, {"type": "quiz", "lumiText": "Vamos ver se você entendeu as transformações de energia na prática:", "hint": "O ventilador é ligado na tomada. Pense no que você percebe quando ele está funcionando: o que seus olhos veem e seus ouvidos ouvem?", "question": "Ao ligar um ventilador na tomada, ele começa a girar e produz um barulho característico. Nesse processo, a principal transformação de energia que ocorre é:", "options": ["Energia térmica em energia cinética, pois o calor faz as pás girarem.", "Energia elétrica em energia cinética (movimento das pás) e energia sonora (barulho do motor).", "Energia sonora em energia elétrica, pois o barulho gera eletricidade.", "Energia luminosa em energia cinética, pois a luz movimenta o motor."], "correct": 1, "feedbacks": ["❌ O ventilador não funciona por calor. É a energia elétrica da tomada que alimenta o motor e faz as pás girarem. Em termelétricas, o calor movimenta turbinas — mas no ventilador da sua casa, a fonte é a eletricidade, não o calor.", "✅ Isso! O ventilador recebe energia elétrica da tomada e a transforma em cinética (movimento das pás) e sonora (vibração do motor). É a conservação de energia em ação!", "❌ A transformação está invertida. O barulho é consequência do funcionamento do motor, não causa. A sequência real é: energia elétrica → cinética + sonora. O som não gera eletricidade no ventilador.", "❌ A luz não movimenta o motor do ventilador. Painéis solares convertem luz em eletricidade, mas o ventilador recebe energia elétrica da tomada, não energia luminosa. Luz e eletricidade são formas diferentes de energia."]}, {"type": "quiz", "lumiText": "Uma reflexão sobre o apagão de Energópolis — pense nas consequências reais:", "hint": "Se tudo para sem energia — hospitais, geladeiras, semáforos — o que isso revela sobre a sociedade?", "question": "Com o apagão em Energópolis, hospitais ficaram sem equipamentos, semáforos pararam, alimentos estragaram nas geladeiras e as escolas suspenderam aulas. Diante dessa situação, é correto concluir que:", "options": ["A energia elétrica é importante principalmente para atividades de entretenimento, lazer e comunicação digital.", "A sociedade moderna depende fortemente da energia elétrica para atividades essenciais como saúde, educação e alimentação.", "Apenas os grandes centros urbanos são afetados por apagões, pois comunidades rurais praticamente não utilizam energia.", "A dependência de energia é um problema exclusivamente recente, que não existia antes do início do século XXI."], "correct": 1, "feedbacks": ["❌ Entretenimento é apenas uma parcela. O apagão mostrou que saúde (hospitais sem equipamentos), alimentação (geladeiras desligadas), transporte (semáforos parados) e educação (escolas fechadas) dependem da eletricidade. São necessidades essenciais, não lazer.", "✅ Isso mesmo! A sociedade moderna depende da energia elétrica para quase tudo: equipamentos hospitalares, conservação de alimentos, comunicação, transporte público, sistemas bancários e educação. Um apagão prolongado pode colocar vidas em risco.", "❌ Comunidades rurais também usam energia elétrica — para iluminação, conservação de alimentos, bombeamento de água e comunicação. No Brasil, mais de 99% das residências (urbanas e rurais) têm acesso à rede elétrica. Um apagão afeta todos.", "❌ A dependência da eletricidade começou a crescer desde o final do século XIX, com a invenção da lâmpada elétrica e a eletrificação das cidades. Ao longo do século XX, hospitais, indústrias e transportes já eram profundamente dependentes. Não é um fenômeno recente."]}]}, {"id": 2, "title": "Investigando as Fontes", "subtitle": "Nível Básico — Classificação", "emoji": "🔍", "description": "Investigue as fontes de energia do Brasil e aprenda a classificá-las.", "openingDialogue": "Recarreguei graças a você, {name}! Bem-vindo(a) ao Centro de Pesquisa. Vamos investigar DE ONDE vem a energia! 🔍", "closingDialogue": "Agora sabemos classificar as fontes — mas será que basta escolher as renováveis e pronto? Não é tão simples assim, {name}. Toda fonte de energia tem um preço — e não falo só de dinheiro. Impactos no meio ambiente, na saúde das pessoas, nas comunidades... Vamos para o Observatório de Impactos e analisar o lado que ninguém gosta de mostrar. ⚖️", "steps": [{"type": "lesson", "lumiText": "As fontes de energia se dividem em dois grandes grupos. Estude cada card com atenção — você vai precisar dessas informações! 📖", "cards": [{"icon": "♻️", "color": "green", "title": "FONTES RENOVÁVEIS", "body": "Fontes renováveis são aquelas que a natureza <strong>repõe continuamente</strong> em um prazo curto (dias, meses ou poucos anos). O sol nasce todo dia, o vento sopra constantemente, os rios seguem correndo e as plantas voltam a crescer. Por isso, essas fontes <strong>não se esgotam</strong> com o uso, desde que sejam bem gerenciadas. Geralmente causam menos impactos ambientais que as não renováveis.", "example": "Principais fontes renováveis: solar (luz do sol), eólica (força do vento), hidráulica (movimento da água), biomassa (matéria orgânica como bagaço de cana) e geotérmica (calor interno da Terra)."}, {"icon": "⛽", "color": "red", "title": "FONTES NÃO RENOVÁVEIS", "body": "Fontes não renováveis são aquelas que se formaram ao longo de <strong>milhões de anos</strong> por processos geológicos — como a decomposição de organismos pré-históricos soterrados sob pressão e calor extremos. Uma vez extraídas e consumidas, <strong>não se repõem na escala de tempo humana</strong>. Os combustíveis fósseis (petróleo, carvão, gás natural) e o urânio são os principais exemplos.", "example": "O petróleo que abastece carros hoje se formou há cerca de 300 milhões de anos, a partir de organismos marinhos. Quando ele acabar, não haverá reposição."}, {"icon": "☀️", "color": "amber", "title": "ENERGIA SOLAR", "body": "A energia solar é captada por <strong>painéis fotovoltaicos</strong>, compostos por células de silício que convertem a luz do sol diretamente em eletricidade. É uma energia limpa (não emite poluentes), silenciosa e com fonte praticamente inesgotável. Pode ser instalada em telhados de casas (geração distribuída) ou em grandes usinas solares no campo. O Brasil recebe radiação solar intensa durante quase todo o ano.", "highlight": "O Brasil é um dos países com maior potencial solar do mundo. O semiárido nordestino recebe mais radiação solar que a Alemanha, que é líder europeu em energia solar."}, {"icon": "💨", "color": "blue", "title": "ENERGIA EÓLICA", "body": "A energia eólica é gerada pela força do <strong>vento</strong>, que faz girar grandes turbinas chamadas <strong>aerogeradores</strong> (torres de até 150 metros de altura). O movimento das pás aciona um gerador que produz eletricidade. O Brasil é um dos líderes mundiais em expansão eólica, com capacidade que cresceu mais de 30 vezes na última década.", "highlight": "O Nordeste concentra mais de 85% da geração eólica brasileira. Estados como Rio Grande do Norte, Bahia, Piauí e Ceará são destaques."}, {"icon": "💧", "color": "blue", "title": "ENERGIA HIDRELÉTRICA", "body": "A energia hidrelétrica aproveita a <strong>força da água em movimento</strong>. Uma barragem represa o rio, criando um reservatório. A água é liberada de forma controlada e sua queda faz girar <strong>turbinas</strong> conectadas a geradores, produzindo eletricidade. É a principal fonte de energia do Brasil, responsável por mais de <strong>60% de toda a eletricidade</strong> gerada no país.", "highlight": "Itaipu, na fronteira com o Paraguai, é uma das maiores hidrelétricas do mundo e gerou mais de 2,6 bilhões de MWh desde sua inauguração."}, {"icon": "🌿", "color": "green", "title": "BIOMASSA", "body": "A biomassa gera energia a partir da <strong>queima de matéria orgânica</strong>: bagaço de cana-de-açúcar, lenha, resíduos agrícolas e até lixo orgânico. Embora libere CO₂ na queima, considera-se que esse carbono já havia sido absorvido pelas plantas durante seu crescimento — formando um <strong>ciclo relativamente fechado</strong>. Por isso, a biomassa é classificada como renovável, desde que haja replantio.", "highlight": "No Brasil, o bagaço da cana-de-açúcar é a principal biomassa energética."}, {"icon": "🛢️", "color": "red", "title": "COMBUSTÍVEIS FÓSSEIS", "body": "São chamados <strong>fósseis</strong> porque se originaram de restos de organismos que viveram há milhões de anos. O <strong>petróleo</strong> (líquido) e o <strong>gás natural</strong> (gasoso) formaram-se de micro-organismos marinhos; o <strong>carvão mineral</strong> (sólido), de florestas soterradas. Em termelétricas, são queimados para aquecer água, gerar vapor e mover turbinas. A queima libera <strong>CO₂ e outros poluentes</strong> que contribuem para o aquecimento global e problemas respiratórios.", "highlight": "Os combustíveis fósseis são os principais responsáveis pelo efeito estufa. Representam cerca de 80% das emissões globais de CO₂ relacionadas à energia."}, {"icon": "☢️", "color": "purple", "title": "ENERGIA NUCLEAR", "body": "A energia nuclear é obtida pela <strong>fissão</strong> (quebra) de átomos de <strong>urânio-235</strong> dentro de reatores. Essa reação libera uma quantidade enorme de calor, que aquece água e gera vapor para mover turbinas. Uma única pastilha de urânio gera tanta energia quanto <strong>1 tonelada de carvão</strong>. Não emite CO₂ na geração, mas produz <strong>resíduos radioativos</strong> perigosos que permanecem ativos por milhares de anos.", "example": "No Brasil, as usinas de Angra 1 (1985) e Angra 2 (2001), no litoral do Rio de Janeiro, são as únicas nucleares em operação. Juntas, respondem por cerca de 2% da eletricidade brasileira."}]}, {"type": "classify", "lumiText": "Agora é hora de mostrar o que aprendeu! <strong>Classifique cada fonte de energia</strong> no grupo correto: RENOVÁVEL (a natureza repõe continuamente) ou NÃO RENOVÁVEL (leva milhões de anos para se formar e se esgota).", "hint": "Pergunte-se: esse recurso se repõe rapidamente na natureza (renováveis) ou levou milhões de anos para se formar (não renováveis)? Lembre-se que o urânio, apesar de não emitir CO₂, é um mineral finito.", "items": [{"name": "☀️ Solar", "renewable": true, "feedbackCorrect": "O sol nasce todo dia — a luz solar é uma fonte praticamente inesgotável que se renova continuamente.", "feedbackWrong": "A energia solar é renovável! O sol brilha continuamente e não se esgota pelo uso humano."}, {"name": "💨 Eólica", "renewable": true, "feedbackCorrect": "O vento é renovável — gerado pela diferença de aquecimento na atmosfera, sopra continuamente ao redor do planeta.", "feedbackWrong": "A eólica é renovável! O vento é gerado por processos atmosféricos contínuos."}, {"name": "💧 Hidrelétrica", "renewable": true, "feedbackCorrect": "A água dos rios se renova pelo ciclo hidrológico: evaporação, chuva, rios. Fonte renovável!", "feedbackWrong": "A água é renovável! O ciclo hidrológico repõe continuamente a água dos rios."}, {"name": "🌿 Biomassa", "renewable": true, "feedbackCorrect": "A biomassa vem de plantas que podem ser replantadas. Enquanto houver replantio, a fonte se renova.", "feedbackWrong": "A biomassa é renovável! Plantas crescem em meses ou anos e podem ser replantadas."}, {"name": "🌋 Geotérmica", "renewable": true, "feedbackCorrect": "O calor interno da Terra é mantido por processos geológicos que durarão bilhões de anos. Fonte renovável!", "feedbackWrong": "A geotérmica é renovável! O calor interno da Terra vem do decaimento radioativo no manto."}, {"name": "🛢️ Petróleo", "renewable": false, "feedbackCorrect": "O petróleo levou cerca de 300 milhões de anos para se formar. Quando acabar, não haverá reposição.", "feedbackWrong": "O petróleo é não renovável! Formou-se ao longo de milhões de anos. Não se repõe na escala humana."}, {"name": "⛏️ Carvão Mineral", "renewable": false, "feedbackCorrect": "O carvão se formou de florestas soterradas há milhões de anos. Recurso finito, não renovável.", "feedbackWrong": "O carvão mineral é não renovável! Originou-se de florestas soterradas há milhões de anos."}, {"name": "🔥 Gás Natural", "renewable": false, "feedbackCorrect": "O gás natural é combustível fóssil — formado junto ao petróleo ao longo de milhões de anos. Finito!", "feedbackWrong": "O gás natural é não renovável! É combustível fóssil, formado em processos de milhões de anos."}, {"name": "☢️ Nuclear (Urânio)", "renewable": false, "feedbackCorrect": "O urânio é um mineral extraído de jazidas finitas. Apesar de não emitir CO₂ na geração, é não renovável.", "feedbackWrong": "O urânio é não renovável! Embora a nuclear não emita CO₂, o urânio é mineral finito."}]}, {"type": "quiz", "lumiText": "Agora sobre a realidade energética do Brasil:", "hint": "O Brasil é um país com território muito grande e recursos naturais variados. Qual desses recursos é aproveitado em maior escala para gerar eletricidade?", "question": "O Brasil possui uma das matrizes elétricas mais limpas do mundo, com forte predomínio de uma fonte específica. Assinale a alternativa que indica a principal fonte de geração de energia elétrica no país:", "options": ["Solar, pois o Brasil está em região tropical com alta incidência de radiação.", "Hidrelétrica, que aproveita o grande volume de água dos rios brasileiros.", "Eólica, graças aos ventos constantes da costa litorânea.", "Nuclear, pois as usinas de Angra dos Reis produzem a maior parte da eletricidade."], "correct": 1, "feedbacks": ["❌ O Brasil realmente tem enorme potencial solar, mas a energia solar ainda representa cerca de 5% da matriz elétrica. Está em rápida expansão, porém ainda longe de ultrapassar a hidrelétrica, que responde por mais de 60%.", "✅ Exato! Mais de 60% da eletricidade brasileira vem de hidrelétricas. Isso se deve à abundância de rios caudalosos. Grandes usinas como Itaipu, Belo Monte e Tucuruí são as maiores do país.", "❌ A energia eólica cresceu muito no Brasil (mais de 30 vezes na última década) e já representa cerca de 12% da matriz elétrica. É a segunda fonte renovável, mas ainda fica bem atrás da hidrelétrica.", "❌ O Brasil tem apenas duas usinas nucleares em operação (Angra 1 e Angra 2), que juntas respondem por cerca de 2% da eletricidade do país."]}, {"type": "quiz", "lumiText": "Sobre o Nordeste — destaque nacional em energias limpas:", "hint": "Pense nas características geográficas e climáticas do Nordeste. Quais condições naturais dessa região poderiam ser aproveitadas para gerar energia?", "question": "A região Nordeste do Brasil se destaca nacionalmente na expansão de energias renováveis, graças às suas condições geográficas e climáticas. As duas fontes que mais crescem nessa região são:", "options": ["Hidrelétrica e biomassa, pela presença de rios e áreas agrícolas na região.", "Biomassa e geotérmica, devido ao clima quente e seco do semiárido.", "Eólica e solar, devido aos ventos constantes e à alta incidência de radiação solar.", "Hidrelétrica e nuclear, pois o governo federal priorizou essas fontes na região."], "correct": 2, "feedbacks": ["❌ O Nordeste tem rios importantes, mas o potencial hidrelétrico da região é limitado comparado ao Norte e ao Sul. A biomassa existe, mas não lidera a expansão.", "❌ A energia geotérmica é praticamente inexplorada no Brasil — não há usinas geotérmicas em operação. O clima quente do Nordeste favorece a energia solar, e os ventos fortes favorecem a eólica.", "✅ Isso mesmo! O Nordeste concentra mais de 85% da geração eólica e lidera a expansão solar no Brasil.", "❌ Não há usinas nucleares no Nordeste — as únicas ficam em Angra dos Reis (RJ). E embora existam hidrelétricas na região, não são elas que lideram a expansão atual."]}, {"type": "quiz", "lumiText": "Agora sobre o funcionamento das termelétricas:", "hint": "Termelétricas usam CALOR gerado pela queima de combustíveis. O que acontece com a água aquecida?", "question": "As termelétricas são usinas que produzem eletricidade a partir do calor. Considerando o funcionamento desse tipo de usina, a geração de eletricidade ocorre pela:", "options": ["Queima de combustíveis fósseis, que aquece água, gera vapor e movimenta turbinas conectadas a geradores.", "Captação direta do calor do sol por painéis fotovoltaicos, que convertem a radiação solar em eletricidade.", "Força da queda d'água represada em barragens, que movimenta turbinas geradoras no interior da estrutura.", "Reação de fissão nuclear do urânio em reatores controlados, que libera calor intenso para gerar vapor."], "correct": 0, "feedbacks": ["✅ Correto! Nas termelétricas: queima de combustível (carvão, gás ou petróleo) → aquece água → gera vapor → vapor gira turbinas → geradores produzem eletricidade.", "❌ Isso descreve a energia solar, não a termelétrica. Painéis fotovoltaicos convertem luz solar em eletricidade. Termelétricas usam o calor da queima de combustíveis fósseis.", "❌ Isso descreve a hidrelétrica, não a termelétrica. Na hidrelétrica, a água represada cai e movimenta turbinas. Na termelétrica, o que movimenta as turbinas é o vapor gerado pela queima de combustíveis.", "❌ Isso descreve a usina nuclear, não a termelétrica convencional. Embora ambas usem calor para gerar vapor, a fonte de calor é diferente: na nuclear vem da fissão do urânio; na termelétrica vem da queima de combustíveis fósseis."]}, {"type": "quiz", "lumiText": "E a solar fotovoltaica — cada vez mais popular no Brasil:", "hint": "Observe a própria palavra \"fotovoltaica\". Ela é formada por duas partes — o que cada uma pode significar?", "question": "A energia solar fotovoltaica é uma das que mais cresce no Brasil. Sobre o funcionamento dos painéis fotovoltaicos, é correto afirmar que eles:", "options": ["Captam o calor do sol e o convertem diretamente em eletricidade por aquecimento.", "Convertem a luz do sol diretamente em eletricidade por meio de células de silício semicondutor.", "Concentram os raios solares para ferver água e gerar vapor que move turbinas.", "Armazenam a radiação solar em baterias químicas que depois liberam eletricidade."], "correct": 1, "feedbacks": ["❌ Painéis fotovoltaicos convertem luz, não calor. Existe a energia solar térmica, que usa calor para aquecer água, mas é outro sistema. \"Foto\" significa luz.", "✅ Exato! Painéis fotovoltaicos convertem luz solar diretamente em eletricidade por meio de células de silício. \"Foto\" = luz, \"voltaica\" = voltagem/eletricidade.", "❌ Isso descreve a energia solar de concentração (CSP), que usa espelhos para concentrar raios solares e gerar vapor. É uma tecnologia diferente do painel fotovoltaico.", "❌ Os painéis não armazenam radiação — eles convertem a luz em eletricidade no momento em que a recebem. Baterias podem ser usadas junto ao sistema, mas o painel em si é um conversor."]}]}, {"id": 3, "title": "O Preço da Energia", "subtitle": "Nível Intermediário — Impactos", "emoji": "⚖️", "description": "Toda fonte tem vantagens e desvantagens. Analise impactos socioambientais e decida com informação.", "openingDialogue": "{name}, chegamos ao Observatório de Impactos. Toda energia tem um preço — e não falo só de dinheiro... ⚖️", "closingDialogue": "Você agora sabe o que poucos sabem: nenhuma fonte é perfeita. Cada escolha tem consequências. E é justamente por isso que o prefeito de Energópolis convocou você para o Conselho Jovem de Energia. A missão final: projetar a nova matriz energética da cidade, equilibrando sustentabilidade, economia e bem-estar. Tudo o que você estudou até aqui vai ser necessário. Vamos! 🏙️", "steps": [{"type": "lesson", "lumiText": "Nenhuma fonte é perfeita, <strong>{name}</strong>. Todas têm vantagens e desvantagens. Vamos estudar cada uma antes de tomar decisões! 📊", "cards": [{"icon": "🏭", "color": "red", "title": "IMPACTOS DAS TERMELÉTRICAS", "body": "<strong>Vantagens:</strong> podem ser construídas em qualquer região, geram energia de forma constante e previsível, e podem ser acionadas rapidamente em emergências. <strong>Desvantagens:</strong> a queima de combustíveis fósseis libera <strong>CO₂, óxidos de enxofre, óxidos de nitrogênio e material particulado</strong>, que contribuem para o aquecimento global, chuva ácida e doenças respiratórias. Dependem de recursos finitos.", "highlight": "Estudos mostram que comunidades próximas a termelétricas a carvão apresentam índices maiores de asma, bronquite e outras doenças respiratórias, principalmente em crianças e idosos."}, {"icon": "💧", "color": "blue", "title": "IMPACTOS DAS HIDRELÉTRICAS", "body": "<strong>Vantagens:</strong> não emite poluentes durante a operação, tem baixo custo de geração após construída, grande capacidade de produção e vida útil longa (mais de 50 anos). <strong>Desvantagens:</strong> alagamento de áreas enormes, destruição de ecossistemas terrestres e aquáticos, deslocamento forçado de comunidades (incluindo povos indígenas e ribeirinhos) e alteração do ciclo natural dos rios. Depende do regime de chuvas.", "highlight": "A construção de Belo Monte, no rio Xingu (PA), deslocou mais de 20 mil pessoas e reduziu drasticamente a vazão de água em um trecho de 100 km."}, {"icon": "💨", "color": "green", "title": "IMPACTOS DA EÓLICA E SOLAR", "body": "<strong>Vantagens comuns:</strong> não emitem poluentes na geração, usam fontes inesgotáveis e têm custo de operação muito baixo. <strong>Desvantagens da eólica:</strong> gera ruído, altera a paisagem com torres de até 150m, e as pás podem atingir aves e morcegos em rota de migração. <strong>Desvantagens da solar:</strong> produção depende da incidência de luz, painéis ocupam grandes áreas e contêm materiais que exigem descarte adequado ao fim da vida útil (cerca de 25 anos).", "highlight": "Apesar desses impactos, eólica e solar são consideradas as fontes mais sustentáveis atualmente. Seus impactos são localizados e reversíveis."}, {"icon": "☢️", "color": "purple", "title": "IMPACTOS DA NUCLEAR", "body": "<strong>Vantagens:</strong> gera enorme quantidade de energia em pouco espaço, não emite CO₂ durante a operação e funciona de forma constante. <strong>Desvantagens:</strong> produz <strong>resíduos radioativos</strong> perigosos por milhares de anos, custo de construção altíssimo e risco de acidentes catastróficos — como <strong>Chernobyl</strong> (Ucrânia, 1986) e <strong>Fukushima</strong> (Japão, 2011).", "highlight": "A zona de exclusão de Chernobyl, 40 anos após o acidente, ainda é inabitável."}, {"icon": "🔄", "color": "amber", "title": "DIVERSIFICAÇÃO É A CHAVE", "body": "Como vimos, nenhuma fonte é perfeita. A melhor estratégia é <strong>diversificar a matriz energética</strong>: combinar várias fontes para que, se uma falhar, as outras compensem.", "highlight": "Em 2021, o Brasil enfrentou uma das piores crises hídricas de sua história. Reservatórios atingiram níveis críticos. Para evitar apagões, o governo acionou termelétricas de emergência — mais caras e poluentes. Se a matriz fosse mais diversificada, o impacto teria sido menor."}]}, {"type": "quiz", "lumiText": "Vamos analisar uma situação real envolvendo termelétricas e saúde pública:", "hint": "Pense no que a queima de carvão libera na atmosfera e como isso afeta quem respira esse ar.", "context": "Uma comunidade localizada a 3 km de uma termelétrica a carvão registrou aumento de 35% nos casos de doenças respiratórias (asma, bronquite) em apenas 1 ano de operação da usina. Moradores relatam fumaça constante e cheiro forte no ar.", "question": "Analisando a situação descrita, qual é a explicação mais provável para o aumento das doenças respiratórias na comunidade?", "options": ["A proximidade com a usina causa estresse psicológico nos moradores, enfraquecendo seu sistema imunológico.", "A queima de carvão libera poluentes como material particulado e óxidos de enxofre, que contaminam o ar e prejudicam o sistema respiratório.", "O vapor d'água liberado pelas chaminés da usina aumenta a umidade do ar, favorecendo o surgimento de fungos.", "A vibração das turbinas gera ondas sonoras de baixa frequência que irritam as vias respiratórias."], "correct": 1, "feedbacks": ["❌ Embora o estresse possa afetar a saúde, ele não explica um aumento de 35% especificamente em doenças respiratórias. A causa direta está nos poluentes liberados pela chaminé.", "✅ Exato! A queima de carvão mineral libera material particulado, óxidos de enxofre (SOx) e óxidos de nitrogênio (NOx), que irritam as vias respiratórias, atingindo especialmente crianças e idosos.", "❌ Embora as chaminés liberem vapor, o principal problema não é a umidade — é a poluição química. Material particulado e gases tóxicos são os responsáveis diretos.", "❌ Ondas sonoras, mesmo de baixa frequência, não causam asma nem bronquite. Doenças respiratórias são provocadas por substâncias que entram nas vias aéreas."]}, {"type": "quiz", "lumiText": "Agora uma situação na Amazônia — analise com cuidado:", "hint": "Pense no que acontece quando uma grande área de floresta é inundada. Quem vive lá? O que acontece com os animais e plantas?", "context": "Para atender à demanda energética, foi planejada a construção de uma grande usina hidrelétrica em um rio amazônico. O reservatório ocupará 500 km² e na área vivem comunidades indígenas, ribeirinhos e há floresta preservada com grande biodiversidade.", "question": "Considerando a situação descrita, qual é o principal impacto socioambiental negativo associado à construção dessa usina?", "options": ["Alagamento de extensas áreas de floresta, deslocamento forçado de comunidades e destruição de ecossistemas aquáticos e terrestres.", "Emissão de grandes quantidades de CO₂ e poluentes atmosféricos durante toda a operação regular da usina hidrelétrica.", "Contaminação radioativa do rio e das comunidades próximas ao reservatório por resíduos da geração de energia.", "Redução significativa dos ventos na região amazônica, prejudicando o clima local e a produção agrícola."], "correct": 0, "feedbacks": ["✅ Isso! Grandes hidrelétricas na Amazônia causam alagamento de vastas áreas de floresta, destruindo habitats e deslocando comunidades inteiras, incluindo povos indígenas.", "❌ Hidrelétricas não queimam combustíveis, então não emitem poluentes atmosféricos significativos durante a operação. O impacto principal é físico e social: alagamento e deslocamento.", "❌ Hidrelétricas não utilizam materiais radioativos — isso é característico de usinas nucleares. A hidrelétrica usa apenas a força da água.", "❌ Hidrelétricas não afetam os ventos. O impacto é sobre os rios e o território: alagamento de floresta, alteração do fluxo natural da água e remoção forçada de comunidades."]}, {"type": "quiz", "lumiText": "Sobre a energia eólica — vamos pensar criticamente:", "hint": "A eólica é limpa e renovável, mas lembre-se: nenhuma fonte é 100% isenta de impactos.", "question": "A energia eólica é frequentemente apresentada como uma das mais limpas e sustentáveis. No entanto, nenhuma fonte é totalmente isenta de impactos. Sobre a energia eólica, é correto afirmar que:", "options": ["É totalmente livre de impactos ambientais, pois não emite poluentes e utiliza apenas o vento.", "É renovável e limpa na geração, mas pode causar impacto visual na paisagem, gerar ruído para comunidades próximas e afetar aves e morcegos.", "Só pode ser instalada em regiões litorâneas, pois depende de ventos marítimos para funcionar.", "Apesar de limpa, produz tanta energia quanto uma termelétrica a carvão, tornando-a pouco vantajosa."], "correct": 1, "feedbacks": ["❌ Nenhuma fonte é totalmente livre de impactos. A eólica não emite poluentes na geração, mas causa alteração da paisagem, ruído e risco para aves e morcegos.", "✅ Correto! A eólica é renovável e limpa, mas apresenta impactos localizados e reversíveis: alteração da paisagem, ruído e risco para aves.", "❌ Parques eólicos podem ser instalados em qualquer região com ventos adequados — não apenas no litoral. Há parques em chapadas do interior e no pampa gaúcho.", "❌ A comparação não procede. Parques eólicos com dezenas de turbinas atingem capacidade significativa, sem custo de combustível nem emissão de poluentes."]}, {"type": "quiz", "lumiText": "Sobre a crise hídrica de 2021 — um caso real e recente:", "hint": "Sem chuva, os reservatórios das hidrelétricas baixaram drasticamente. O Brasil precisou encontrar alternativas rápidas.", "context": "Em 2021, o Brasil enfrentou uma das piores crises hídricas de sua história. Reservatórios de hidrelétricas em todo o país atingiram níveis críticos — alguns abaixo de 20% da capacidade. O governo criou a \"bandeira de escassez hídrica\" na conta de luz.", "question": "Considerando que mais de 60% da eletricidade brasileira vem de hidrelétricas, qual foi a principal consequência dessa crise para o setor energético?", "options": ["O governo precisou acionar termelétricas de emergência, que são mais caras e poluentes, aumentando as contas de luz e as emissões de CO₂.", "O país conseguiu compensar totalmente a queda com energia solar e eólica, sem impacto para a população.", "As hidrelétricas passaram a operar com água do mar, usando dessalinização para manter a produção.", "O Brasil importou toda a energia necessária de países vizinhos até a normalização das chuvas."], "correct": 0, "feedbacks": ["✅ Exato! Sem água nos reservatórios, o Brasil acionou termelétricas de emergência — mais caras e poluentes. As contas de luz subiram e as emissões aumentaram. Isso demonstra o risco de depender de uma única fonte.", "❌ Em 2021, solar e eólica ainda não tinham capacidade suficiente para compensar a queda. Ajudaram a amenizar, mas o governo precisou acionar termelétricas.", "❌ Hidrelétricas não podem usar água do mar. A dessalinização é usada para obter água potável, não para gerar energia.", "❌ O Brasil importa energia em volume limitado. A principal medida foi acionar termelétricas de emergência dentro do próprio país."]}, {"type": "quiz", "lumiText": "Sobre energia nuclear — um tema que gera muito debate:", "hint": "A nuclear gera muita energia e não emite CO₂, mas pense: o que acontece com os resíduos? E se houver um acidente?", "question": "A energia nuclear é tema de debate em muitos países. Considerando as características dessa fonte, assinale a afirmação CORRETA:", "options": ["É classificada como renovável porque o urânio pode ser reciclado indefinidamente após o uso nos reatores.", "É segura e limpa, pois não gera nenhum tipo de resíduo e os reatores modernos eliminaram todos os riscos de acidentes.", "Gera grande quantidade de energia sem emitir CO₂, mas produz resíduos radioativos perigosos que permanecem ativos por milhares de anos.", "É a fonte mais utilizada no Brasil, sendo responsável pela maior parte da energia elétrica consumida no país."], "correct": 2, "feedbacks": ["❌ O urânio é um mineral finito, extraído de jazidas que se esgotam. Embora parte do combustível possa ser reprocessada, não é reciclagem infinita.", "❌ A nuclear gera resíduos radioativos perigosos por milhares de anos. E embora os reatores modernos sejam mais seguros, o risco não foi eliminado — Fukushima (2011) ocorreu em reator considerado seguro.", "✅ Correto! A nuclear gera muita energia sem CO₂, mas os resíduos radioativos permanecem perigosos por milhênios. Acidentes como Chernobyl e Fukushima mostraram que os riscos, embora raros, são catastróficos.", "❌ A nuclear representa apenas cerca de 2% da matriz elétrica brasileira, com as usinas Angra 1 e Angra 2. A fonte mais utilizada é a hidrelétrica, com mais de 60%."]}, {"type": "quiz", "lumiText": "Para fechar esta fase, uma questão sobre biomassa:", "hint": "A biomassa vem de plantas que cresceram recentemente. De onde essas plantas tiraram o carbono que está em seus tecidos?", "question": "A biomassa é classificada como fonte renovável de energia, mesmo liberando CO₂ durante a queima. A explicação correta para essa classificação é:", "options": ["A biomassa não libera CO₂ na queima, pois a fumaça produzida é composta apenas de vapor d'água.", "O CO₂ liberado na queima é o mesmo que foi absorvido pelas plantas durante seu crescimento, formando um ciclo de carbono aproximadamente fechado.", "A quantidade de CO₂ liberada pela biomassa é tão pequena que pode ser ignorada nos cálculos ambientais.", "O CO₂ da biomassa é diferente quimicamente do CO₂ dos combustíveis fósseis e não causa efeito estufa."], "correct": 1, "feedbacks": ["❌ A queima de biomassa libera CO₂ sim — toda combustão de matéria orgânica produz gás carbônico. A diferença é que esse CO₂ faz parte de um ciclo recente.", "✅ Exatamente! A biomassa funciona em um ciclo do carbono: plantas absorvem CO₂ ao crescer, a queima devolve esse CO₂, novas plantas absorvem. Balanço aproximadamente neutro, diferente dos fósseis.", "❌ A quantidade de CO₂ não é desprezível. O que torna a biomassa renovável é o ciclo: o carbono é recente e pode ser reabsorvido.", "❌ O CO₂ é a mesma molécula independente da origem. A diferença é de onde vem o carbono: na biomassa, é recente; nos fósseis, estava preso há milhões de anos."]}]}, {"id": 4, "title": "Energópolis do Futuro", "subtitle": "Nível Proficiente — Decisão", "emoji": "🏙️", "description": "Projete a nova matriz energética equilibrando sustentabilidade, economia e bem-estar.", "openingDialogue": "Hora da verdade, {name}! O prefeito está esperando seu plano no Conselho. Tudo o que você aprendeu vai ser usado agora! 🏙️", "closingDialogue": "", "steps": [{"type": "lesson", "lumiText": "Antes das grandes decisões, vamos revisar conceitos fundamentais de <strong>planejamento energético</strong>! 🏗️", "cards": [{"icon": "🗺️", "color": "amber", "title": "MATRIZ ENERGÉTICA", "body": "A <strong>matriz energética</strong> é o conjunto de todas as fontes de energia utilizadas por um país ou cidade. Uma matriz <strong>diversificada</strong> é mais segura, porque se uma fonte falhar, as outras compensam.", "highlight": "Matriz elétrica brasileira (aproximada): ~63% hidrelétrica, ~12% eólica, ~9% gás natural, ~5% solar, ~5% biomassa, ~2% nuclear, ~4% outros."}, {"icon": "⚖️", "color": "green", "title": "TRIPÉ DA SUSTENTABILIDADE", "body": "Um bom plano energético equilibra três dimensões: <strong>Ambiental</strong> (qual o impacto no meio ambiente?), <strong>Social</strong> (como afeta as pessoas?) e <strong>Econômica</strong> (quanto custa?). Priorizar apenas uma dimensão gera desequilíbrio.", "highlight": "Energia barata que polui o ar prejudica a saúde. Energia limpa que custa caro exclui os mais pobres. O desafio é encontrar o equilíbrio."}, {"icon": "🔌", "color": "blue", "title": "DA USINA À SUA CASA", "body": "A energia percorre: <strong>1)</strong> Geração (usinas) → <strong>2)</strong> Transmissão (linhas de alta tensão) → <strong>3)</strong> Subestação (reduz a tensão) → <strong>4)</strong> Distribuição (rede local) → <strong>5)</strong> Consumo (127V ou 220V).", "highlight": "No Brasil, cerca de 15% da energia gerada é perdida no caminho. Modernizar a rede é tão importante quanto construir novas usinas."}, {"icon": "💡", "color": "purple", "title": "EFICIÊNCIA ENERGÉTICA", "body": "<strong>Eficiência energética</strong> significa usar menos energia para obter o mesmo resultado. Não basta gerar mais energia; é essencial reduzir o desperdício.", "highlight": "Trocar lâmpadas incandescentes por LED reduz o consumo em até 80%. Um chuveiro elétrico consome o equivalente a 45 lâmpadas LED acesas ao mesmo tempo!"}]}, {"type": "strategy", "lumiText": "O grande momento chegou, <strong>{name}</strong>! Energópolis tem <em>200 mil habitantes</em>, fica numa região com ventos fortes, sol intenso, um rio de médio porte e áreas agrícolas com produção de cana-de-açúcar. O orçamento é de <strong>R$ 500 milhões</strong>. Escolha <strong>3 fontes de energia</strong> para compor a nova matriz da cidade!", "hint": "Aproveite as características da região: muito vento, sol forte, rio médio e polo agrícola. Equilibre sustentabilidade, custo e capacidade!", "energySources": [{"id": "solar", "name": "Solar", "emoji": "☀️", "cost": 120, "sustainability": 95, "satisfaction": 80, "capacity": 70, "detail": "Painéis fotovoltaicos"}, {"id": "eolica", "name": "Eólica", "emoji": "💨", "cost": 150, "sustainability": 90, "satisfaction": 75, "capacity": 80, "detail": "Parques eólicos"}, {"id": "hidro", "name": "Hidrelétrica", "emoji": "💧", "cost": 200, "sustainability": 70, "satisfaction": 85, "capacity": 90, "detail": "PCH no rio local"}, {"id": "biomassa", "name": "Biomassa", "emoji": "🌿", "cost": 100, "sustainability": 75, "satisfaction": 70, "capacity": 60, "detail": "Resíduos de cana"}, {"id": "termica", "name": "Termelétrica", "emoji": "🏭", "cost": 180, "sustainability": 20, "satisfaction": 40, "capacity": 95, "detail": "Gás natural"}, {"id": "nuclear", "name": "Nuclear", "emoji": "☢️", "cost": 350, "sustainability": 50, "satisfaction": 30, "capacity": 98, "detail": "Alto custo e riscos"}], "maxSelections": 3, "budget": 500}, {"type": "quiz", "lumiText": "Vamos verificar se você entendeu o caminho que a energia percorre:", "hint": "Pense na lógica: a energia precisa viajar centenas de quilômetros antes de chegar ao seu bairro. O que vem primeiro — o transporte de longa distância ou a entrega local?", "question": "A energia elétrica percorre um longo caminho desde a usina até sua casa. Assinale a alternativa que apresenta a sequência CORRETA desse caminho:", "options": ["Usina → Transmissão (alta tensão) → Subestação (reduz voltagem) → Distribuição → Consumidor.", "Usina → Distribuição → Subestação → Transmissão → Consumidor.", "Subestação → Usina → Transmissão → Consumidor → Distribuição.", "Usina → Subestação (aumenta voltagem) → Distribuição → Transmissão → Consumidor."], "correct": 0, "feedbacks": ["✅ Perfeito! Usina (gera) → Transmissão em alta tensão (transporta com menos perdas) → Subestação (reduz voltagem) → Distribuição (rede local) → Consumidor (127V ou 220V).", "❌ A sequência está embaralhada. A distribuição é a etapa final antes do consumidor, não a primeira após a usina.", "❌ A subestação não vem antes da usina — ela fica entre a transmissão e a distribuição. O consumidor é o ponto final, não intermediário.", "❌ Dois erros: a subestação reduz a voltagem (não aumenta), e a transmissão vem antes da distribuição."]}, {"type": "quiz", "lumiText": "Um morador de Energópolis fez uma pergunta importante ao Conselho:", "hint": "Pense na crise de 2021: o que aconteceu quando faltou chuva e as hidrelétricas não deram conta?", "context": "Um morador questionou: \"Por que investir em VÁRIAS fontes? Não seria mais barato e simples usar apenas hidrelétricas, já que o Brasil tem tantos rios?\"", "question": "Qual é o argumento técnico mais forte para justificar a diversificação da matriz energética?", "options": ["Cada fonte tem limitações próprias — diversificar garante que, se uma falhar por questões climáticas ou técnicas, as outras mantenham o fornecimento.", "A diversificação é apenas uma recomendação estética para que a matriz pareça mais moderna e variada.", "Usar várias fontes é obrigatório por lei federal, que exige um mínimo de cinco tipos diferentes em cada estado.", "A diversificação serve principalmente para gerar mais empregos, sem relação com a segurança do fornecimento."], "correct": 0, "feedbacks": ["✅ Diversificação = segurança energética. Hidrelétricas dependem de chuva, eólicas de vento, solares de luz. Combinando, o risco diminui. A crise de 2021 provou isso.", "❌ Diversificação não tem nada de estético — é questão de segurança energética. Um país que depende de uma única fonte fica vulnerável a crises.", "❌ Não existe essa lei. A diversificação é uma estratégia de planejamento energético, não uma obrigação legal.", "❌ Gerar empregos é um benefício real, mas não o principal. A razão técnica central é a segurança energética."]}, {"type": "quiz", "lumiText": "Uma ambientalista fez uma crítica importante ao plano de Energópolis:", "hint": "A ambientalista criticou o plano por considerar apenas geração e custo. Que outras dimensões foram ignoradas na análise?", "context": "Uma ambientalista questionou: \"O conselho pensou apenas na quantidade de energia gerada e no custo. Mas e as comunidades afetadas? E o impacto ambiental?\"", "question": "A crítica da ambientalista destaca que o planejamento energético deve considerar, além da capacidade de geração:", "options": ["Apenas o custo financeiro, pois o mais importante é que a energia seja barata para todos.", "Apenas a opinião de engenheiros e técnicos, que são os únicos qualificados para decidir sobre energia.", "Os impactos ambientais, sociais e econômicos de forma integrada, equilibrando o tripé da sustentabilidade.", "Apenas a satisfação dos moradores da cidade, pois a opinião popular deve ser o único critério."], "correct": 2, "feedbacks": ["❌ Custo é importante, mas não pode ser o único critério. Energia barata por termelétricas a carvão polui o ar e causa doenças.", "❌ Engenheiros têm papel fundamental, mas o planejamento energético afeta toda a sociedade. Decisões precisam considerar vozes diversas.", "✅ Exato! O planejamento energético responsável equilibra o tripé da sustentabilidade: impactos ambientais, sociais e econômicos.", "❌ A opinião da população é importante, mas não pode ser o único critério. O equilíbrio entre as três dimensões é essencial."]}, {"type": "quiz", "lumiText": "Missão final, <strong>{name}</strong>! Depois de tudo que estudamos, hora de pensar no futuro:", "hint": "Depender de uma única fonte é arriscado — a crise de 2021 mostrou isso. Mas só trocar a fonte resolve tudo, ou o sistema de transporte da energia e os hábitos de consumo também precisam de atenção?", "question": "Após estudar todas as fontes, seus impactos e a realidade brasileira, qual é a estratégia mais adequada para garantir um futuro energético sustentável para o Brasil?", "options": ["Concentrar todos os investimentos em hidrelétricas, já que são a principal fonte do país e utilizam água, que é renovável.", "Diversificar a matriz com fontes renováveis, modernizar a rede de transmissão e promover eficiência energética na geração e no consumo.", "Substituir todas as fontes atuais por energia nuclear, que gera muita energia sem emitir CO₂ durante a operação.", "Reduzir drasticamente o consumo de energia da população, limitando o uso diário de eletrodomésticos e aparelhos."], "correct": 1, "feedbacks": ["❌ Concentrar tudo em hidrelétricas é arriscado. A crise de 2021 mostrou: sem chuva, os reservatórios secam. Além disso, novas grandes hidrelétricas na Amazônia geram impactos graves.", "✅ Parabéns! A estratégia ideal combina: diversificação com renováveis, modernização da infraestrutura e eficiência energética. O Brasil tem potencial enorme!", "❌ A nuclear tem problemas sérios: resíduos radioativos, custo altíssimo e riscos de acidentes. Depender de uma única fonte é sempre arriscado.", "❌ Restringir o acesso à energia prejudicaria qualidade de vida, saúde e desenvolvimento. O caminho é consumir de forma mais inteligente, não menos."]}]}],
+
+// ============================================
+// DADOS DO CERTIFICADO (texto exato do GDD)
+// ============================================
+certData:{
+  // Encerramento narrativo por faixa
+  narratives:{
+    diamond:"Você conseguiu, {name}! Energópolis está brilhando de novo — e com uma matriz mais limpa e diversificada do que nunca! Graças às suas decisões, a cidade agora tem energia segura, sustentável e acessível para todos. O Conselho Jovem de Energia está orgulhoso. Eu recarreguei minha bateria por completo e estou mais forte que nunca! Você provou que conhecimento e responsabilidade caminham juntos. O futuro de Energópolis está em boas mãos! ⚡",
+    gold:"Energópolis voltou a funcionar, {name}! Suas escolhas trouxeram a luz de volta para a cidade e minha bateria está quase cheia. Alguns desafios foram difíceis, mas você mostrou que entende como a energia funciona e por que as decisões importam. Com um pouco mais de estudo sobre os impactos de cada fonte, você estará pronto(a) para liderar qualquer conselho de energia! ⚡",
+    silver:"A luz está voltando aos poucos em Energópolis, {name}! Minha bateria recarregou o suficiente para manter a cidade funcionando. Você enfrentou todos os desafios e isso mostra coragem. Alguns conceitos sobre fontes de energia e seus impactos ainda podem ser revisados — que tal jogar novamente para fortalecer esses conhecimentos? Energópolis precisa de você! ⚡",
+    bronze:"Ei, {name}, não desanime! Energópolis ainda precisa de ajuda e eu sei que você pode fazer melhor. Cada erro é uma oportunidade de aprender algo novo sobre energia. Minha bateria ficou fraquinha, mas não apagou — e isso é o que importa. Revise os cards de estudo com calma e tente de novo. A cidade está esperando por você! ⚡"
+  },
+  // Mensagens por faixa no certificado
+  messages:{
+    diamond:"Desempenho excepcional! Você domina os conceitos de fontes de energia, seus impactos e a importância da diversificação da matriz energética. Verdadeiro(a) Mestre da Energia Sustentável!",
+    gold:"Ótimo desempenho! Você compreende bem as fontes de energia e seus impactos. Revise os pontos sobre impactos socioambientais e planejamento energético para alcançar a excelência.",
+    silver:"Bom trabalho! Você conhece os fundamentos da energia, mas alguns conceitos sobre classificação de fontes e análise de impactos merecem revisão. Jogue novamente para consolidar!",
+    bronze:"Você completou a missão e isso já é um grande passo! Os conceitos de energia são desafiadores. Releia os cards de estudo e jogue novamente — você vai se surpreender com o quanto já aprendeu."
+  },
+  // O que você aprendeu
+  learned:[
+    "⚡ O que é energia e como ela se transforma de uma forma para outra",
+    "🔌 O caminho da energia elétrica — da usina até sua casa",
+    "♻️ A diferença entre fontes renováveis e não renováveis",
+    "⚖️ Os impactos ambientais e sociais de cada tipo de fonte",
+    "🏙️ A importância de diversificar a matriz energética para garantir segurança e sustentabilidade"
+  ]
+},
+
+// ============================================
+// INICIALIZAÇÃO
+// ============================================
+init(){
+  const ni=document.getElementById('playerName'),sb=document.getElementById('btnStart');
+  ni.addEventListener('input',()=>{sb.disabled=ni.value.trim().length<2});
+  ni.addEventListener('keydown',e=>{if(e.key==='Enter'&&!sb.disabled)sb.click()});
+  sb.addEventListener('click',()=>{SFX.init();SFX.play('click');G.name=ni.value.trim();G.start()});
+  document.getElementById('soundToggle').addEventListener('click',()=>{SFX.on=!SFX.on;document.getElementById('soundToggle').textContent=SFX.on?'🔊':'🔇';if(SFX.on)SFX.play('click')});
+},
+
+start(){this.phase=0;this.step=0;this.score=0;this.ps=[0,0,0,0];this.hints=0;this.showPhaseIntro()},
+
+showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})},
+
+updateHeader(){document.getElementById('gameHeader').classList.add('visible');document.getElementById('headerPhase').textContent='FASE '+(this.phase+1)+' — '+this.phases[this.phase].title;document.getElementById('headerScore').textContent=this.score},
+
+// ============================================
+// INTRO DA FASE
+// ============================================
+showPhaseIntro(){
+  const p=this.phases[this.phase];
+  this.step=0;
+  this.updateHeader();
+  const dlg=p.openingDialogue.replace(/\{name\}/g,this.name);
+  const btns=['🔦 Começar','🔍 Investigar','⚖️ Analisar','🏙️ Projetar'];
+  document.getElementById('phaseIntroContent').innerHTML=
+    '<div style="font-size:3.5rem;margin-bottom:14px;animation:bounceIn .6s ease">'+p.emoji+'</div>'+
+    '<div class="phase-number">Fase '+p.id+' de 4</div>'+
+    '<h2 class="phase-title">'+p.title+'</h2>'+
+    '<p class="phase-desc">'+p.description+'</p>'+
+    '<div class="lumi-container"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+dlg+'</div></div></div>'+
+    '<button class="btn btn-primary btn-lg mt-3" onclick="G.nextStep()">'+btns[this.phase]+'</button>';
+  this.showScreen('screenPhaseIntro');
+  SFX.play('up');
+},
+
+nextStep(){
+  const p=this.phases[this.phase];
+  if(this.step>=p.steps.length){this.showPhaseResults();return}
+  const s=p.steps[this.step],a=document.getElementById('gameplayArea');
+  const handlers={lesson:()=>this.renderLesson(s,a),scene:()=>this.renderScene(s,a),quiz:()=>this.renderQuiz(s,a),classify:()=>this.renderClassify(s,a),strategy:()=>this.renderStrategy(s,a)};
+  handlers[s.type]();
+  this.showScreen('screenGameplay');
+  this.updateHeader();
+  SFX.play('click');
+},
+
+// ============================================
+// RENDERIZAR CARDS
+// ============================================
+renderLesson(s,a){
+  const p=this.phases[this.phase];
+  let idx=0;
+  const render=()=>{
+    let h='<div class="quiz-progress"><span>Fase '+p.id+'</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:'+(this.step/p.steps.length*100)+'%"></div></div><span>'+(this.step+1)+'/'+p.steps.length+'</span></div>';
+    h+='<div class="lumi-container"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+s.lumiText.replace(/\{name\}/g,this.name)+'</div></div></div>';
+    h+='<div class="lesson-cards">';
+    for(let i=0;i<=idx&&i<s.cards.length;i++){
+      const c=s.cards[i];
+      h+='<div class="lesson-card" style="animation-delay:'+i*.08+'s"><div class="lesson-card-header"><div class="lesson-card-icon '+c.color+'">'+c.icon+'</div><div class="lesson-card-title">'+c.title+'</div></div><div class="lesson-card-body">'+c.body;
+      if(c.highlight)h+='<div class="lesson-card-highlight">'+c.highlight+'</div>';
+      if(c.example)h+='<div class="lesson-card-example">'+c.example+'</div>';
+      h+='</div></div>';
+    }
+    h+='</div><div class="lesson-nav"><div class="lesson-dots">'+s.cards.map((_,i)=>'<div class="lesson-dot '+(i<idx?'done':i===idx?'active':'')+'"></div>').join('')+'</div>';
+    if(idx<s.cards.length-1)h+='<button class="btn btn-primary btn-sm" onclick="G._lnx()">Próximo card ▶</button>';
+    else h+='<button class="btn btn-success btn-sm" onclick="G.step++;G.nextStep()">✅ Entendi! Continuar</button>';
+    h+='</div>';
+    a.innerHTML=h;
+  };
+  this._lnx=()=>{idx++;render();SFX.play('click')};
+  render();
+},
+
+// ============================================
+// RENDERIZAR CENA (com feedbacks individuais)
+// ============================================
+renderScene(s,a){
+  const p=this.phases[this.phase];
+  const tot=s.sceneItems.filter(i=>i.electric).length;
+  let found=0,ck=new Set();
+  let h='<div class="quiz-progress"><span>Fase '+p.id+'</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:'+(this.step/p.steps.length*100)+'%"></div></div><span>'+(this.step+1)+'/'+p.steps.length+'</span></div>';
+  h+='<div class="lumi-container"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+s.lumiText+'</div></div></div>';
+  h+='<button class="hint-btn" id="sceneHintBtn" onclick="G.useHint()">💜 Dica ('+(this.mh-this.hints)+' restantes)</button><div id="hintArea"></div>';
+  h+='<div class="energy-meter"><div class="meter-label"><span>🔋 Bateria da Lumi</span><span id="meterPct">0%</span></div><div class="meter-bar"><div class="meter-fill" id="meterFill" style="width:0%"></div></div></div>';
+  h+='<div class="scene-container">';
+  s.sceneItems.forEach((it,i)=>{
+    h+='<div class="scene-item" data-i="'+i+'" style="left:'+it.x+';top:'+it.y+'"><span>'+it.emoji+'</span><span class="item-label">'+it.label+'</span></div>';
+  });
+  h+='<div class="scene-label">🏠 Casa em Energópolis — encontre os '+tot+' objetos elétricos!</div></div>';
+  h+='<div id="sceneFb"></div>';
+  h+='<button class="btn btn-success btn-block mt-2 hidden" id="sceneNx" onclick="G.step++;G.nextStep()">Continuar ▶</button>';
+  a.innerHTML=h;
+
+  // Armazenar dica da cena para o botão
+  this._currentHint=s.hint;
+
+  a.querySelectorAll('.scene-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const i=+el.dataset.i;
+      if(ck.has(i))return;
+      ck.add(i);
+      const it=s.sceneItems[i];
+      if(it.electric){
+        found++;
+        el.classList.add('found');
+        const pc=Math.round(found/tot*100);
+        document.getElementById('meterFill').style.width=pc+'%';
+        document.getElementById('meterPct').textContent=pc+'%';
+        // Feedback individual do GDD
+        document.getElementById('sceneFb').innerHTML='<div class="feedback correct"><span class="feedback-icon">✅</span><div class="fb-text">'+it.feedback+'</div></div>';
+        this.addScore(10);
+        SFX.play('ok');
+        if(found>=tot)setTimeout(()=>{
+          document.getElementById('sceneFb').innerHTML='<div class="feedback correct"><span class="feedback-icon">🎉</span><div class="fb-text">Todos os <strong>'+tot+' objetos elétricos</strong> encontrados! Bateria recarregada!</div></div>';
+          document.getElementById('sceneNx').classList.remove('hidden');
+        },500);
+      }else{
+        el.classList.add('wrong-click','dismissed');
+        setTimeout(()=>el.classList.remove('wrong-click'),400);
+        // Feedback individual do GDD
+        document.getElementById('sceneFb').innerHTML='<div class="feedback wrong"><span class="feedback-icon">❌</span><div class="fb-text">'+it.feedback+'</div></div>';
+        SFX.play('no');
+      }
+    });
+  });
+},
+
+// ============================================
+// RENDERIZAR QUIZ (com feedbacks individuais)
+// ============================================
+renderQuiz(s,a){
+  const p=this.phases[this.phase];
+  let h='<div class="quiz-progress"><span>Fase '+p.id+'</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:'+(this.step/p.steps.length*100)+'%"></div></div><span>'+(this.step+1)+'/'+p.steps.length+'</span></div>';
+  h+='<div class="lumi-container"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+s.lumiText.replace(/\{name\}/g,this.name)+'</div></div></div>';
+  h+='<button class="hint-btn" id="quizHintBtn" onclick="G.useHint()">💜 Dica ('+(this.mh-this.hints)+' restantes)</button><div id="hintArea"></div>';
+  h+='<div class="card">';
+  if(s.context)h+='<div class="quiz-context">'+s.context+'</div>';
+  h+='<div class="quiz-question">'+s.question+'</div>';
+  h+='<div class="quiz-options">';
+  s.options.forEach((o,i)=>{
+    h+='<button class="quiz-option" data-i="'+i+'" onclick="G.ansQuiz('+i+')"><span class="opt-letter">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span></button>';
+  });
+  h+='</div></div>';
+  h+='<div id="quizFb"></div>';
+  h+='<button class="btn btn-success btn-block mt-2 hidden" id="quizNx" onclick="G.step++;G.nextStep()">Continuar ▶</button>';
+  a.innerHTML=h;
+  // Armazenar dica para o botão
+  this._currentHint=s.hint;
+},
+
+// Responder quiz com feedback individual
+ansQuiz(sel){
+  const s=this.phases[this.phase].steps[this.step];
+  const cor=s.correct;
+  const pts=[10,20,30,50][this.phase];
+  const pen=[0,5,10,20][this.phase];
+  const os=document.querySelectorAll('.quiz-option');
+  os.forEach(o=>o.disabled=true);
+  const btn=os[sel];
+
+  // Feedback individual do GDD (cada alternativa tem seu feedback)
+  const fb=s.feedbacks[sel];
+  const isCorrect=(sel===cor);
+
+  if(isCorrect){
+    btn.classList.add('correct');
+    document.getElementById('quizFb').innerHTML='<div class="feedback correct"><span class="feedback-icon">✅</span><div class="fb-text">'+fb+' <strong>+'+pts+' pts</strong></div></div>';
+    this.addScore(pts);
+    SFX.play('ok');
+  }else{
+    btn.classList.add('wrong');
+    os[cor].classList.add('correct');
+    document.getElementById('quizFb').innerHTML='<div class="feedback wrong"><span class="feedback-icon">❌</span><div class="fb-text">'+fb+(pen?' <strong>-'+pen+' pts</strong>':'')+'</div></div>';
+    if(pen)this.addScore(-pen);
+    SFX.play('no');
+  }
+  document.getElementById('quizNx').classList.remove('hidden');
+},
+
+// ============================================
+// RENDERIZAR CLASSIFICAÇÃO (com feedbacks individuais)
+// ============================================
+renderClassify(s,a){
+  const p=this.phases[this.phase];
+  this._cs=null;this._cc=0;this._ct=s.items.length;this._cp=0;
+  let h='<div class="quiz-progress"><span>Fase '+p.id+'</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:'+(this.step/p.steps.length*100)+'%"></div></div><span>'+(this.step+1)+'/'+p.steps.length+'</span></div>';
+  h+='<div class="lumi-container"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+s.lumiText+'</div></div></div>';
+  h+='<button class="hint-btn" id="clHintBtn" onclick="G.useHint()">💜 Dica ('+(this.mh-this.hints)+' restantes)</button><div id="hintArea"></div>';
+  h+='<p class="text-sm text-muted text-center mb-2">Toque em uma fonte, depois na categoria:</p>';
+  h+='<div class="drag-zone">';
+  s.items.forEach((it,i)=>{h+='<button class="drag-item" data-i="'+i+'" onclick="G.selCl(this)">'+it.name+'</button>';});
+  h+='</div>';
+  h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0">';
+  h+='<div class="drop-target" onclick="G.dropCl(true)"><div class="drop-target-label renewable">♻️ RENOVÁVEL</div><div id="renItems"></div></div>';
+  h+='<div class="drop-target" onclick="G.dropCl(false)"><div class="drop-target-label non-renewable">🚫 NÃO RENOVÁVEL</div><div id="nrenItems"></div></div>';
+  h+='</div>';
+  h+='<div id="clFb"></div>';
+  h+='<button class="btn btn-success btn-block mt-2 hidden" id="clNx" onclick="G.step++;G.nextStep()">Continuar ▶</button>';
+  a.innerHTML=h;
+  this._currentHint=s.hint;
+  this._classifyItems=s.items;
+},
+
+selCl(el){
+  if(el.classList.contains('placed'))return;
+  document.querySelectorAll('.drag-item').forEach(d=>d.classList.remove('selected-drag'));
+  el.classList.add('selected-drag');
+  this._cs=el;
+  SFX.play('click');
+},
+
+dropCl(isRenewable){
+  if(!this._cs)return;
+  const el=this._cs;
+  const idx=+el.dataset.i;
+  const item=this._classifyItems[idx];
+  const ok=(isRenewable===item.renewable);
+  el.classList.add('placed');
+  el.classList.remove('selected-drag');
+  const t=document.getElementById(isRenewable?'renItems':'nrenItems');
+  const ch=document.createElement('div');
+  ch.className='dropped-item '+(ok?'correct-drop':'wrong-drop');
+  ch.textContent=el.textContent;
+  t.appendChild(ch);
+  this._cp++;
+  if(ok){
+    this._cc++;
+    this.addScore(20);
+    SFX.play('ok');
+    // Feedback individual do GDD
+    document.getElementById('clFb').innerHTML='<div class="feedback correct"><span class="feedback-icon">✅</span><div class="fb-text">'+item.name+' → Correto! '+item.feedbackCorrect+' <strong>+20</strong></div></div>';
+  }else{
+    this.addScore(-5);
+    SFX.play('no');
+    // Feedback individual do GDD
+    document.getElementById('clFb').innerHTML='<div class="feedback wrong"><span class="feedback-icon">❌</span><div class="fb-text">'+item.name+' → Errado! '+item.feedbackWrong+' <strong>-5</strong></div></div>';
+  }
+  this._cs=null;
+  if(this._cp>=this._ct)setTimeout(()=>{
+    const pc=Math.round(this._cc/this._ct*100);
+    document.getElementById('clFb').innerHTML='<div class="feedback '+(pc>=70?'correct':'info')+'"><span class="feedback-icon">'+(pc>=70?'🎉':'📊')+'</span><div class="fb-text"><strong>'+this._cc+'/'+this._ct+'</strong> ('+pc+'%). '+(pc>=90?'Impressionante!':pc>=70?'Muito bom!':'Continue estudando!')+'</div></div>';
+    document.getElementById('clNx').classList.remove('hidden');
+  },400);
+},
+
+// ============================================
+// RENDERIZAR SIMULAÇÃO ESTRATÉGICA
+// ============================================
+renderStrategy(s,a){
+  const p=this.phases[this.phase];
+  this._ss=[];this._sd=s;
+  let h='<div class="quiz-progress"><span>Fase '+p.id+'</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:'+(this.step/p.steps.length*100)+'%"></div></div><span>'+(this.step+1)+'/'+p.steps.length+'</span></div>';
+  h+='<div class="lumi-container"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+s.lumiText.replace(/\{name\}/g,this.name)+'</div></div></div>';
+  h+='<button class="hint-btn" id="stHintBtn" onclick="G.useHint()">💜 Dica ('+(this.mh-this.hints)+' restantes)</button><div id="hintArea"></div>';
+  h+='<div class="text-center mb-2"><span class="text-sm" style="color:var(--neon-amber)">💰 R$ <span id="bLeft">'+s.budget+'</span> mi</span><span class="text-sm text-muted" style="margin-left:12px">Escolha '+s.maxSelections+'</span></div>';
+  h+='<div class="strategy-grid">';
+  s.energySources.forEach(x=>{
+    h+='<div class="strategy-card" data-id="'+x.id+'" data-c="'+x.cost+'" data-s="'+x.sustainability+'" data-a="'+x.satisfaction+'" data-p="'+x.capacity+'" onclick="G.togSt(this)"><div class="emoji">'+x.emoji+'</div><div class="name">'+x.name+'</div><div class="detail">'+x.detail+'</div><div class="cost">R$ '+x.cost+' mi</div></div>';
+  });
+  h+='</div>';
+  h+='<div class="indicators"><div class="indicator"><div class="indicator-label">🌱 Sustentab.</div><div class="indicator-value" id="iS">—</div></div><div class="indicator"><div class="indicator-label">😊 Satisfação</div><div class="indicator-value" id="iA">—</div></div><div class="indicator"><div class="indicator-label">⚡ Capacidade</div><div class="indicator-value" id="iP">—</div></div></div>';
+  h+='<div id="stFb"></div>';
+  h+='<button class="btn btn-success btn-lg btn-block mt-2 hidden" id="stOk" onclick="G.confSt()">✅ Confirmar Plano</button>';
+  a.innerHTML=h;
+  this._currentHint=s.hint;
+},
+
+togSt(c){
+  const id=c.dataset.id,co=+c.dataset.c,s=this._sd;
+  if(c.classList.contains('selected')){
+    c.classList.remove('selected');
+    this._ss=this._ss.filter(x=>x.id!==id);
+  }else{
+    if(this._ss.length>=s.maxSelections){document.getElementById('stFb').innerHTML='<div class="feedback info"><span class="feedback-icon">⚠️</span><div class="fb-text">Já selecionou '+s.maxSelections+'. Desmarque uma.</div></div>';return}
+    const tc=this._ss.reduce((a,x)=>a+x.c,0)+co;
+    if(tc>s.budget){document.getElementById('stFb').innerHTML='<div class="feedback wrong"><span class="feedback-icon">💰</span><div class="fb-text">Sem orçamento! R$ '+tc+' mi > R$ '+s.budget+' mi.</div></div>';SFX.play('no');return}
+    c.classList.add('selected');
+    this._ss.push({id,c:co,s:+c.dataset.s,a:+c.dataset.a,p:+c.dataset.p});
+  }
+  SFX.play('click');
+  this.updInd();
+  document.getElementById('stOk').classList.toggle('hidden',this._ss.length!==this._sd.maxSelections);
+  document.getElementById('stFb').innerHTML='';
+},
+
+updInd(){
+  const s=this._ss,b=this._sd.budget;
+  document.getElementById('bLeft').textContent=b-s.reduce((a,x)=>a+x.c,0);
+  if(!s.length){['iS','iA','iP'].forEach(id=>document.getElementById(id).textContent='—');return}
+  const av=(k)=>Math.round(s.reduce((a,x)=>a+x[k],0)/s.length);
+  const sv=(id,v)=>{const e=document.getElementById(id);e.textContent=v+'%';e.className='indicator-value '+(v>=70?'good':v>=50?'medium':'bad')};
+  sv('iS',av('s'));sv('iA',av('a'));sv('iP',av('p'));
+},
+
+confSt(){
+  const s=this._ss,as=Math.round(s.reduce((a,x)=>a+x.s,0)/s.length);
+  const rn=['solar','eolica','hidro','biomassa'];
+  const rc=s.filter(x=>rn.includes(x.id)).length;
+  let pt=50;
+  if(as>=70)pt+=20;else if(as>=50)pt+=10;
+  if(rc>=2)pt+=15;
+  if(Math.round(s.reduce((a,x)=>a+x.p,0)/s.length)>=70)pt+=10;
+  const nm=s.map(x=>{const src=this._sd.energySources.find(e=>e.id===x.id);return src?src.emoji+' '+src.name:x.id}).join(', ');
+  let fb;
+  if(as>=75&&rc>=2)fb='Excelente, <strong>'+this.name+'</strong>! 🌟 '+nm+' — sustentabilidade '+as+'%! Energópolis terá energia limpa!';
+  else if(as>=50)fb='Bom plano! '+nm+'. Sustentabilidade '+as+'% — equilibrado.';
+  else fb='Plano ousado! '+nm+', sustentabilidade baixa ('+as+'%). Impactos significativos.';
+  this.addScore(pt);
+  document.querySelectorAll('.strategy-card').forEach(c=>c.style.pointerEvents='none');
+  document.getElementById('stOk').classList.add('hidden');
+  document.getElementById('stFb').innerHTML='<div class="feedback '+(as>=60?'correct':'info')+'"><span class="feedback-icon">'+(as>=70?'🌟':as>=50?'👍':'🤔')+'</span><div class="fb-text">'+fb+' <strong>+'+pt+' pts</strong></div></div>';
+  const nb=document.createElement('button');
+  nb.className='btn btn-success btn-block mt-2';
+  nb.textContent='Continuar ▶';
+  nb.onclick=()=>{this.step++;this.nextStep()};
+  document.getElementById('stFb').after(nb);
+  SFX.play(as>=60?'ok':'hint');
+},
+
+// ============================================
+// SISTEMA DE DICAS (10 globais, sem desconto)
+// ============================================
+useHint(){
+  if(this.hints>=this.mh){
+    document.getElementById('hintArea').innerHTML='<div class="hint-box">💜 Dicas esgotadas!</div>';
+    return;
+  }
+  this.hints++;
+  // Atualizar todos os botões de dica visíveis
+  document.querySelectorAll('.hint-btn').forEach(b=>{
+    b.innerHTML='💜 Dica ('+(this.mh-this.hints)+' restantes)';
+    if(this.hints>=this.mh)b.disabled=true;
+  });
+  document.getElementById('hintArea').innerHTML='<div class="hint-box"><span>💡</span><span>'+this._currentHint+'</span></div>';
+  SFX.play('hint');
+},
+
+// ============================================
+// PONTUAÇÃO
+// ============================================
+addScore(p){
+  this.score=Math.max(0,this.score+p);
+  this.ps[this.phase]+=p;
+  document.getElementById('headerScore').textContent=this.score;
+  const e=document.createElement('div');
+  e.className='score-pop '+(p>=0?'positive':'negative');
+  e.textContent=p>=0?'+'+p:p;
+  e.style.left='50%';e.style.top='40%';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),1000);
+},
+
+// ============================================
+// RESULTADOS DA FASE (com diálogo de transição)
+// ============================================
+showPhaseResults(){
+  const p=this.phases[this.phase];
+  const ps=Math.max(0,this.ps[this.phase]);
+  const mx=this.pm[this.phase];
+  const pc=Math.min(100,Math.round(ps/mx*100));
+  const st=pc>=90?3:pc>=60?2:pc>=30?1:0;
+
+  // Diálogo de encerramento/transição da Lumi (texto exato do GDD)
+  const closing=p.closingDialogue?p.closingDialogue.replace(/\{name\}/g,this.name):'';
+
+  let h='<div class="big-emoji">'+p.emoji+'</div>';
+  h+='<h2>Fase '+p.id+' Completa!</h2>';
+  h+='<p class="text-muted">'+p.title+'</p>';
+  h+='<div class="score-display">'+ps+' pts</div>';
+  h+='<div class="stars">';
+  for(let i=1;i<=3;i++)h+='<span class="star '+(i<=st?'earned':'empty')+'" style="animation-delay:'+i*.2+'s">⭐</span>';
+  h+='</div>';
+
+  // Diálogo de transição narrativa
+  if(closing){
+    h+='<div class="lumi-container mt-2"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+closing+'</div></div></div>';
+  }
+
+  h+='<button class="btn btn-primary btn-lg mt-3" onclick="G.advPhase()">'+(this.phase<3?'▶ Fase '+(this.phase+2):'🏆 Resultado Final')+'</button>';
+  document.getElementById('phaseResultsContent').innerHTML=h;
+  this.showScreen('screenPhaseResults');
+  SFX.play('up');
+},
+
+advPhase(){
+  if(this.phase<3){this.phase++;this.step=0;this.showPhaseIntro()}
+  else this.showCert();
+},
+
+// ============================================
+// CERTIFICADO (texto exato do GDD)
+// ============================================
+showCert(){
+  const t=this.score;
+  const maxTotal=this.pm.reduce((a,b)=>a+b,0); // ~980
+  const pct=Math.round(t/maxTotal*100);
+  let ti,md,rk,faixa;
+  if(pct>=90){ti='Mestre da Energia Sustentável';md='💎';rk='DIAMANTE';faixa='diamond'}
+  else if(pct>=70){ti='Engenheiro(a) de Energópolis';md='🥇';rk='OURO';faixa='gold'}
+  else if(pct>=50){ti='Técnico(a) em Energia';md='🥈';rk='PRATA';faixa='silver'}
+  else{ti='Aprendiz de Energia';md='🥉';rk='BRONZE';faixa='bronze'}
+
+  // Narrativa da Lumi por faixa
+  const narrative=this.certData.narratives[faixa].replace(/\{name\}/g,this.name);
+  // Mensagem por faixa
+  const msg=this.certData.messages[faixa];
+
+  let h='';
+  // Diálogo da Lumi
+  h+='<div class="lumi-container" style="margin-bottom:20px"><div class="lumi-bubble"><div class="lumi-avatar">💡</div><div class="lumi-text"><div class="lumi-name">LUMI</div>'+narrative+'</div></div></div>';
+  // Certificado
+  h+='<div class="cert-header">Conselho Jovem de Energia</div>';
+  h+='<div class="cert-title">CERTIFICADO DE CONCLUSÃO</div>';
+  h+='<div class="cert-medal">'+md+'</div>';
+  h+='<p class="text-muted text-sm">Certificamos que</p>';
+  h+='<div class="cert-name">'+this.name+'</div>';
+  h+='<p class="text-muted text-sm">concluiu a missão</p>';
+  h+='<div class="cert-title" style="font-size:clamp(.9rem,2.5vw,1.2rem);margin:10px 0">⚡ ENERGÓPOLIS — Luz para o Futuro</div>';
+  h+='<div class="cert-rank">Título: '+ti+' — '+rk+'</div>';
+  h+='<div class="cert-score">'+t+' pontos</div>';
+  // Mensagem por faixa
+  h+='<div class="cert-message">'+msg+'</div>';
+  // O que você aprendeu
+  h+='<div class="cert-learned"><div class="cert-learned-title">O que você aprendeu</div>';
+  this.certData.learned.forEach(l=>{
+    h+='<div class="cert-learned-item">'+l+'</div>';
+  });
+  h+='</div>';
+  // Rodapé
+  h+='<div class="cert-footer">BNCC: EF08CI01 • SAEB: E1A4, E1C3, E1C10<br>Ciência Plural — www.cienciaplural.com.br<br>'+new Date().toLocaleDateString('pt-BR')+'</div>';
+
+  document.getElementById('certificateContent').innerHTML=h;
+  this.showScreen('screenCertificate');
+  document.getElementById('gameHeader').classList.remove('visible');
+  SFX.play('win');
+  this.confetti();
+
+  // Botão jogar novamente
+  const rd=document.createElement('div');
+  rd.className='mt-3 text-center';
+  rd.innerHTML='<button class="btn btn-outline btn-sm" onclick="location.reload()">🔄 Jogar Novamente</button>';
+  document.getElementById('certificateContent').after(rd);
+},
+
+confetti(){
+  const c=['#00d4ff','#00ff88','#ffb800','#ff4757','#a855f7','#ff6b9d'];
+  for(let i=0;i<50;i++){
+    const e=document.createElement('div');
+    e.className='confetti-piece';
+    e.style.left=Math.random()*100+'%';
+    e.style.top='-10px';
+    e.style.background=c[Math.floor(Math.random()*c.length)];
+    e.style.animationDelay=Math.random()*2+'s';
+    e.style.animationDuration=(2+Math.random()*2)+'s';
+    e.style.borderRadius=Math.random()>.5?'50%':'2px';
+    e.style.width=(6+Math.random()*8)+'px';
+    e.style.height=(6+Math.random()*8)+'px';
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),5000);
+  }
+}
+};
+document.addEventListener('DOMContentLoaded',()=>G.init());
+</script>
+</body>
+</html>
