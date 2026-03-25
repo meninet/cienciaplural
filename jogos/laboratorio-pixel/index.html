@@ -2,6 +2,36 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- Google Consent Mode v2 — herda consentimento do site (mesmo domínio) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+      /* Se o visitante já aceitou cookies no site, ativa o GA4 */
+      (function(){
+        var consent = localStorage.getItem('cp_cookie_consent');
+        if (consent === 'granted') {
+          gtag('consent', 'update', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'granted'
+          });
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-09KM89GPY4';
+          s.async = true;
+          document.head.appendChild(s);
+          gtag('js', new Date());
+          gtag('config', 'G-09KM89GPY4', { 'ads_data_redaction': true });
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratório Pixel: A Missão das Fases</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
